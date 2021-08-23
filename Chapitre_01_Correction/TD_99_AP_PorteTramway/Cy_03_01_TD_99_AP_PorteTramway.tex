@@ -1,0 +1,247 @@
+\documentclass[10pt,fleqn]{article} % Derfault font size and left-justified equations
+\usepackage[%
+    pdftitle={Correction des SLCI : Rapidité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 03}
+\def\xxpartie{Concevoir la partie commande des systèmes asservis afin de valider leurs performances}
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des SLCI}
+
+
+\def\xxtitreexo{Système d’ouverture et de fermeture \\de portes de tramway}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Centrale Supelec -- PSI -- 2008}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 03}}
+
+\def\xxactivite{TD 99}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\footnotesize{}%Le modèle du système est donné. Des conditions sont estimées sur un paramètre de la FTBO à partir des exigences du cahier des charges. Une \textbf{démarche de réglage d'un correcteur à avance de phase} est appliquée. Une conclusion est menée en déterminant pour chaque exigence l'écart entre la performance simulée et celle attendue.}
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+\includegraphics[width=.6\linewidth]{images/fig_00}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 03 -- Concevoir la partie commande des SLCI \\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+
+\subsection*{Présentation}
+
+
+\subsection*{Étude du régulateur de la boucle de vitesse}
+
+\begin{obj}Déterminer un régulateur de vitesse permettant d’atteindre les exigences
+suivantes :
+\begin{itemize}
+\item écart nul en régime permanent pour une consigne de vitesse constante et un effort perturbateur, dû à la poussée des passagers, constant;
+\item marge de phase $\Delta \varphi \geq 45\degres$ pour un modèle nominal qui sera précisé par la suite;
+\item bande passante la plus grande possible compte tenu de la contrainte de marge de phase;
+\item temps de réponse inférieur à \SI{0,2}{s} en réponse à une variation en échelon de l’effort perturbateur.
+\end{itemize}
+\end{obj}
+
+La chaîne de régulation de vitesse est décrite par le schéma-blocs suivant où la fonction de transfert représente la chaîne de mesure de vitesse comportant un filtre
+du 1\ier ordre, de constante de temps $\tau_f = \SI{10}{ms}$, permettant de limiter
+l’impact des bruits de mesure et $G$ est le gain de l’amplificateur de puissance
+alimentant le moteur.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_01}
+%%\textit{}
+\end{center}
+
+On choisit d’adopter pour cette chaîne un régulateur de type proportionnel-intégral
+dont la fonction de transfert est : $R(p)=K_r\left(1+\dfrac{1}{T_i p}  \right)$.
+
+\subparagraph{}\textit{Au regard des exigences du cahier des charges, justifier le choix
+de ce type de régulateur.}
+
+On cherche d'abord à évaluer le temps de réponse vis-à-vis des perturbations. 
+
+\subparagraph{}\textit{Déterminer la fonction de transfert en boucle fermée $T(p)=\dfrac{\Omega_1(p)}{F_1(p)}$ entre les perturbations dues à la poussée des passagers et la vitesse du moteur, en fonction des différentes fonctions de transfert de la figure précédente.  Montrer que la réponse fréquentielle peut être approchée par la relation :}
+
+$$
+|| T\left(j \omega\right) || = 
+|| H_2\left(j \omega\right) || \cdot 
+\min \left(
+||H_1\left(j \omega\right)||; 
+\left|\left| \dfrac{1}{R\left(j \omega\right)GH_3\left(j \omega\right)}\right|\right|\right)
+$$
+
+$$
+= || H_2\left(j \omega\right) || || M\left(j \omega\right) ||.
+$$
+
+
+Pour la suite, on adopte les modèles de commande simplifiés suivants : 
+$$
+H_1(p)=\dfrac{10}{p} \quad
+H_2(p)=0,05 \quad
+H_3(p)=\dfrac{0,1}{1+0,01 p}\quad
+G=10.
+$$
+
+Afin de limiter le périmètre de l’étude, on adopte sans justification les
+hypothèses suivantes : 
+\begin{itemize}
+\item $1/T_i < \SI{100}{rad.s^{-1}}$;
+\item la situation considérée est celle de la figure suivante représentant le diagramme asymptotique de la fonction 
+$
+\left|\left|\dfrac{1}{R\left(j \omega\right)GH_3\left(j \omega\right)}\right|\right|_{\text{dB}}
+$ où $20\log G_0 < 0$.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+%%\textit{}
+\end{center}
+
+\subparagraph{}\textit{Exprimer $G_0$ en fonction de $K_r$. En utilisant la figure précédente, tracer le diagramme asymptotique de la fonction $\left|\left|H_1\left(j \omega\right)\right|\right|$ (veiller
+au respect des pentes) et celui de $\left|\left|M\left(j \omega\right)\right|\right|$ en adoptant l’approximation de la
+question précédente.}
+
+\subparagraph{}\textit{En déduire alors une approximation de la fonction de transfert
+$T(p)=\dfrac{\Omega_1(p)}{F_1(p)}$ en exprimant toutes les brisures en fonction de $K_r$ et $T_i$.}
+
+\subparagraph{}\textit{Proposer une nouvelle expression approchée de $T(p)$ sous la forme $T_a(p)=\dfrac{N(p)}{1+\tau p}$ où $N(p)$ est le numérateur de $T(p)$? En utilisant la forme approchée de $T_a(p)$, déterminer l'évolution de la vitesse $\Omega_1(t)$ en réponse à un échelon de la force de perturbation et tracer son allure. }
+
+\subparagraph{}\textit{En se référant à des fonctions types connues donner, en fonction de $T_i$, un ordre de grandeur du temps de réponse vis-à-vis de la force perturbatrice.}
+
+\subparagraph{}\textit{Justifier alors l’intérêt d’adopter pour $T_i$ la valeur la plus petite possible.}
+
+\subparagraph{}\textit{En vous aidant de tracés succincts de diagrammes
+de Bode, analyser la stabilité du système
+bouclé dans les deux cas : $\dfrac{1}{T_i}>\SI{100}{rad.s^{-1}}$ et $\dfrac{1}{T_i}<\SI{100}{rad.s^{-1}}$.}
+
+\subparagraph{}\textit{En prenant $K_r=1$, tracer les diagrammes
+de Bode asymptotiques (module et phase) de la fonction de transfert en boucle
+ouverte corrigée et l’allure de la courbe réelle du diagramme de phase. Veiller à
+effectuer ce tracé de façon à respecter une situation stable du système en boucle
+fermée.}
+
+\subparagraph{}\textit{En utilisant la représentation dans le plan de Bode donnée figure suivante, déterminer
+quelle est la valeur $T_{i\text{min}}$ la plus petite possible que l’on peut conférer à $T_i$
+compatible avec la marge de phase minimale exigée par le cahier des charges
+(cette fonction servira uniquement à calculer en plaçant judicieusement
+pour obtenir la marge de phase souhaitée).}
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+%%\textit{}
+\end{center}
+
+\subparagraph{}\textit{En conservant la valeur $T_{i\text{min}}$ calculée précédemment, en déduire alors la
+valeur du gain $K_r$ du régulateur permettant d’assurer la marge de phase souhaitée.}
+
+\subparagraph{}\textit{Vérifier si le cahier des charges est validé, et conclure sur l’adéquation
+du régulateur calculé vis-à-vis du problème posé.}
+%
+%\subparagraph{}\textit{}
+%
+%\subparagraph{}\textit{}
+
+\end{multicols}
+
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_07}
+%%\textit{}
+%\end{center}
+
+
+\end{document}
+
+\subparagraph{}\textit{}
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_07}
+%\textit{}
+\end{center}
+
+
+%\newpage
+
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/cor_01}
+%\textit{}
+%\end{center}
+
+
+
+
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_06}
+%\textit{}
+\end{center}
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+%\textit{}
+\end{center}
+

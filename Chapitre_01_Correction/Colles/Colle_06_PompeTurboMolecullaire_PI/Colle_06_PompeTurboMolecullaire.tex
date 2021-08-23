@@ -1,0 +1,187 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Correction des SLCI},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 03}
+\def\xxpartie{Concevoir la partie commande des systèmes asservis afin de valider leurs performances}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des SLCI}
+
+
+\def\xxtitreexo{Pompe turbo-moléculaire}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Centrale Supelec PSI 2009}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 06}
+
+\def\xxactivite{Colle 06}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+\includegraphics[width=.5\linewidth]{images/fig_01}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 03 -- Concevoir la partie commande des SLCI \\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+
+Les paliers magnétiques sont conçus, réalisés et montés par la société S2M.
+Deux paliers radiaux assurent le guidage radial de l'arbre. Un troisième
+palier assure le guidage axial. Un moteur électrique, placé entre les deux
+paliers radiaux, entraîne le rotor en rotation. Le guidage magnétique consiste à exercer des efforts sur l'arbre en générant un
+champ magnétique. Il n'y a donc aucun contact entre le bâti et l'arbre.
+
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/fig_05}
+\end{center}
+
+
+\begin{obj}
+Déterminer la structure et les paramètres du correcteur à utiliser pour satisfaire les performances exigées.
+\end{obj}
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_04}
+\end{center}
+
+
+Afin de satisfaire les critères du cahier des charges, on envisage d'asservir un
+palier magnétique par un premier bouclage de stabilisation (retour $K_D p+K_P$).
+Un second retour unitaire associé à un correcteur $C(p)$ assure la régulation en
+position du palier. On utilisera par la suite les
+paramètres suivants : $K_e=\SI{5000}{V.m^{-1}}$, $K_0=\SI{190}{N.m^{-1}}$, $m=\SI{10}{kg}$. La vitesse maximale du rotor est de $\omega_{\text{max}}=\SI{30000}{tr.min^{-1}}$.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+\end{center}
+
+On considère dans un premier temps le système sans correction : $C(p)=1$.
+
+\subparagraph{}\textit{Déterminer la fonction de transfert de la boucle interne $H_{\text{PM I}}(p) = \dfrac{X(p)}{\varepsilon(p)}$, en fonction de $K_e$, $K_0$, $m$, $K_P$ et $K_D$. Préciser les conditions
+sur $K_D$ et $K_P$ pour que $H_{\text{PM I}}(p)$ soit stable en boucle ouverte}
+
+
+\subparagraph{}\textit{En considérant l’ensemble de l’asservissement, déterminer la
+fonction de transfert $H_{\text{pert}}(p) = \dfrac{X(p)}{F_{\text{pert}}(p)}$, puis calculer les valeurs de $K_D$ et $K_P$
+permettant de respecter les spécifications du cahier des charges en terme de
+bande passante et d’amortissement (vous pourrez utiliser pour cette question l’abaque suivant).}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+\end{center}
+
+
+\subparagraph{}\textit{Tracer l'allure des diagrammes de Bode asymptotique et réel de la fonction
+de transfert de la boucle interne $H_{\text{PM I}}(p)$ et préciser la pulsation de coupure ainsi que les marges de gain et de phase. Valider les critères de stabilité du cahier des charges.}
+
+%L'ouverture et la fermeture des arrivées de gaz sont assurées par des « vannes
+%guillotines ». À la suite de la fermeture de la guillotine, 
+Le palier est soumis à un effort bref mais violent, qui peut être modélisé par une perturbation d'effort en
+échelon d'amplitude $F_G$.
+
+\subparagraph{}\textit{Conclure quant au critère de sensibilité vis-à-vis des perturbations.}
+
+Afin d'améliorer les performances du système, on utilise un correcteur de fonction
+de transfert : $C(p)=K_i\left(1+\dfrac{1}{T_i p} \right)$.
+
+\subparagraph{}\textit{Quelle performance est directement améliorée par ce correcteur ? (justifier
+votre réponse sans calcul).}
+
+
+\subparagraph{}\textit{Tracer l'allure du diagramme de Bode du correcteur en précisant les
+valeurs caractéristiques. Expliquer comment choisir $K_i$ et $T_i$ afin de conserver
+des marges de gain, de phase, et une pulsation de coupure proches de celles obtenues
+sans correction ($C(p)=1$). Proposer des valeurs numériques.}
+
+
+On admet que le correcteur influe peu sur le temps de réponse et les dépassements
+lorsque les marges de stabilité et la pulsation de coupure sont conservées.
+On garde par conséquent les valeurs de $K_P$ et $K_D$ obtenues précédemment.
+
+Conclusion : nous avons donc désormais dimensionné les deux boucles d'asservissement
+successives permettant d'obtenir les performances attendues du palier
+magnétique.
+
+%Afin de préparer la prochaine partie, relative à l'étude dynamique du rotor, 
+On recherche un modèle simple de l'effort du palier magnétique actif en fonction du
+déplacement de l'arbre, dans une gamme de vitesses de rotation raisonnables
+variant de $\SI{10000}{tr.min{-1}}$ à $\SI{30000}{tr.min{-1}}$.
+
+\subparagraph{}\textit{Déterminer la fonction de transfert $K(p)$ telle que $F_T(p)=K(p)X(p)$.
+À partir de simplifications justifiées, montrer que dans la plage de fréquences
+considérée, l'effort $F_T(t)$ peut s'écrire sous la forme d'un modèle ressort amortisseur
+$F_T(t)=-kx(t)-c\dot{x}(t)$ où vous préciserez les valeurs numériques de $k$ et $c$. Comment évolue le modèle lorsque
+$\omega$ augmente au delà de cette plage de fréquences ?}
+
+
+
+\end{multicols}
+\end{document}
+
+\subparagraph{}\textit{}

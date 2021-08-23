@@ -1,0 +1,164 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Correction des SLCI},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 03}
+\def\xxpartie{Concevoir la partie commande des systèmes asservis afin de valider leurs performances}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des SLCI}
+
+
+\def\xxtitreexo{Colle 4}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Pôle Chateaubriand -- Joliot Curie}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 03}
+
+\def\xxactivite{Colle 04}
+\def\xxauteur{\textsl{Pôle Chateaubriand -- Joliot Curie}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.5\linewidth]{images/fig_01}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 03 -- Concevoir la partie commande des SLCI \\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+\subsection*{Correction proportionnelle}
+Soit $F(p)$ la FTBO d'un système bouclé à retour unitaire. Les diagrammes de BODE de $F(p)$ sont représentés
+sur la figure ci-dessous.
+
+\subparagraph{}\textit{Déterminer les marges de phase et de gain du système, puis conclure quant à sa stabilité.}
+
+
+On décide d’ajouter au système un correcteur série de type proportionnel. On note $K_p$ le gain de ce
+correcteur.
+
+\subparagraph{}\textit{Déterminer la valeur de $K_p$ permettant d’obtenir une marge de gain $M_G =\SI{12}{dB}$.}
+
+\subparagraph{}\textit{Déterminer la nouvelle marge de phase du système.}
+
+\subparagraph{}\textit{En le justifiant, déterminer l’erreur de position du système corrigé pour une consigne indicielle.}
+
+
+\subsection*{Correction intégrale -- Asservissement en accélération}
+\setcounter{exo}{0}
+On désire contrôler l'accélération $\gamma(t)$ d'un plateau. Pour cela, un capteur d'accélération, fixé sur le plateau
+et de sensibilité $B$, est utilisé dans la chaîne de retour du système. Le moteur permettant la motorisation du
+plateau est modélisé par la fonction de transfert : $H(s)=\dfrac{A}{1+\tau s}$. 
+On modélise le correcteur par la fonction de transfert $C(s)$.
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+\end{center}
+
+On a $A=\SI{100}{g.m.s^{-2}.V^{-1}}$, $\tau=\SI{0,2}{s}$ et $B=10^{-2}\,\text{g}^{-1}\text{V}\text{m}^{-1}\text{s}^{-2}$.
+
+\subparagraph{}\textit{Quelle doit être la fonction de transfert du transducteur $T(s)$ qui traduira l’accélération de consigne $\Gamma_c(s)$ en tension $E(s)$.}
+
+On applique à l’entrée du système une consigne d’accélération $\gamma_c=20 g$.
+
+Système asservi sans correction : $C(s)=1$.
+\subparagraph{}\textit{Déterminer l'expression de la fonction de transfert en boucle fermée de ce système. Identifier les différents paramètres de cette fonction. Réaliser l'application numérique.}
+
+\subparagraph{}\textit{Calculer le temps de réponse à 5\% de ce système pour une entrée en échelon.}
+
+\subparagraph{}\textit{Donner la valeur de l'accélération en régime permanent. Ce système est-il précis ? Donner l'erreur en régime permanent.}
+
+\subparagraph{}\textit{Donner l'allure de la réponse de ce système en précisant les points caractéristiques.}
+
+Système asservi avec correction intégrale : $C(s)=\dfrac{1}{s}$.
+
+\subparagraph{}\textit{Déterminer l'expression de la fonction de transfert en boucle fermée de ce système. Identifier les
+différents paramètres de cette fonction. Réaliser l'application numérique.}
+
+\subparagraph{}\textit{Calculer le temps de réponse à 5\% de ce système pour une entrée en échelon.}
+
+\subparagraph{}\textit{Donner la valeur de l'accélération en régime permanent. Ce système est-il précis ? Donner l'erreur en
+régime permanent. Pouvait-on prévoir ce résultat.}
+
+\subparagraph{}\textit{Conclure en comparant le comportement du système avec et sans correction.}
+
+%\subparagraph{}\textit{}
+
+\end{multicols}
+
+%1.1
+%2.1
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_01}
+
+%\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
+
+\newpage
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+
+\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
+\end{document}

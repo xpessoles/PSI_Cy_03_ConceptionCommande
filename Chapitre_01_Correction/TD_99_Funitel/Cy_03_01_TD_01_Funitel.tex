@@ -1,0 +1,194 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Correction des SLCI : Rapidité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 03}
+\def\xxpartie{Concevoir la partie commande des systèmes asservis afin de valider leurs performances}
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des SLCI}
+
+
+\def\xxtitreexo{Téléphérique à conduite double FUNITEL }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Florestan Mathurin}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 03}}
+
+\def\xxactivite{TD 01}
+\def\xxauteur{\textsl{Florestan Mathurin}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\footnotesize{}%Le modèle du système est donné. Des conditions sont estimées sur un paramètre de la FTBO à partir des exigences du cahier des charges. Une \textbf{démarche de réglage d'un correcteur à avance de phase} est appliquée. Une conclusion est menée en déterminant pour chaque exigence l'écart entre la performance simulée et celle attendue.}
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+\includegraphics[width=.3\linewidth]{images/fig_00}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 03 -- Concevoir la partie commande des SLCI \\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+%\begin{multicols}{2}
+
+
+
+On s’intéresse aux performances d’un asservissement en vitesse du câble tracteur du téléphérique à conduite double FUNITEL dont on donne ci-dessous une description structurelle ainsi qu’un extrait partiel de cahier des charges fonctionnel.  
+\begin{center}
+\includegraphics[width=\linewidth]{\pathfig/fig_01}
+\end{center}
+
+La vitesse de déplacement des cabines est une des caractéristiques principales du fonctionnement du système. Un asservissement de cette vitesse de déplacement est donc réalisé sur le système d’entraînement du câble afin de garantir les performances du cahier des charges.  
+
+La vitesse du câble est imposée par la vitesse de rotation $\omega_M(t)$ de l'arbre moteur. L’entraînement du câble par le moteur est réalisé par un réducteur dont la sortie assure la rotation d’une poulie de diamètre $D = \SI{4}{m}$ sur laquelle s’enroule le câble. Le rapport de réduction est tel que lorsque les cabines se déplacent à la vitesse normale de \SI{7,2}{m/s}, le moteur tourne à sa fréquence de rotation nominale. Le moteur à courant continu est commandé par une tension $u_M (t)$. Un amplificateur de gain $K_A$ ($K_A = 30$) fournit la puissance électrique nécessaire et il est commandé par une consigne de tension $u_A (t)$ provenant d'un correcteur. La vitesse $v(t)$ du câble est mesurée par un ensemble constitué d'une poulie de diamètre $D_T = \SI{0,4}{m}$, appelée « poulie capteur », roulant sans glisser sur le câble et d'une génératrice tachymétrique de gain $K_T = \SI{0,3}{V.s.rad^{-1}}$  montée sur son axe et délivrant une tension $u_E (t)$ proportionnelle à la vitesse de rotation $\omega_PC (t)$ de la poulie capteur. La vitesse de consigne $v_C (t)$ est convertie en tension de consigne $u_C (t)$ par un convertisseur de gain $K_1$ et elle est comparée à la tension $u_E (t)$ délivrée par le capteur de vitesse. La différence entre les deux tensions est transmise au correcteur afin d'élaborer la consigne de l'amplificateur. 
+
+%Le moteur à courant continu de forte puissance commandé par l’induit les caractéristiques suivantes : résistance de l’induit $R = \SI{0,0999}{\Omega}$, courant nominal  $I_{\text{nom}} = \SI{1400}{A}$, tension nominale $U_{\text{nom}} = \SI{300}{V}$, constante de couple $k_c = \SI{2,5}{N.m.A^{-1}}$, constante de force électromotrice $k_e = \SI{2,5}{V.s.rad^{-1}}$, fréquence de rotation nominale : $\omega_{\text{M-nom}}= \Si{1700}{tours.min^{-1}}$. 
+
+
+On donne d’autre part les équations qui modélisent ce moteur : $u_M(t)=R i(t) + e(t)$ (avec 
+$R=\SI{0,1}{\Omega}$), 
+$e(t) = k_e \omega_M(t)$, 
+$C_M (t)-f\omega_M (t)-C_R (t)=J\dot{\omega}_m(t)$ et 
+$C_M (t) = k_ c i(t)$. Avec : 
+$u_M (t)$ tension d’alimentation du moteur (en V),  $i(t)$ intensité parcourant l’induit (en A), $e(t)$ force contre électromotrice (en V), $J$ inertie équivalente rapportée à l’axe moteur, $J = \SI{420}{kg.m^2}$, $f$ coefficient de frottement visqueux équivalent à l’axe moteur, $f = \SI{4,8}{N.m.s.rad^{-1}}$, $C_M (t)$ couple moteur (en N.m),  $\omega_M(t)$ vitesse de rotation du moteur (en rad/s), $k_c=\SI{2,5}{NmA^{-1}}$ constante de couple, $k_e=\SI{2,5}{Vs.rad^{-1}}$ constante de force électromotrice,  $C_R (t)$ le couple résistant (en N.m), modélisant l’action combinée de la pesanteur et du vent sur le système. On considère pour cette modélisation que les efforts dus aux frottements engendrés par les mouvements du câble et des poulies sont négligés.
+
+Le schéma-blocs est donné figure suivante : 
+
+\begin{center}
+\includegraphics[width=\linewidth]{\pathfig/fig_04}
+\end{center}
+
+On a $K_r = 0,04$ et $K_1=K_T\dfrac{2}{D_T}=\SI{1,5}{V.S.m^{-1}}$.
+Enfin, $\Omega_M(p)=H_M(p)U_M(p)-H_R(p)C_R(p)$ avec $H_M(p)=\dfrac{\dfrac{k_c}{k_ck_e+Rf}}{\dfrac{JR}{k_ck_e+Rf}p+1}$ et $H_R(p)=\dfrac{\dfrac{R}{k_ck_e+Rf}}{\dfrac{JR}{k_ck_e+Rf}p+1}$.
+
+\subsection*{Étude du comportement dynamique de l’asservissement en poursuite avec un correcteur proportionnel }
+On considère ici que $C(p) = K_C$ avec $K_C > $0 et on se propose de déterminer la valeur du gain $K_C$ permettant de respecter les critères du cahier des charges. 
+
+\subparagraph{}\textit{Préciser les paramètres caractéristiques de la fonction $H_M (p)$ et faire les applications numériques.}
+\subparagraph{}\textit{Déterminer $G(p)=\dfrac{V(p)}{V_C(p)}$.}
+
+\subparagraph{}\textit{Le système est-il stable ?}
+
+\subparagraph{}\textit{Déterminer littéralement le temps de réponse à 5\%. Déterminer la condition sur $K_C$ pour satisfaire le critère de rapidité du cahier des charges. }
+
+\subparagraph{}\textit{ Déterminer l’expression littérale de l’erreur statique pour une entrée en échelon de valeur $V_0$. Déterminer la condition sur $K_C$ pour satisfaire le critère de précision du cahier des charges.  }
+
+\subparagraph{}\textit{En déduire la tension maximale en entrée du moteur pour une consigne de vitesse en échelon de \SI{7,2}{m.s^{-1}} lorsque $K_C$ prend la valeur minimale permettant de satisfaire les conditions déterminées précédemment. Sachant que la tension nominale d'alimentation du moteur est  \SI{300}{V}, conclure quant à la pertinence d’un 
+correcteur proportionnel. }
+
+\subsection*{Étude du comportement dynamique de l’asservissement en poursuite avec un correcteur intégral }
+
+On considère le correcteur intégral $C(p)=K_i/p$ et on se propose de déterminer la valeur du gain $K_i$ permettant de respecter les critères du cahier des charges. 
+
+
+\subparagraph{}\textit{Déterminer l’expression de la fonction de transfert $H(p)=\dfrac{V(p)}{V_c(p)}$ et montrer qu’elle peut se mettre sous la forme d’un deuxième ordre dont on précisera les valeurs des paramètres canoniques.}
+
+\subparagraph{}\textit{Le système respecte-t-il le critère de précision du cahier des charges ? }
+
+\subparagraph{}\textit{Déterminer la valeur du facteur d’amortissement assurant un dépassement de 10 \%. En déduire la valeur de $K_i$. }
+
+\subparagraph{}\textit{Déterminer alors le temps de réponse à 5 \% et conclure quant au respect du cahier des charges. }
+
+\subparagraph{}\textit{Quelle est la valeur de $K_i$ qui aurait permis d’avoir un temps de réponse à 5 \% minimum ? Quel aurait été ce temps de réponse ? Quelle aurait été la valeur du dépassement ? Conclure. }
+
+\subsection*{Détermination d’un correcteur proportionnel et intégral et vérification de l’influence de la perturbation }
+
+On souhaite bénéficier des performances du correcteur proportionnel pour sa rapidité et des performances du correcteur intégral pour sa précision.  On adopte alors un correcteur proportionnel intégral de la forme $C(p)=K_C + K_I/p$ avec $K_C = 5,6$.
+ 
+\subparagraph{}\textit{On simule sur un logiciel adapté la réponse à un échelon de vitesse de \SI{7,2}{m.s^{-1}} pour plusieurs valeurs de gain $K_I$. Déterminer en justifiant la(les) valeur(s) du gain $K_I$ permettant de respecter tous les critères du cahier des charges. }
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{\pathfig/fig_03}
+\end{center}
+
+\subparagraph{}\textit{En exposant clairement la démarche, montrer que le cahier des charges est satisfait pour la précision vis-à-vis de la perturbation (on considérera $V_C (p) = 0$  et $C_R (p)=R_0/p$). Conclure quant à la pertinence de ce choix de correction. }
+%\end{multicols}
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{\pathfig/fig_05}
+\end{center}
+
+\newpage 
+
+\subsection*{Éléments de correction}
+\begin{multicols}{2}
+\begin{enumerate}
+\item $H_M(p)=\dfrac{K_M}{1+\tau_M p}$ avec $K_M=\dfrac{k_c}{k_ck_e+Rf}=\SI{0,37}{rad.V^{-1}.s^{-1}}$ et $\tau_M=\dfrac{JT}{k_ck_e+Rf}=\SI{6,32}{s}$.
+\item $G(p)=\dfrac{\dfrac{K_CK_S}{1+K_CK_S}}{1+\dfrac{\tau_M}{1+K_CK_S}p}$.
+\item $\quad$
+\item $t_{5\%}=3\dfrac{\tau_M}{1+K_CK_S} \Rightarrow K_C>4,1$.
+\item $e_r=\dfrac{V_0}{1+K_CK_S} \Rightarrow K_C>75$.
+\item $U_M=\SI{23976}{V} >> \SI{300}{V}$.
+\item $K=1$, $\omega_0=\sqrt{\dfrac{K_iK_S}{\tau_M}}$, $\xi=\dfrac{1}{2}\dfrac{1}{\sqrt{K_iK_ST_M}}$.
+\item $\quad$.
+\item $\xi=0,6$ et $K_i=0,17$.
+\item $t_{5\%}=\SI{38,5}{s}$.
+\item $\xi=0,7\Rightarrow t_{5\%}=\SI{27,2}{s}$.
+\end{enumerate}
+\end{multicols}
+\end{document}
+\newpage
+
+
+

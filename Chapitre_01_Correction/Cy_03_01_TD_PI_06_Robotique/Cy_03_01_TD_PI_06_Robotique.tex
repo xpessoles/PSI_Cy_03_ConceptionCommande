@@ -1,0 +1,212 @@
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 6 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+
+\def\xxcompetences{%
+\vspace{-.3cm}
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Res1.C4 : } Correction
+\item \textit{Res1.C4.SF1 : } Proposer la démarche de réglage d’un correcteur proportionnel, 
+proportionnel intégral 
+%et à avance de phase
+\item \textit{Con.C2 : } 	Correction d’un système asservi	
+%\item \textit{Con.C2.SF1 : } Choisir un type de correcteur adapté
+\end{itemize}
+}}
+
+\def\xxtitreexo{La robotique au service du handicap}
+\def\xxsourceexo{\hspace{.2cm} Centrale Supélec -- PSI 2010}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.35\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\iflivret
+\input{../../style/new_pagegarde}
+\else
+\input{../../style/new_pagegarde}
+\fi
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
+
+%\section*{}
+
+\subsection*{Présentation}
+On s'intéresse à la conception de la loi de commande d'un des moteurs d'une orthèse d'épaule permettant d'améliorer le rétablissement de patients en cours de rééducation. 
+
+\begin{obj}
+\begin{itemize}
+\item Temps de réponse à 5\% pour un échelon de consigne de couple : $t\leq \SI{2}{ms}$.
+\item Erreur statique pour un couple de référence constant $C_{\text{ref 0}}$ : $|\varepsilon_0 |\leq 0,05 C_{\text{ref 0}}$.
+\item Couple maximal fourni sur l’axe de l’articulation $C_{\text{max}} = \SI{50}{Nm}$.
+\end{itemize}
+\end{obj}
+
+En pratique, le couple délivré par le moteur ne peut être mesuré directement, c’est pourquoi la grandeur
+asservie est le courant moteur. L’objet, dans cette phase de l’étude, est alors de déterminer une loi de
+commande pour la boucle d’asservissement et de valider les performances vis-à-vis du cahier des charges
+partiel.
+
+On donne partiellement le schéma-blocs de la commande. 
+
+\begin{center}
+\includegraphics[width=1.0\linewidth]{fig_02}
+\end{center}
+
+Le correcteur choisi est de type proportionnel-intégral (P.I.) de fonction de transfert : $C(p)=K\left(1+\dfrac{1}{T_ip}\right)$. On adopte sans aucune justification que $T_i=\SI{0,3}{ms}$. 
+Le diagramme de Bode de la fonction de transfert en boucle ouverte non corrigée 
+\footnotesize
+$$
+H(p)=\dfrac{
+0,0326 p \left( 1+\dfrac{2\times 0,08}{463}p+\dfrac{p^2}{463^2}\right)}
+{
+\left(1+\dfrac{p}{122} \right)
+\left( 1+\dfrac{2\times 0,09}{464}p+\dfrac{p^2}{464^2}\right)
+\left(1+\dfrac{p}{10^3} \right)
+\left(1+\dfrac{p}{10^4} \right)
+}
+$$
+\normalsize
+est donné en fin de document. $i_{\text{mes}}(t)$ est la mesure du courant du moteur et $u(t)$ la tension d’alimentation. Ce tracé pourra être utilisé sans aucune justification.
+
+
+\subsection*{Syntèse du régulateur PI de la boucle de courant}
+\subparagraph{}\textit{Compléter le diagramme de Bode par le tracé des diagrammes asymptotiques de la fonction $H(p)$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{En adoptant $K = 1$, tracer le diagramme de Bode
+(module et phase) de $C(p)$ : diagrammes asymptotiques et allures des tracés réels avec les valeurs prises aux points caractéristiques.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{En déduire les tracés asymptotiques et les allures des tracés réels du diagramme de Bode de la fonction de transfert en boucle ouverte corrigée (on différenciera les tracés par des
+couleurs différentes). Déterminer, sans calcul supplémentaire, la pulsation $\omega_1$ telle que la phase de la fonction
+de transfert en boucle ouverte est égale à \SI{-135}{\degres} et la valeur numérique du gain statique.
+}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Déterminer alors la valeur du gain $K$ permettant d’assurer une marge de phase de 45\degres.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+On considère maintenant le système corrigé avec le correcteur $C(p)$ qui vient d’être déterminé.
+
+
+\subparagraph{}\textit{Déterminer un ordre de grandeur de la marge de gain obtenue et conclure sur la stabilité du système en
+boucle fermée.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Déterminer l'écart statique $\Delta i_0 = \lim\limits_{t\to +\infty} \left(i_c(t)-i_{\text{mes}}(t)\right)$ en boucle fermée en réponse à un échelon de consigne $i_c(t) = I_0\Gamma(t)$ d’amplitude $I_0$ et l’exprimer sous la forme $\Delta i_0 =  kI_0$ en précisant la valeur numérique de $k$.
+}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+La figure suivante représente la structure de l’actionneur (la boucle de courant du moteur étant fermée) : $i_c$ et $i$
+sont respectivement la consigne et le courant moteur, $C_{\text{ref}}$ est le couple de référence souhaité, $C_a$ est le couple
+appliqué par l’actionneur sur l’axe de l’articulation et $G_{ic}$ est un gain pur correspondant à la relation entre le
+courant et le couple $C_a$. On suppose pour toute cette question que le couple de référence $C_{\text{ref}} (t)$ est constant
+d’amplitude $C_{\text{ref}} = C_{\text{ref0}}$.
+
+
+\begin{center}
+\includegraphics[width=1.0\linewidth]{fig_03}
+\end{center}
+
+\subparagraph{}\textit{Exprimer $G_{ic}$ en fonction de $K_c$ et de $N$.
+}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{
+En supposant qu’en régime permanent l’erreur statique de la boucle d’asservissement de courant est nulle
+$\Delta i_0= 0$, donner la valeur du gain $G_0$ permettant d’assurer l’égalité des couples de référence $C_{\text{ref0}}$ et appliqué $C_a$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{
+En remarquant que le gain statique du capteur de courant est de 1, montrer, en utilisant les résultats des questions précédentes, qu’en régime permanent l’erreur $\Delta C= C_{\text{ref}} -C_a$
+entre le couple de référence et le couple moteur exprimé sur l’axe de l’articulation est $\Delta C= k_1C_{\text{ref0}}$. Déterminer $k_1$ en fonction de $k$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Vérifier alors si les différentes exigences du cahier des charges de l’actionneur sont validées.
+}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+On admettra sans aucune justification que la pulsation de coupure à $\SI{0}{dB}$ et le temps de réponse sont liés par la relation approximative $\omega_cTr \simeq 3$.
+
+\end{multicols}
+
+
+\begin{center}
+\includegraphics[width=1.0\linewidth]{fig_01}
+\end{center}
+%\end{document}
+%
+%\subparagraph{}\textit{}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%%\textit{}
+%\end{center}
+%
+%
