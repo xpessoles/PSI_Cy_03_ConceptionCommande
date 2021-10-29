@@ -32,11 +32,10 @@
 }%figues de la page de garde
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+
+\setcounter{numques}{0}
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -176,8 +175,7 @@ Les constantes sont les suivantes :
 \end{itemize} 
 
 \fi
-\subparagraph{}
-\textit{Donner les expressions des fonctions de transfert $A_1$, $A_2$, $A_3$ et $A_4$ en fonction de la variable
+\question{Donner les expressions des fonctions de transfert $A_1$, $A_2$, $A_3$ et $A_4$ en fonction de la variable
 complexe $p$ et des constantes.}
 \ifprof
 \begin{corrige}
@@ -247,7 +245,7 @@ Le schéma-blocs de la figure précédente peut se mettre sous la forme suivante
 
 \fi
 
-\subparagraph{}\textit{Donner les expressions des fonctions de transfert $H_1$
+\question{Donner les expressions des fonctions de transfert $H_1$
 et $H_2$ en fonction de $A_1$, $A_2$, $A_3$ et $A_4$, puis de la variable $p$ et
 des constantes.}
 \ifprof
@@ -331,7 +329,7 @@ $H_1(p)=\dfrac{2BS}{pV}  $ et $H_2 = \dfrac{\dfrac{1}{Mp^2  +\lambda p  + k}}{1+
 \else
 \fi
 
-\subparagraph{}\textit{Pour ce vérin non perturbé ($F_R=0$), donner sa fonction de transfert $X(p)/Q(p)$ en fonction de la variable $p$ et des constantes.}
+\question{Pour ce vérin non perturbé ($F_R=0$), donner sa fonction de transfert $X(p)/Q(p)$ en fonction de la variable $p$ et des constantes.}
 \ifprof
 \begin{corrige}
 Dans ce cas, $\dfrac{X(p)}{Q(p)}=H_1(p)H_2(p)\dfrac{2BS}{p\left(MVp^2  +\lambda pV  + kV+ 2BS^2\right) }$.
@@ -449,7 +447,8 @@ $q(t)$ et la position angulaire de la quille $\theta(t)$.
 Sur la figure précédente, la courbe représentative de $q(t)$ présente un palier où $q(t)$ garde une valeur constante.
 \fi
 
-\subparagraph{}\textit{À l’aide de la caractéristique de la servovalve :
+\question{À l’aide de la caractéristique de la servovalve :}
+\textit{
 \begin{enumerate}
 \item justifier ce palier et donner la valeur numérique de $K_{\text{SV}}$;
 \item indiquer sur la figure l’intervalle de temps où le retour d’information a une influence sur la
@@ -466,7 +465,7 @@ Jusqu'à 1,9 seconde, le retour n'a aucune influence sur la commande. On est don
 \else
 \fi
 
-\subparagraph{}\textit{Montrer, en précisant la ou les exigences mises en défaut, que le cahier des charges n’est pas respecté au niveau des critères « vérifiables ».}
+\question{Montrer, en précisant la ou les exigences mises en défaut, que le cahier des charges n’est pas respecté au niveau des critères « vérifiables ».}
 \ifprof
 \begin{corrige} ~\\
 
@@ -502,7 +501,7 @@ Le modèle de travail qui a permis de tracer les courbes de la figure précéden
 $H_{\text{BO}}(p)=K_{\text{SV}} H_1 H_2 K_{\theta} K_C$ et $H_{\text{BO}}(p)=\dfrac{2,2}{p\left(1+0,12p + 0,04 p ^2  \right)}$.
 \fi
 
-\subparagraph{}\textit{Pour l’entrée définie ci-dessus, déterminer la valeur de la tension $v(t)$ à l’instant initial $t=0^{+}$, $v(0^{+})$. Expliquer succinctement que tout au long de ce fonctionnement, la servovalve fonctionnera sans saturer.}
+\question{Pour l’entrée définie ci-dessus, déterminer la valeur de la tension $v(t)$ à l’instant initial $t=0^{+}$, $v(0^{+})$. Expliquer succinctement que tout au long de ce fonctionnement, la servovalve fonctionnera sans saturer.}
 \ifprof
 \begin{corrige} En BO, on va avoir $v(0^{+})=5\cdot K'_C =\SI{5,5}{V}$. 
 
@@ -515,7 +514,7 @@ $v(0^{+})<\SI{10}{V}$. On est ici en BO. La tension ne peut donc pas dépasser l
 
 
 
-\subparagraph{}\textit{De quelle hypothèse générale d’étude des systèmes asservis ce constat participe-t-il ?}
+\question{De quelle hypothèse générale d’étude des systèmes asservis ce constat participe-t-il ?}
 \ifprof
 \begin{corrige}
 Pour de telles tension, on est donc en régime \textbf{linéaire}.
@@ -544,7 +543,7 @@ caractère résonant du vérin.
 
 \fi
 
-\subparagraph{}\textit{Tracer sur les figures suivantes les diagrammes d’amplitude asymptotiques de
+\question{Tracer sur les figures suivantes les diagrammes d’amplitude asymptotiques de
 Bode de $H_{\text{BO}}(p)$ en indiquant les valeurs numériques associées aux
 points particuliers et la valeur des pentes.}
 \ifprof
@@ -567,7 +566,8 @@ De plus, pour $\omega=\SI{5}{rad.s^{-1}}$, on a $20\log\dfrac{2,2}{5}=\SI{-7,1}{
 %\textit{}
 \end{center}
 \fi
-\subparagraph{}\textit{Déterminer par calcul la pulsation de résonance $\omega_r$ de cette fonction
+
+\question{Déterminer par calcul la pulsation de résonance $\omega_r$ de cette fonction
 de transfert.}
 \ifprof
 \begin{corrige}
@@ -577,7 +577,7 @@ On a $\omega_r = \omega_0\sqrt{1-2\xi^2}=5\times \sqrt{1-2\times 0,3^2}\simeq \S
 \fi
 
 
-\subparagraph{}\textit{Évaluer littéralement puis numériquement à cette pulsation
+\question{Évaluer littéralement puis numériquement à cette pulsation
 $\omega_r$ la différence, notée $\Delta K$ et exprimée en dB, entre l’amplitude
 de résonance et l’amplitude évaluée par le diagramme asymptotique.}
 \ifprof
@@ -607,7 +607,7 @@ L’étude consiste à déterminer les valeurs de $T$ et $b$.
 
 \fi
 
-\subparagraph{}\textit{Tracer sur la figure précédente, l'allure des diagrammes d’amplitude et de phase (asymptotiques et allure
+\question{Tracer sur la figure précédente, l'allure des diagrammes d’amplitude et de phase (asymptotiques et allure
 de la courbe réelle) de Bode de ce correcteur pour $K_{\text{COR}} =1$. Préciser les expressions littérales des
 pulsations caractéristiques.}
 \ifprof
@@ -626,7 +626,7 @@ Pour $\omega>\dfrac{1}{T}$ on a donc un gain de pente \SI{0}{dB/decade} et un d�
 \fi
 
 
-\subparagraph{}\textit{Déterminer alors en fonction de $b$, l'amplitude $\left| C\left(j\omega^{*}\right)\right|_{\text{dB}}$ à la pulsation notée $\omega^{*}$. }
+\question{Déterminer alors en fonction de $b$, l'amplitude $\left| C\left(j\omega^{*}\right)\right|_{\text{dB}}$ à la pulsation notée $\omega^{*}$. }
 \ifprof
 \begin{corrige}
  $\left| C\left(j\omega^{*}\right)\right|_{\text{dB}}= 10\log \dfrac{1+T^2 \dfrac{1}{T^2b}}{1+b^2T^2 \dfrac{1}{T^2b}}$ $= 10\log \dfrac{1+ \dfrac{1}{b}}{1+b}= 10\log \dfrac{1}{b}\dfrac{1+ b}{1+b}=-10\log b$.
@@ -636,11 +636,13 @@ Pour $\omega>\dfrac{1}{T}$ on a donc un gain de pente \SI{0}{dB/decade} et un d�
 
 
 
-\subparagraph{}\textit{Pour $K_{\text{COR}} =1$, en faisant correspondre la pulsation de résonance $\omega_r$ de $H_{\text{BO}} $ à $\omega^{*}$ :
+\question{Pour $K_{\text{COR}} =1$, en faisant correspondre la pulsation de résonance $\omega_r$ de $H_{\text{BO}} $ à $\omega^{*}$ :}
+\textit{
 \begin{itemize}
 \item calculer $b$ pour que « l’excès » de gain $\Delta K$ soit compensé par le correcteur et calculer la valeur de $T$;
 \item calculer le supplément de déphasage introduit par le correcteur à la pulsation $\omega^{*}$.
 \end{itemize}}
+
 \ifprof
 \begin{corrige}
 D'une part, on veut que $\left| C\left(j\omega^{*}\right)\right|_{\text{dB}}=-4,8$ soit $10\log b=4,8$ et $b=3,02$.
@@ -661,7 +663,7 @@ La réponse indicielle correspondant à ce réglage (entrée échelon de 5\degre
 
 
 
-\subparagraph{}\textit{Déterminer la vitesse de rotation angulaire maximale de la quille obtenue avec ce réglage du
+\question{Déterminer la vitesse de rotation angulaire maximale de la quille obtenue avec ce réglage du
 correcteur. Validez les exigences 2.2.1 et 2.2.2 en laissant vos constructions apparentes.}
 \ifprof
 \begin{corrige}
@@ -675,7 +677,7 @@ CDCF validé.
 \fi
 
 
-\subparagraph{}\textit{Conclure en utilisant le diagramme ci-dessous.}
+\question{Conclure en utilisant le diagramme ci-dessous.}
 \ifprof
 \begin{corrige}~\\
 \begin{center}
@@ -746,7 +748,7 @@ CDCF validé.
 %
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}
 %\end{corrige}

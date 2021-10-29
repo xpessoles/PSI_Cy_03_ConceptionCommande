@@ -1,5 +1,5 @@
 %%%% Paramétrage du TD %%%%
-\def\xxactivite{Appplication 1 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxactivite{Application 1 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 
@@ -28,12 +28,8 @@
 \def\xxtitreexo{Réglage de correcteurs P}
 \def\xxsourceexo{\hspace{.2cm} Etude d'un poste de palettisation de bidons. CCPM MP 2010.}
 
-
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -45,6 +41,7 @@
 \setlength{\columnseprule}{0.4pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{multicols}{2}
@@ -70,7 +67,7 @@ La boucle de position est représentée figure ci-dessous. On admet que :
 \includegraphics[width=\linewidth]{fig_01}
 \end{center}
 
-\subparagraph{}\textit{Déterminer la fonctionde transfert $R(p)= \dfrac{\alpha_r(p)}{\Omega_m(p)}$ du réducteur.}
+\question{Déterminer la fonctionde transfert $R(p)= \dfrac{\alpha_r(p)}{\Omega_m(p)}$ du réducteur.}
 \ifprof
 \begin{corrige}
 
@@ -79,7 +76,7 @@ La boucle de position est représentée figure ci-dessous. On admet que :
 \fi
 
 
-\subparagraph{}\textit{Déterminer le gain $K_a$ de l'adaptateur.}
+\question{Déterminer le gain $K_a$ de l'adaptateur.}
 \ifprof
 \begin{corrige}
 
@@ -88,7 +85,7 @@ La boucle de position est représentée figure ci-dessous. On admet que :
 \fi
 
 
-\subparagraph{}\textit{Déterminer, en fonction notamment de $K_m'$ et $t_m'$, la fonction de transfert
+\question{Déterminer, en fonction notamment de $K_m'$ et $t_m'$, la fonction de transfert
 en boucle ouverte $T(p)$ que l’on exprimera sous forme canonique. En déduire l’expression du
 gain de boucle, noté $K_{\text{BO}}$. }
 \ifprof
@@ -100,7 +97,7 @@ gain de boucle, noté $K_{\text{BO}}$. }
 
 On souhaite une marge de phase de 45\degres.
 
-\subparagraph{}\textit{Déterminer la valeur de $K_{\text{BO}}$ permettant de satisfaire cette condition.}
+\question{Déterminer la valeur de $K_{\text{BO}}$ permettant de satisfaire cette condition.}
 \ifprof
 \begin{corrige}
 
@@ -110,7 +107,7 @@ On souhaite une marge de phase de 45\degres.
 
 
 
-\subparagraph{}\textit{En déduire la valeur du gain $K_c$ du correcteur. }
+\question{En déduire la valeur du gain $K_c$ du correcteur. }
 \ifprof
 \begin{corrige}
 
@@ -120,7 +117,7 @@ On souhaite une marge de phase de 45\degres.
 
 
 
-\subparagraph{}\textit{Déterminer l’écart de position. Conclure vis-à-vis des exigences du cahier des
+\question{Déterminer l’écart de position. Conclure vis-à-vis des exigences du cahier des
 charges. }
 \ifprof
 \begin{corrige}
@@ -131,7 +128,7 @@ charges. }
 
 On souhaite un écart de traînage inférieur à 1\degres pour une consigne de vitesse de \SI{105}{\degres.s^{-1}}. 
 
-\subparagraph{}\textit{Déterminer l’expression de $\alpha_e(t)$ correspondant à une consigne de vitesse
+\question{Déterminer l’expression de $\alpha_e(t)$ correspondant à une consigne de vitesse
 de \SI{105}{\degres.s^{-1}}. En déduire $\alpha_e(p)$.}
 \ifprof
 \begin{corrige}
@@ -141,7 +138,7 @@ de \SI{105}{\degres.s^{-1}}. En déduire $\alpha_e(p)$.}
 \fi
 
 
-\subparagraph{}\textit{La valeur de $K_{\text{BO}}$ définie précédemment permet-elle de satisfaire l’exigence
+\question{La valeur de $K_{\text{BO}}$ définie précédemment permet-elle de satisfaire l’exigence
 de précision imposée par le cahier des charges ? Conclure. }
 \ifprof
 \begin{corrige}

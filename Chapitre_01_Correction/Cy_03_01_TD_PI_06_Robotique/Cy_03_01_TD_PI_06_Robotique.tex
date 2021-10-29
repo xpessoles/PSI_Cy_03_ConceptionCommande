@@ -31,11 +31,9 @@ proportionnel intégral
 }%figues de la page de garde
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -93,14 +91,14 @@ est donné en fin de document. $i_{\text{mes}}(t)$ est la mesure du courant du m
 
 
 \subsection*{Syntèse du régulateur PI de la boucle de courant}
-\subparagraph{}\textit{Compléter le diagramme de Bode par le tracé des diagrammes asymptotiques de la fonction $H(p)$.}
+\question{Compléter le diagramme de Bode par le tracé des diagrammes asymptotiques de la fonction $H(p)$.}
 \ifprof
 \begin{corrige}
 \end{corrige}
 \else
 \fi
 
-\subparagraph{}\textit{En adoptant $K = 1$, tracer le diagramme de Bode
+\question{En adoptant $K = 1$, tracer le diagramme de Bode
 (module et phase) de $C(p)$ : diagrammes asymptotiques et allures des tracés réels avec les valeurs prises aux points caractéristiques.}
 \ifprof
 \begin{corrige}
@@ -108,7 +106,7 @@ est donné en fin de document. $i_{\text{mes}}(t)$ est la mesure du courant du m
 \else
 \fi
 
-\subparagraph{}\textit{En déduire les tracés asymptotiques et les allures des tracés réels du diagramme de Bode de la fonction de transfert en boucle ouverte corrigée (on différenciera les tracés par des
+\question{En déduire les tracés asymptotiques et les allures des tracés réels du diagramme de Bode de la fonction de transfert en boucle ouverte corrigée (on différenciera les tracés par des
 couleurs différentes). Déterminer, sans calcul supplémentaire, la pulsation $\omega_1$ telle que la phase de la fonction
 de transfert en boucle ouverte est égale à \SI{-135}{\degres} et la valeur numérique du gain statique.
 }
@@ -119,7 +117,7 @@ de transfert en boucle ouverte est égale à \SI{-135}{\degres} et la valeur num
 \fi
 
 
-\subparagraph{}\textit{Déterminer alors la valeur du gain $K$ permettant d’assurer une marge de phase de 45\degres.}
+\question{Déterminer alors la valeur du gain $K$ permettant d’assurer une marge de phase de 45\degres.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -129,7 +127,7 @@ de transfert en boucle ouverte est égale à \SI{-135}{\degres} et la valeur num
 On considère maintenant le système corrigé avec le correcteur $C(p)$ qui vient d’être déterminé.
 
 
-\subparagraph{}\textit{Déterminer un ordre de grandeur de la marge de gain obtenue et conclure sur la stabilité du système en
+\question{Déterminer un ordre de grandeur de la marge de gain obtenue et conclure sur la stabilité du système en
 boucle fermée.}
 \ifprof
 \begin{corrige}
@@ -138,7 +136,7 @@ boucle fermée.}
 \fi
 
 
-\subparagraph{}\textit{Déterminer l'écart statique $\Delta i_0 = \lim\limits_{t\to +\infty} \left(i_c(t)-i_{\text{mes}}(t)\right)$ en boucle fermée en réponse à un échelon de consigne $i_c(t) = I_0\Gamma(t)$ d’amplitude $I_0$ et l’exprimer sous la forme $\Delta i_0 =  kI_0$ en précisant la valeur numérique de $k$.
+\question{Déterminer l'écart statique $\Delta i_0 = \lim\limits_{t\to +\infty} \left(i_c(t)-i_{\text{mes}}(t)\right)$ en boucle fermée en réponse à un échelon de consigne $i_c(t) = I_0\Gamma(t)$ d’amplitude $I_0$ et l’exprimer sous la forme $\Delta i_0 =  kI_0$ en précisant la valeur numérique de $k$.
 }
 \ifprof
 \begin{corrige}
@@ -157,7 +155,7 @@ d’amplitude $C_{\text{ref}} = C_{\text{ref0}}$.
 \includegraphics[width=1.0\linewidth]{fig_03}
 \end{center}
 
-\subparagraph{}\textit{Exprimer $G_{ic}$ en fonction de $K_c$ et de $N$.
+\question{Exprimer $G_{ic}$ en fonction de $K_c$ et de~$N$.
 }
 \ifprof
 \begin{corrige}
@@ -166,7 +164,7 @@ d’amplitude $C_{\text{ref}} = C_{\text{ref0}}$.
 \fi
 
 
-\subparagraph{}\textit{
+\question{
 En supposant qu’en régime permanent l’erreur statique de la boucle d’asservissement de courant est nulle
 $\Delta i_0= 0$, donner la valeur du gain $G_0$ permettant d’assurer l’égalité des couples de référence $C_{\text{ref0}}$ et appliqué $C_a$.}
 \ifprof
@@ -175,7 +173,7 @@ $\Delta i_0= 0$, donner la valeur du gain $G_0$ permettant d’assurer l’égal
 \else
 \fi
 
-\subparagraph{}\textit{
+\question{
 En remarquant que le gain statique du capteur de courant est de 1, montrer, en utilisant les résultats des questions précédentes, qu’en régime permanent l’erreur $\Delta C= C_{\text{ref}} -C_a$
 entre le couple de référence et le couple moteur exprimé sur l’axe de l’articulation est $\Delta C= k_1C_{\text{ref0}}$. Déterminer $k_1$ en fonction de $k$.}
 \ifprof
@@ -185,7 +183,7 @@ entre le couple de référence et le couple moteur exprimé sur l’axe de l’a
 \fi
 
 
-\subparagraph{}\textit{Vérifier alors si les différentes exigences du cahier des charges de l’actionneur sont validées.
+\question{Vérifier alors si les différentes exigences du cahier des charges de l’actionneur sont validées.
 }
 \ifprof
 \begin{corrige}
@@ -203,7 +201,7 @@ On admettra sans aucune justification que la pulsation de coupure à $\SI{0}{dB}
 \end{center}
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\begin{center}
 %\includegraphics[width=\linewidth]{}
 %%\textit{}

@@ -30,26 +30,20 @@ proportionnel intégral
 \def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Commun Mines Ponts 2016}}
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
 \thispagestyle{plain}
 
-\vspace{4cm}
+\vspace{4.5cm}
 
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 
 
 
@@ -109,8 +103,7 @@ Avec :
 Dans un premier temps, on prendra $H_{\text{cor}}(p)=1$.
 
 \fi
-\subparagraph{}
-\textit{Déterminer les expressions des fonctions de transfert $H_1(p)$, $H_2(p)$ et $H_3(p)$.}
+\question{Déterminer les expressions des fonctions de transfert $H_1(p)$, $H_2(p)$ et $H_3(p)$.}
 \ifprof
 \begin{corrige}
 On a $p\theta_m(p)=\Omega_m(p)$ et donc $H_2(p)=\dfrac{\theta_m(p)}{\Omega_m(p)}=\dfrac{1}{p}$.
@@ -123,8 +116,7 @@ Enfin, $H_3(p)=\dfrac{C_e(p)}{\theta_m(p)}=K_{C\theta}$.
 \else
 \fi
 
-\subparagraph{}
-\textit{Donner l’expression de la fonction de transfert en boucle fermée $H_{\text{BF}}(p)$ de l’asservissement d’effort.}
+\question{Donner l’expression de la fonction de transfert en boucle fermée $H_{\text{BF}}(p)$ de l’asservissement d’effort.}
 
 \ifprof
 \begin{corrige}
@@ -137,8 +129,7 @@ D'autre part, $H_{\text{BF}}(p)
 \else
 \fi
 
-\subparagraph{}
-\textit{Quel sera le comportement de cet asservissement en réponse à un échelon d'amplitude $C_0$?
+\question{Quel sera le comportement de cet asservissement en réponse à un échelon d'amplitude $C_0$?
 Conclure.}
 \ifprof
 \begin{corrige}
@@ -170,8 +161,7 @@ $H_{\text{BO}}(p)=\dfrac{1}{\left(1+\tau p\right)^2}$.
 
 \fi
 
-\subparagraph{}
-\textit{Donner l’expression analytique du gain $B$, en fonction de $J$ et $K_{C\theta}$, permettant d’obtenir cette
+\question{Donner l’expression analytique du gain $B$, en fonction de $J$ et $K_{C\theta}$, permettant d’obtenir cette
 forme de fonction de transfert. En déduire l’expression analytique de la constante de temps $\tau$.}
 \ifprof
 \begin{corrige}~\\
@@ -211,8 +201,7 @@ Afin de répondre à ces exigences, on choisit un correcteur proportionnel-inté
 \end{center}
 \fi
 
-\subparagraph{}
-\textit{Donner l’expression de l’erreur statique en réponse à un échelon d'amplitude $C_0$. Conclure vis-à-vis du cahier des charges.}
+\question{Donner l’expression de l’erreur statique en réponse à un échelon d'amplitude $C_0$. Conclure vis-à-vis du cahier des charges.}
 \ifprof
 \begin{corrige}
 La boucle ouverte est de classe 1. L'erreur statique (entrée échelon) est donc nulle ce qui est conforme à l'exigence 1.2.2.1 du cahier des charges. 
@@ -229,8 +218,7 @@ d’ordre 2 de la forme :
 $\dfrac{K_{\text{BF}}}{1+\dfrac{2\xi_{BF}}{\omega_{0\text{BF}}}p+\dfrac{p^2}{\omega_{0\text{BF}}^2}}$.
 \fi
 
-\subparagraph{}
-\textit{Proposer une expression simple pour la constante de temps $T_i$.}
+\question{Proposer une expression simple pour la constante de temps $T_i$.}
 \ifprof
 \begin{corrige} ~\\
 Pour avoir une FTBF d'ordre 2, il faut que la BO soit d'ordre 2. En conséquence, vu la forme de correcteur proposé, on peut envisager que le correcteur compense un pôle du système. 
@@ -251,8 +239,7 @@ Les courbes de la réponse fréquentielle en boucle ouverte pour
 $K_i=1$ et les réponses fréquentielles en boucle fermée pour différentes valeurs de $K_i$ sont données ci-dessous.
 \fi
 
-\subparagraph{}
-\textit{En s'appuyant sur les diagrammes ci-dessous, proposer un choix de réglage pour $K_i$ permettant (si possible) de vérifier toutes les performances.}
+\question{En s'appuyant sur les diagrammes ci-dessous, proposer un choix de réglage pour $K_i$ permettant (si possible) de vérifier toutes les performances.}
 \ifprof
 \begin{corrige}~\\
 \begin{itemize}
@@ -320,8 +307,7 @@ $K_i=1$ et les réponses fréquentielles en boucle fermée pour différentes val
 \fi
 
 \subsection*{Retour sur le cahier des charges}
-\subparagraph{}
-\textit{Remplir le tableau et conclure sur la validation des critères de performance.
+\question{Remplir le tableau et conclure sur la validation des critères de performance.
 Tracer l’allure de la réponse temporelle à un échelon $C_{c0}$ en indiquant toutes les valeurs caractéristiques nécessaires.}
 
 \ifprof
@@ -402,7 +388,7 @@ Le cahier des charges est donc respecté.
 
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %
 %\begin{center}
 %\includegraphics[width=\linewidth]{img_04}

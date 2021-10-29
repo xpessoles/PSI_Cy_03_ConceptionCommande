@@ -31,11 +31,10 @@ proportionnel intégral
 }%figues de la page de garde
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -118,7 +117,7 @@ $$\left(M+m\right)r\rho_1 \dot{\omega}_m(t)=\dfrac{C_{M1}(t)}{\rho_1 r}-F_p(t)$$
 Le codeur incrémental possède 500 fentes équiréparties. Deux émetteurs-récepteurs positionnés en quadrature permettent de mesurer l'information. 
 \fi
 
-\subparagraph{}\textit{À partir des équations proposées, déterminer les fonctions de transfert $K_1$, $K_2$, $H_3(p)$, $H_4(p)$,  $K_5$, $K_6$, $K_7$, $K_8$ et $K_9$.}
+\question{À partir des équations proposées, déterminer les fonctions de transfert $K_1$, $K_2$, $H_3(p)$, $H_4(p)$,  $K_5$, $K_6$, $K_7$, $K_8$ et $K_9$.}
 \ifprof
 \begin{corrige}~\\
 On a :
@@ -135,7 +134,7 @@ On a :
 \else
 \fi
 
-\subparagraph{}\textit{Montrer que le schéma-blocs peut être mis sous la forme suivante. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
+\question{Montrer que le schéma-blocs peut être mis sous la forme suivante. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
 \ifprof
 \begin{corrige}~\\
 %D'une part,
@@ -192,7 +191,7 @@ Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{67
 On suppose que $C(p)=K_c$. 
 
 
-\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_c$.}
+\question{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_c$.}
 \ifprof
 \begin{corrige}~\\
 On a $\varepsilon_x(p)=X_C(p)-X(p)$ 
@@ -209,7 +208,7 @@ $\Leftrightarrow \varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \righ
 \fi
 
 
-\subparagraph{}\textit{Tracer le diagramme de Bode de la FTBO du système pour $K_C=1$ et donner les marges. Le cahier des charges est-il vérifié ?}
+\question{Tracer le diagramme de Bode de la FTBO du système pour $K_C=1$ et donner les marges. Le cahier des charges est-il vérifié ?}
 \ifprof
 \begin{corrige}~\\
 On a $\text{FTBO}(p)=\dfrac{A}{p\left(Bp+1\right)}$.
@@ -224,7 +223,7 @@ La marge de phase n'est pas respectée.
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
+\question{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
 \begin{corrige}~\\
 
@@ -243,7 +242,7 @@ L'écart en position n'est donc pas nul.
 \subsection*{Correction proportionnelle intégrale}
 On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 
-\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
+\question{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
 \ifprof
 \begin{corrige}~\\
 
@@ -254,7 +253,7 @@ $\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
+\question{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
 \begin{corrige}~\\
 
@@ -268,7 +267,7 @@ $=\lim_{p\to 0} \dfrac{pT_ip\left(Bp+1 \right)}{pT_ip\left(Bp+1 \right)+AK_i\lef
 \fi
 
 
-\subparagraph{}\textit{Déterminer la fonction de transfert en boucle ouverte du système $\text{FTBO}(p)=\dfrac{X(p)}{\varepsilon_x(p)}$ en supposant que $F_p=0$.}
+\question{Déterminer la fonction de transfert en boucle ouverte du système $\text{FTBO}(p)=\dfrac{X(p)}{\varepsilon_x(p)}$ en supposant que $F_p=0$.}
 \ifprof
 \begin{corrige}~\\
 $\text{FTBO}(p)= \dfrac{A}{p\left(Bp+1\right)}K_i\left(1+\dfrac{1}{T_ip}\right)= \dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}$.
@@ -278,7 +277,7 @@ $\text{FTBO}(p)= \dfrac{A}{p\left(Bp+1\right)}K_i\left(1+\dfrac{1}{T_ip}\right)=
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
+\question{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
 \ifprof
 \begin{corrige}~\\
 On souhaite que  pour $\omega=\SI{50}{rad.s^{-1}}$, $\varphi(\omega)=-135\degres $.
@@ -294,7 +293,7 @@ $ -180-\arctan 0,5 + \arctan 50T_i =-135 \Leftrightarrow  \arctan 50T_i =-135+18
 \fi
 
 
-\subparagraph{}\textit{Déterminer $K_i$ permettant d'assurer la pulsation au gain unité souhaitée.}
+\question{Déterminer $K_i$ permettant d'assurer la pulsation au gain unité souhaitée.}
 
 
 \ifprof
@@ -313,7 +312,7 @@ On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2
 
 On donne sur le document réponse la réponse temporelle du système à une entrée de type échelon unitaire sur le déplacement ($F_p=0$) ainsi que le diagramme de Bode de la FTBO.
 
-\subparagraph{}\textit{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
+\question{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
 \ifprof
 \begin{corrige}~\\
 \begin{itemize}
@@ -355,7 +354,7 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 %
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
@@ -368,42 +367,42 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 %\end{center}
 %
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
 %\else
 %\fi
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
 %\else
 %\fi
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
 %\else
 %\fi
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
 %\else
 %\fi
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}
 %\else
 %\fi
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}~\\
 %\end{corrige}

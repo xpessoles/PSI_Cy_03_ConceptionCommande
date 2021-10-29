@@ -30,11 +30,9 @@ proportionnel intégral
 \def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP -- PSI -- 2006}}
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -91,7 +89,7 @@ On note :
 %\textit{}
 \end{center}
 %
-%\subparagraph{}\textit{Expliquez la signification du sommateur situé, sur le schéma-blocs, en amont du bloc transfert de la chambre.}
+%\question{Expliquez la signification du sommateur situé, sur le schéma-blocs, en amont du bloc transfert de la chambre.}
 %
 %
 %\subsection*{Identification du système}
@@ -112,32 +110,33 @@ Expérimentalement, on peut déterminer que $\text{FTBO(p)}=\dfrac{U_t(p)}{U_c(p
 \subsection*{Analyse des performances}
 On considère ici que $C(p)=1$. On donne l'abaque des temps de réponse réduit plus bas.
 
-\subparagraph{}\textit{Déterminer le temps de réponse à 5\% du système régulé.}
-\subparagraph{}\textit{Déterminer l'écart en position et l'écart en traînage.}
+\question{Déterminer le temps de réponse à 5\% du système régulé.}
 
-\subparagraph{}\textit{Tracer le diagramme de Bode de la FTBO.}
+\question{Déterminer l'écart en position et l'écart en traînage.}
 
-\subparagraph{}\textit{Déterminer la marge de gain et la marge de phase.}
+\question{Tracer le diagramme de Bode de la FTBO.}
+
+\question{Déterminer la marge de gain et la marge de phase.}
 
 \subsection*{Mise en \oe{}uvre de corrections P et PI}
 
 On envisage une première correction en utilisant un correcteur proportionnel de la forme $C(p)=K$.
 
 
-\subparagraph{}\textit{Déterminer le gain $K$ de manière à obtenir le système le plus rapide sans aucun dépassement.}
+\question{Déterminer le gain $K$ de manière à obtenir le système le plus rapide sans aucun dépassement.}
 
 
-\subparagraph{}\textit{En déduire le temps de réponse à 5\%, l'écart en position et l'écart de traînage.}
+\question{En déduire le temps de réponse à 5\%, l'écart en position et l'écart de traînage.}
 
-\subparagraph{}\textit{Déterminez alors, la tension en sortie de l'amplificateur , si on envoie un échelon de tension de consigne $U_{tc}$ de \SI{5}{V}. Le gain de l'amplificateur étant de 10, critiquez vos résultats.}
+\question{Déterminez alors, la tension en sortie de l'amplificateur , si on envoie un échelon de tension de consigne $U_{tc}$ de \SI{5}{V}. Le gain de l'amplificateur étant de 10, critiquez vos résultats.}
 
 On souhaite maintenant corriger le système avec en utilisant une action proportionnelle intégrale $C(p)=\dfrac{K}{T_i p}\left( 1+T_i p\right)$. On utilise pour cela la méthode des compensation de pôles. 
 
-\subparagraph{}\textit{Déterminer les gain $K$ et $T_i$ permettant d'assurer le non dépassement de la consigne ainsi que le temps de réponses du système.}
+\question{Déterminer les gain $K$ et $T_i$ permettant d'assurer le non dépassement de la consigne ainsi que le temps de réponses du système.}
 
 
-\subparagraph{}\textit{En déduire le nouvel écart de position.}
-%\subparagraph{}\textit{\'A l'aide du tracé expérimental du document réponse « Réponse indicielle et Zoom »
+\question{En déduire le nouvel écart de position.}
+%\question{\'A l'aide du tracé expérimental du document réponse « Réponse indicielle et Zoom »
 %qui correspond à l'augmentation de tension $U_t$ en sortie du capteur de température, identifier la
 %fonction de transfert du système en Boucle ouverte défini par le rapport $\text{FTBO(p)}=\dfrac{U_t(p)}{U_c(p)}$. On pourra utiliser la forme suivante : $\dfrac{G}{\left(1+\tau_1 p \right)\left(1+\tau_2 p \right)}$.}
 
@@ -190,7 +189,7 @@ On souhaite maintenant corriger le système avec en utilisant une action proport
 
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\begin{center}
 %\includegraphics[width=\linewidth]{fig_07}
 %%\textit{}

@@ -31,11 +31,10 @@
 \def\xxsourceexo{\hspace{.2cm} \footnotesize{Banque PT -- SIA 2014}}
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -276,7 +275,7 @@ On prendra : $K_S = \SI{12e4}{N.A^{-1}}$ et $T_S = \SI{5e-3}{s}$;
 II s'agit dans un premier temps d'analyser la forme de la fonction de transfert en boucle ouverte non corrigée de la chaîne de commande semi-active.
 \end{obj}
 
-\subparagraph{}\textit{Déterminer littéralement et sous forme canonique la fonction de transfert  $H_F(p)=\dfrac{\dot{Z}^*(p)}{F_{\text{éq}}(p)}$.}
+\question{Déterminer littéralement et sous forme canonique la fonction de transfert  $H_F(p)=\dfrac{\dot{Z}^*(p)}{F_{\text{éq}}(p)}$.}
 \ifprof
 \begin{corrige}~\\
 $H_F(p) = \dfrac{H_Z(p)\dfrac{1}{p}}{1+\lambda_a H_Z(p)\dfrac{1}{p}}= \dfrac{\dfrac{K_Z p^2}{1+\dfrac{2\xi_Z}{\omega_Z}p+\dfrac{p^2}{\omega_Z^2}}\dfrac{1}{p}}{1+\lambda_a \dfrac{K_Z p^2}{1+\dfrac{2\xi_Z}{\omega_Z}p+\dfrac{p^2}{\omega_Z^2}}\dfrac{1}{p}}$
@@ -287,7 +286,7 @@ $= \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a K_Z\right)p+\dfrac{
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer littéralement et sous forme canonique la fonction de transfert en boucle ouverte non corrigée $H_{\text{BONC}}(p)$.}
+\question{Déterminer littéralement et sous forme canonique la fonction de transfert en boucle ouverte non corrigée $H_{\text{BONC}}(p)$.}
 \ifprof
 \begin{corrige}
 $H_{\text{BONC}}(p) = \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a K_Z\right)p+\dfrac{p^2}{\omega_Z^2} } \cdot \dfrac{K_S}{1+T_Sp} $.
@@ -306,7 +305,7 @@ On donne le diagramme de Bode de $H_F(p)$.
 \end{center}
 \fi
 
-\subparagraph{}\textit{Justifier la forme de ce diagramme en traçant les asymptotes et en indiquant comment retrouver sur le tracé les valeurs de $K_z$ et $\omega_z$. Tracer en rouge les diagrammes de la fonction $H_{\text{BONC}}(p)$. On prendra pour cela $20\log K_S \simeq \SI{100}{dB}$.}
+\question{Justifier la forme de ce diagramme en traçant les asymptotes et en indiquant comment retrouver sur le tracé les valeurs de $K_z$ et $\omega_z$. Tracer en rouge les diagrammes de la fonction $H_{\text{BONC}}(p)$. On prendra pour cela $20\log K_S \simeq \SI{100}{dB}$.}
 \ifprof
 \begin{corrige}
 $H_F$ est un second ordre dérivé de coefficient d'amortissement $\xi_{F}$ et de pulsation propore $\omega_{Z}$. Ne pouvant pas calculer $\xi_{F}$, l'allure du diagrame de Bode suggère que $\xi_{F}<1$ car il y a une seule rupture de pente à $\omega_Z= \SI{5,5}{rad.s^{-1}}$.
@@ -336,7 +335,7 @@ Afin de satisfaire les exigences, une étude complémentaire non abordée dans c
 \end{itemize}
 \fi
 
-\subparagraph{}\textit{Quelle doit être la classe minimale du correcteur afin de garantir le critère de précision ?}
+\question{Quelle doit être la classe minimale du correcteur afin de garantir le critère de précision ?}
 \ifprof
 \begin{corrige}
 Pour que l'erreur statique soit nulle, il faut que la classe de la FTBO soit de 1. La classe de la FTBO non corrigée étant de <<-1>>, il faut donc que le correcteur soit de classe 2 pour que le critère de précision soit garanti.
@@ -355,7 +354,7 @@ On choisit dans un premier temps un correcteur de la forme $C(p)=\dfrac{K_p}{p^2
 
 \fi
 
-\subparagraph{}\textit{Évaluer les marges de stabilité pour ce réglage. Déterminer la valeur de $K_p$ garantissant le critère de pulsation de coupure à \SI{0}{dB}. Ce correcteur peut-il permettre de répondre aux critères de performances énoncés en début de partie ? Justifier la réponse}
+\question{Évaluer les marges de stabilité pour ce réglage. Déterminer la valeur de $K_p$ garantissant le critère de pulsation de coupure à \SI{0}{dB}. Ce correcteur peut-il permettre de répondre aux critères de performances énoncés en début de partie ? Justifier la réponse}
 \ifprof
 \begin{corrige}
 La marge de gain est de \SI{18}{dB} et la marge de phase est de 95\degres. 
@@ -379,7 +378,7 @@ Les caractéristiques du terme en $K_p\dfrac{1+\mu Tp}{1+Tp}$  ainsi que des aba
 \end{center}
 \fi
 
-\subparagraph{}\textit{Comment se nomme l'action de correction obtenue avec ce terme ? }
+\question{Comment se nomme l'action de correction obtenue avec ce terme ? }
 \ifprof
 \begin{corrige}
 L'action de correction obtenue est de l'avance de phase. 
@@ -388,7 +387,7 @@ L'action de correction obtenue est de l'avance de phase.
 \fi
 
 
-\subparagraph{}\textit{Quelle valeur doit-on donner à $\mu$ pour garantir le critère de marge de phase ? }
+\question{Quelle valeur doit-on donner à $\mu$ pour garantir le critère de marge de phase ? }
 \ifprof
 \begin{corrige}
 \textbf{Cas 1 : on conserve $K_P=10$.}
@@ -403,7 +402,7 @@ Le critère de précision reste validé car il y a toujours les deux intégrateu
 \fi
 
 
-\subparagraph{}\textit{En déduire les valeurs de $T$ et de $K_P$ permettant d'assurer les critères de stabilité et de bande passante énoncés au début de partie. Le critère de précision est-il validé ?}
+\question{En déduire les valeurs de $T$ et de $K_P$ permettant d'assurer les critères de stabilité et de bande passante énoncés au début de partie. Le critère de précision est-il validé ?}
 \ifprof
 \begin{corrige}
 \textbf{Dans le cas 1 :}
@@ -440,7 +439,7 @@ II s'agit dans cette dernière partie de vérifier les performances globales de 
 On donne le résultat d'une simulation du système complet piloté à l'aide du correcteur précédemment dimensionné pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$.
 \fi
 
-\subparagraph{}\textit{En analysant cette courbe, conclure quant à la validité du cahier des charges.}
+\question{En analysant cette courbe, conclure quant à la validité du cahier des charges.}
 \ifprof
 \begin{corrige}
 Pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$ l'accélération reste bien inférieure à $\SI{3}{rad.s^{-2}}$.
@@ -469,7 +468,7 @@ Pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$ l'accélération reste bien inf�
 %
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}
 %\end{corrige}

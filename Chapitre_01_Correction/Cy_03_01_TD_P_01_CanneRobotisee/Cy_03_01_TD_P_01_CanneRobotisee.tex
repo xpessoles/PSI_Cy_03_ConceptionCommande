@@ -32,11 +32,8 @@
 }%figues de la page de garde
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -194,7 +191,7 @@ Le modèle causal retenu pour l'étude du comportement de l'axe linéaire pertur
 %
 %L'équation du mouvement s'écrit $J_{eq} \dot{\omega}_m + f \omega_m = C_m - F_p  \frac{pas}{2\pi} $.
 %
-%\subparagraph{}\textit{En supposant\label{Q:schema_bloc_1} les conditions initiales nulles, réaliser la transformée de Laplace de l'équation du mouvement précédente et compléter les blocs correspondants.}% du \DR{DR_schema_bloc}. }
+%\question{En supposant\label{Q:schema_bloc_1} les conditions initiales nulles, réaliser la transformée de Laplace de l'équation du mouvement précédente et compléter les blocs correspondants.}% du \DR{DR_schema_bloc}. }
 %
 %\ifprof
 %\begin{corrige}
@@ -258,7 +255,7 @@ Le modèle causal retenu pour l'étude du comportement de l'axe linéaire pertur
 %\fi
 %
 %
-%\subparagraph{}\textit{Déterminer, à partir des données du diagramme de blocs internes, les expressions puis les valeurs numériques de $K_{ve}$ et $K_{\text{codeur}}$.}
+%\question{Déterminer, à partir des données du diagramme de blocs internes, les expressions puis les valeurs numériques de $K_{ve}$ et $K_{\text{codeur}}$.}
 %
 %\ifprof
 %\begin{corrige}
@@ -274,7 +271,7 @@ Le modèle causal retenu pour l'étude du comportement de l'axe linéaire pertur
 %
 %\fi
 %
-%\subparagraph{}\textit{Donner l'expression, puis la valeur numérique du gain pur $K_{\text{adapt}}$ permettant de satisfaire cette condition.}
+%\question{Donner l'expression, puis la valeur numérique du gain pur $K_{\text{adapt}}$ permettant de satisfaire cette condition.}
 %\ifprof
 %\begin{corrige}
 %D'après le schéma-bloc, $\varepsilon(p) = K_{\text{adapt}}. X_c(p) - K_{\text{codeur}}.\frac{X(p)}{K_{ve}} $. Ainsi pour vérifier  $\varepsilon(p) = 0$ lorsque $X_c(p) =  X(p)$, il faut prendre :\\
@@ -294,7 +291,7 @@ Afin de proposer une modélisation simplifiée de la chaîne d'énergie de l'axe
 
 
 
-\subparagraph{}\textit{À partir\label{Q_Bode} du diagramme de Bode, proposer un modèle de comportement du système en boucle ouverte. Soit $H_{BO\_1}(p)$ cette fonction de transfert, donner sa forme canonique factorisée. Soient $T_1$ et $T_2$, telles que $T_1 < T_2$, les constantes de temps introduites et $K_{\text{BO}}$ le gain de $H_{BO\_1}(p)$, préciser les valeurs numériques et unités de $T_1$, $T_2$ et $K_{\text{BO}}$. Vous laisserez apparaître les traits de construction nécessaires à l'identification du modèle sur le document réponse.}%}\DR{bode_BO_sans_corr}.}
+\question{À partir\label{Q_Bode} du diagramme de Bode, proposer un modèle de comportement du système en boucle ouverte. Soit $H_{BO\_1}(p)$ cette fonction de transfert, donner sa forme canonique factorisée. Soient $T_1$ et $T_2$, telles que $T_1 < T_2$, les constantes de temps introduites et $K_{\text{BO}}$ le gain de $H_{BO\_1}(p)$, préciser les valeurs numériques et unités de $T_1$, $T_2$ et $K_{\text{BO}}$. Vous laisserez apparaître les traits de construction nécessaires à l'identification du modèle sur le document réponse.}%}\DR{bode_BO_sans_corr}.}
 
 \begin{center}
 \includegraphics[width=\linewidth]{fig_03}
@@ -319,7 +316,7 @@ et en remarquant que pour $\omega = 10^0=1$ rad/s, $G_{\text{BO}}=20.log(K_{\tex
 Lors d'une marche saine à allure rapide la cadence moyenne est de 113 pas par minute.
 \fi
 
-\subparagraph{}\textit{Déterminer la fréquence moyenne en Hz de la marche saine à allure rapide.}
+\question{Déterminer la fréquence moyenne en Hz de la marche saine à allure rapide.}
 
 \ifprof
 \begin{corrige}
@@ -333,7 +330,7 @@ Une cadence de 113 pas par minute correspond à une fréquence de marche de l'or
 Pour la suite, on considérera que la fréquence maximale de déplacement de l'axe linéaire de  la canne (liée au mouvement de la marche) est fixée à $F_{\text{MAX}} = 4$ Hz. On propose alors en première approximation une modélisation du comportement du système en boucle ouverte par une fonction de transfert $H_{\text{BO}}(p)$ de la forme $H_{\text{BO}}(p) = K_{\text{BO}}/p$ avec $K_{\text{BO}} = 1/30$.
 \fi
 
-\subparagraph{}\textit{Justifier, à l'aide de la réponse fréquentielle du système en boucle ouverte, la validité de cette modélisation approchée.}
+\question{Justifier, à l'aide de la réponse fréquentielle du système en boucle ouverte, la validité de cette modélisation approchée.}
 
 \ifprof
 \begin{corrige}
@@ -376,7 +373,7 @@ Le schéma-blocs du système non perturbé correspond alors à celui de la figur
 \fi
 
 
-\subparagraph{}\textit{Déterminer l'expression de $H_{\text{BF}}(p)= X(p)/X_c(p)$, la fonction de transfert en boucle fermée de la modélisation de la \ref{fig:schema_bloc_simplifie}. Déterminer les paramètres caractéristiques de $H_{\text{BF}}(p)$ et en déduire les performances de cette  modélisation pour $C(p) = K_{\text{corr}} = 1$. Conclure vis-à vis des performances d'asservissement de l'axe linéaire.}
+\question{Déterminer l'expression de $H_{\text{BF}}(p)= X(p)/X_c(p)$, la fonction de transfert en boucle fermée de la modélisation de la \ref{fig:schema_bloc_simplifie}. Déterminer les paramètres caractéristiques de $H_{\text{BF}}(p)$ et en déduire les performances de cette  modélisation pour $C(p) = K_{\text{corr}} = 1$. Conclure vis-à vis des performances d'asservissement de l'axe linéaire.}
 
 \ifprof
 \begin{corrige}
@@ -400,7 +397,7 @@ Le système avec $K_{\text{corr}} = 1$ est donc trop lent.
 On se propose de modifier la valeur de $K_{\text{corr}}$ de manière à vérifier l'exigence de rapidité de l'asservissement.
 \fi
 
-\subparagraph{}\textit{Déterminer la valeur numérique à donner à $K_{\text{corr}}$ pour assurer le temps de réponse à 5\ \% lié à l'exigence de rapidité de l'asservissement de l'axe linéaire.}
+\question{Déterminer la valeur numérique à donner à $K_{\text{corr}}$ pour assurer le temps de réponse à 5\ \% lié à l'exigence de rapidité de l'asservissement de l'axe linéaire.}
 
 \ifprof
 \begin{corrige}
@@ -428,7 +425,7 @@ La \ref{fig:reponse_Kcorr_1500}  donne l'évolution de la réponse temporelle $x
 \fi
 
 
-\subparagraph{}\textit{L'évolution de la réponse du système est-elle cohérente avec le comportement du modèle retenu ? Justifier. Quelle modification faudrait-il apporter au modèle approché pour retrouver cette forme de réponse temporelle ?}
+\question{L'évolution de la réponse du système est-elle cohérente avec le comportement du modèle retenu ? Justifier. Quelle modification faudrait-il apporter au modèle approché pour retrouver cette forme de réponse temporelle ?}
 
 \ifprof
 \begin{corrige}
@@ -441,7 +438,7 @@ L'allure de la réponse ne correspond pas à celle d'un système du 1er ordre ca
 Pour la suite, on modélise la fonction de transfert en boucle ouverte du système par \linebreak $H_{\text{BO}}(p) = \frac{1}{p}.\frac{K_{\text{BO}}}{1+\tau_{\text{BO}}p}$ avec $K_{\text{BO}} = 1/30$ (unité en \si{s^{-1}}) et $\tau_{\text{BO}} = 9$ ms.
 \fi
 
-\subparagraph{}\textit{Quelle valeur maximale de $K_{\text{corr}}$, notée $K_{\text{corr}}^{\text{\text{MAX}}}$, permet de vérifier les critères de précision et de dépassement de l'asservissement de l'axe linéaire ?}
+\question{Quelle valeur maximale de $K_{\text{corr}}$, notée $K_{\text{corr}}^{\text{\text{MAX}}}$, permet de vérifier les critères de précision et de dépassement de l'asservissement de l'axe linéaire ?}
 
 \ifprof
 \begin{corrige}
@@ -462,7 +459,7 @@ L'application numérique donne $K_{\text{corr}} \leq 1700$. On prend donc $K_{\t
 
 
 
-\subparagraph{}\textit{Déterminer la valeur du temps de réponse à $5\ \%$, $t_{r5\%}$ de ce modèle pour $K_{\text{corr}} = K_{\text{corr}}^{\text{\text{MAX}}}$ à partir de l'abaque du temps de réponse réduit donné ci-dessous.}
+\question{Déterminer la valeur du temps de réponse à $5\ \%$, $t_{r5\%}$ de ce modèle pour $K_{\text{corr}} = K_{\text{corr}}^{\text{\text{MAX}}}$ à partir de l'abaque du temps de réponse réduit donné ci-dessous.}
 \ifprof
 \else
 \begin{center}
@@ -526,7 +523,7 @@ font=\footnotesize,
 \end{center}
 \fi
 
-\subparagraph{}\textit{Conclure sur les capacités de la correction à action proportionnelle pure vis-à-vis des performances à atteindre.}
+\question{Conclure sur les capacités de la correction à action proportionnelle pure vis-à-vis des performances à atteindre.}
 \ifprof
 \begin{corrige}
 Les performances de stabilité, rapidité et de 1er dépassement sont vérifiées. Cependant, le système avec correction proportionnelle n'arrive pas à atténuer suffisamment la perturbation (l'erreur est de l'ordre de 15 à 20$\%$ bien supérieure au 5$\%$ du cahier des charges). Un autre type de correction doit donc être envisagé pour satisfaire l'ensemble des critères.\end{corrige}
@@ -548,7 +545,7 @@ $C(p)= K_{\text{corr}} . \frac{1+T_d p}{p}$  avec $K_{\text{corr}} >> 1$ et $T_d
 On donne dans le document réponse le diagramme de Bode (courbe de Gain et de Phase) du système en boucle ouverte avec correcteur PI Généralisé pour $K_{\text{corr}} = \num{1000}$ et $T_d = 0,2$ s. 
 \fi
 
-\subparagraph{}\textit{Représenter sur le document réponse les marges de Gain $M_G$ et de Phase $M_{\phi}$ du système corrigé.\label{Q:Bode_corrige}}
+\question{Représenter sur le document réponse les marges de Gain $M_G$ et de Phase $M_{\phi}$ du système corrigé.\label{Q:Bode_corrige}}
 
 \ifprof
 \begin{corrige}
@@ -571,7 +568,7 @@ D'après la figure ci-dessous, on relève une marge de Gain $M_G \simeq$ 60 dB e
 Avec cette correction, le système est précis mais les valeurs des marges de gain et de phase sont telles que le système n'est pas assez rapide. Il est donc nécessaire d'augmenter la valeur de $K_{\text{corr}}$, tout en conservant $T_d = 0,2$ s, de manière à augmenter la bande passante du système et ainsi se rapprocher des valeurs limites de marge de Gain et de Phase autorisées.
 \fi
 
-\subparagraph{}\textit{En déduire la valeur maximale à donner au gain $K_{\text{corr}}$, en conservant $T_d = 0,2$ s, afin de respecter les performances en stabilité de l'asservissement de l'axe linéaire tout en augmentant au maximum la bande passante du système. }
+\question{En déduire la valeur maximale à donner au gain $K_{\text{corr}}$, en conservant $T_d = 0,2$ s, afin de respecter les performances en stabilité de l'asservissement de l'axe linéaire tout en augmentant au maximum la bande passante du système. }
 
 
 \begin{center}
@@ -614,7 +611,7 @@ Les figures \ref{fig:reponse_perturbe_corr_PI_gen} donnent la réponse temporell
 \fi
 
 
-\subparagraph{}\textit{Conclure sur les performances du système perturbé vis-à-vis des exigences de l'asservissement de l'axe linéaire. Commenter l'évolution de l'intensité simulée avec les caractéristiques de la carte de commande du moteur.}
+\question{Conclure sur les performances du système perturbé vis-à-vis des exigences de l'asservissement de l'axe linéaire. Commenter l'évolution de l'intensité simulée avec les caractéristiques de la carte de commande du moteur.}
 
 
 \ifprof
@@ -640,7 +637,7 @@ Par contre, on relève un courant $I_{mot}^{\text{\text{MAX}}} \simeq$ 35 A. Or 
 %\vspace{1em}
 %\fi
 %
-%\subparagraph{}\textit{Préciser, à l'aide d'une flèche sur le document réponse, la position de ce bloc saturation. Justifier.\label{Q:schema_bloc2}}
+%\question{Préciser, à l'aide d'une flèche sur le document réponse, la position de ce bloc saturation. Justifier.\label{Q:schema_bloc2}}
 %
 %\ifprof
 %\begin{corrige}
@@ -655,7 +652,7 @@ Par contre, on relève un courant $I_{mot}^{\text{\text{MAX}}} \simeq$ 35 A. Or 
 %
 %
 %
-%\subparagraph{}\textit{Quel est l'effet de l'ajout du bloc saturation en intensité sur les performances du système ? Conclure vis-à-vis des exigences du cahier des charges.}
+%\question{Quel est l'effet de l'ajout du bloc saturation en intensité sur les performances du système ? Conclure vis-à-vis des exigences du cahier des charges.}
 %
 %\ifprof
 %\begin{corrige}
@@ -688,7 +685,7 @@ La \ref{fig:evol_hauteur_main} donne les évolutions de la hauteur de main mesur
 \vspace{1em}
 \fi
 
-\subparagraph{}\textit{Conclure sur l'influence de la correction de l'axe linéaire sur le respect de l'exigence de maintien de la hauteur de main.}
+\question{Conclure sur l'influence de la correction de l'axe linéaire sur le respect de l'exigence de maintien de la hauteur de main.}
 
 \ifprof
 \begin{corrige}
@@ -722,7 +719,7 @@ Les figures \ref{fig:suivi_pied_orientation_normale} et \ref{fig:suivi_pied_orie
 
 \fi
 
-\subparagraph{}\textit{Conclure sur le réglage des paramètres d'asservissement mis en place vis-à-vis des performances liées à la synchronisation de la canne avec le cycle locomoteur à différentes allures.}
+\question{Conclure sur le réglage des paramètres d'asservissement mis en place vis-à-vis des performances liées à la synchronisation de la canne avec le cycle locomoteur à différentes allures.}
 
 \ifprof
 \begin{corrige}
@@ -779,7 +776,7 @@ On peut donc conclure que ce réglage des paramètres d'asservissement permet de
 %
 %\end{document}
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\ifprof
 %\begin{corrige}
 %\end{corrige}

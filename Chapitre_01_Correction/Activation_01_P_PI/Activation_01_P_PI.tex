@@ -2,7 +2,6 @@
 \def\xxactivite{Activation 1 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
-
 \def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
 \def\xxchapitre{\hspace{.12cm} Correction des systèmes}
 
@@ -28,12 +27,9 @@
 \def\xxtitreexo{Réglage de correcteurs P et PI}
 \def\xxsourceexo{\hspace{.2cm} Ressources de P. Dupas.}
 
+\input{\repRel/Style/pagegarde_TD}
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -51,7 +47,7 @@
 %\subsection*{Correcteur proportionnel}
 %Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(1+10p\right)\left(1+0,1p\right)\left(1+0,2p\right)}$ placé dans une boucle à retour unitaire.
 %
-%\subparagraph{}\textit{Calculer la précision du système $\varepsilon_S$ pour une entrée échelon unitaire.}
+%\question{Calculer la précision du système $\varepsilon_S$ pour une entrée échelon unitaire.}
 %\ifprof
 %\begin{corrige}
 %Le système est de classe 0. L'entrée est de type échelon. $K_{\text{BO}}=1$.
@@ -60,7 +56,7 @@
 %\else
 %\fi
 %
-%\subparagraph{}\textit{Tracer dans  le diagramme de Bode la fonction de transfert en boucle ouverte du système.}
+%\question{Tracer dans  le diagramme de Bode la fonction de transfert en boucle ouverte du système.}
 %\ifprof
 %\begin{corrige}
 %\begin{center}
@@ -71,7 +67,7 @@
 %\fi
 %
 %
-%\subparagraph{}\textit{Déterminer $K$ pour avoir une marge de phase de 45\degres. Indiquer alors la valeur de la marge de gain. Indiquer la valeur de l'écart statique.}
+%\question{Déterminer $K$ pour avoir une marge de phase de 45\degres. Indiquer alors la valeur de la marge de gain. Indiquer la valeur de l'écart statique.}
 %
 %\ifprof
 %\begin{corrige} ~\\
@@ -100,7 +96,7 @@
 %\fi
 %
 %
-%\subparagraph{}\textit{Déterminer $K$ pour avoir une marge de gain de \SI{6}{dB}. Indiquer alors la valeur de l'écart statique.}
+%\question{Déterminer $K$ pour avoir une marge de gain de \SI{6}{dB}. Indiquer alors la valeur de l'écart statique.}
 %\ifprof
 %\begin{corrige}
 %\begin{itemize}
@@ -160,7 +156,7 @@ On donne le diagramme de Bode associé à cette fonction de transfert.
 \end{center}
 
 
-\subparagraph{}\textit{Mesurer puis calculer la marge de phase.}
+\question{Mesurer puis calculer la marge de phase.}
 \ifprof
 \begin{corrige}~\\
 \begin{itemize}
@@ -173,7 +169,7 @@ On trouve $\omega=\SI{2,21}{rad/s}$ et $M_{\varphi}=-60\degres$. Le système est
 \else
 \fi
 
-\subparagraph{}\textit{Mesurer puis calculer la marge de gain.}
+\question{Mesurer puis calculer la marge de gain.}
 \ifprof
 \begin{corrige}
 Pour $\varphi=-180\degres$, on a $\omega=\SI{1}{rad/s}$ et $M_{G}=\SI{-20}{dB}$. Le système est instable.
@@ -181,7 +177,7 @@ Pour $\varphi=-180\degres$, on a $\omega=\SI{1}{rad/s}$ et $M_{G}=\SI{-20}{dB}$.
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer $K_p$ pour avoir une marge de phase de 45\degres. Vérifier la marge de gain. }
+\question{Déterminer $K_p$ pour avoir une marge de phase de 45\degres. Vérifier la marge de gain. }
 \ifprof
 \begin{corrige}
 Pour $\varphi=-135\degres$ on a $\omega=\SI{0,62}{rad/s}$. On trouve un gain proportionnel de 0,054.
@@ -191,7 +187,7 @@ La marge de gain est alors de \SI{5,35}{dB} ce qui est inférieur aux \SI{10}{dB
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer $K_p$ pour avoir une marge de gain de $\SI{10}{dB}$. Vérifier la marge de phase. }
+\question{Déterminer $K_p$ pour avoir une marge de gain de $\SI{10}{dB}$. Vérifier la marge de phase. }
 \ifprof
 \begin{corrige}
 Pour $\varphi=-180\degres$ on a $\omega=\SI{1}{rad/s}$. On trouve un gain proportionnel de 0,316.
@@ -235,7 +231,7 @@ Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(p+1\right)\left(
 
 On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteur proportionnel intégral de la forme $C(p)=K_p\dfrac{1+\tau p}{\tau p}$.
 
-\subparagraph{}\textit{Tracer le diagramme de Bode de la boucle ouverte non corrigée.}
+\question{Tracer le diagramme de Bode de la boucle ouverte non corrigée.}
 \ifprof
 \begin{corrige}
 \begin{center}
@@ -245,7 +241,7 @@ On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteu
 \else
 \fi
 
-\subparagraph{}\textit{Déterminer les paramètres du correcteur pour avoir une marge de phase de 45\degres. }
+\question{Déterminer les paramètres du correcteur pour avoir une marge de phase de 45\degres. }
 
 \ifprof
 \begin{corrige}~\\
@@ -269,7 +265,7 @@ $\omega = \dfrac{9\pm10,63}{2}=\SI{9,82}{rad/s}$.
 \end{corrige}
 \else\fi
 
-\subparagraph{}\textit{Tracer le diagramme de Bode du correcteur et le diagramme de la boucle ouverte corrigée.}
+\question{Tracer le diagramme de Bode du correcteur et le diagramme de la boucle ouverte corrigée.}
 
 \ifprof
 \begin{corrige}~\\
@@ -308,10 +304,10 @@ $\omega = \dfrac{9\pm10,63}{2}=\SI{9,82}{rad/s}$.
 %Soit un système de fonction de transfert $G(p)=\dfrac{100}{\left(p+1\right)^2}$ placé dans une boucle à retour unitaire. On souhaite corrige ce système en utilisant un correcteur à avance de phase de la forme $C(p)=K\dfrac{1+a\tau p}{1+\tau p}$.
 %
 %
-%\subparagraph{}\textit{Tracer le diagramme de Bode de $G(p)$.}
+%\question{Tracer le diagramme de Bode de $G(p)$.}
 %
 %
-%\subparagraph{}\textit{Corriger ce système de sorte que sa marge de phase soit égale à 45\degres.}
+%\question{Corriger ce système de sorte que sa marge de phase soit égale à 45\degres.}
 %\ifprof
 %\begin{corrige}~\\
 %\begin{itemize}
@@ -334,7 +330,7 @@ $\omega = \dfrac{9\pm10,63}{2}=\SI{9,82}{rad/s}$.
 %\fi
 %
 %
-%\subparagraph{}\textit{Tracer le diagramme de Bode du correcteur et le diagramme de la boucle ouverte corrigée.}
+%\question{Tracer le diagramme de Bode du correcteur et le diagramme de la boucle ouverte corrigée.}
 %
 %\noindent
 %\begin{tabular}{|p{.9\linewidth}|}

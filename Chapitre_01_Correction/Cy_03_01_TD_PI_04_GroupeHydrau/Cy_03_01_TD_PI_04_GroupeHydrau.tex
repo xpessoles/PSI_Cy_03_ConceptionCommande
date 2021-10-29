@@ -30,12 +30,9 @@ proportionnel intégral
 \includegraphics[width=.7\linewidth]{fig_00}
 }%figues de la page de garde
 
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
@@ -290,8 +287,7 @@ On envisage tout d’abord un correcteur de type proportionnel : $C(p)=K_p$.
 
 
 
-\subparagraph{}
-\textit{Transformer le schéma-blocs pour se ramener à un système à retour unitaire.}
+\question{Transformer le schéma-blocs pour se ramener à un système à retour unitaire.}
 \ifprof
 \begin{corrige}~\\
 
@@ -302,8 +298,7 @@ On envisage tout d’abord un correcteur de type proportionnel : $C(p)=K_p$.
 \else
 \fi
 
-\subparagraph{}
-\textit{Déterminer, en fonction de $K_p$ , $\varepsilon_{\text{con}}$ définie comme l’erreur statique pour une entrée consigne $P_{\text{con}}$ de type échelon, dans le cas où le débit de fuite est nul.}
+\question{Déterminer, en fonction de $K_p$ , $\varepsilon_{\text{con}}$ définie comme l’erreur statique pour une entrée consigne $P_{\text{con}}$ de type échelon, dans le cas où le débit de fuite est nul.}
 \ifprof
 \begin{corrige}
 Dans ce cas, le système est de classe 0. L'erreur statique est donc de $\varepsilon_{\text{con}}=\dfrac{P_{\text{con}}}{1+K_{\text{cap}}K_pK_mK_{\text{pom}}}$.
@@ -311,8 +306,7 @@ Dans ce cas, le système est de classe 0. L'erreur statique est donc de $\vareps
 \else
 \fi
 
-\subparagraph{}
-\textit{Proposer un réglage de $K_p$ pour limiter $\varepsilon_{\text{con}}$ à la valeur spécifiée dans le  cahier des charges.}
+\question{Proposer un réglage de $K_p$ pour limiter $\varepsilon_{\text{con}}$ à la valeur spécifiée dans le  cahier des charges.}
 \ifprof
 \begin{corrige}
 
@@ -328,8 +322,7 @@ On a donc $K_p>19$.
 \else
 \fi
 
-\subparagraph{}
-\textit{Dans le cas où la consigne de pression est nulle,  déterminer en fonction de $K_p$  $\varepsilon_{\text{pert}}$ définie comme l’erreur statique pour une perturbation $\Delta Q_e$ de type échelon, dans le cas où la consigne de pression est nulle.}
+\question{Dans le cas où la consigne de pression est nulle,  déterminer en fonction de $K_p$  $\varepsilon_{\text{pert}}$ définie comme l’erreur statique pour une perturbation $\Delta Q_e$ de type échelon, dans le cas où la consigne de pression est nulle.}
 \ifprof
 \begin{corrige}
 Dans ce cas, on a toujours un système dont la BO est de classe 1 et : 
@@ -339,8 +332,7 @@ $\varepsilon_{\text{pert}}=\dfrac{\Delta Q_e K_f}{1+K_{\text{cap}}K_pK_mK_{\text
 \else
 \fi
 
-\subparagraph{}
-\textit{Proposer un réglage de $K_p$ pour limiter $\varepsilon_{\text{pert}}$ à la valeur spécifiée au cahier des charges.}
+\question{Proposer un réglage de $K_p$ pour limiter $\varepsilon_{\text{pert}}$ à la valeur spécifiée au cahier des charges.}
 \ifprof
 \begin{corrige}
 Pour $\Delta Q_e = \SI{5}{10^{-4} m^3/s}$ on souhaite $\varepsilon_{\text{pert}} < \SI{40}{bars}$. En conséquence, 
@@ -350,8 +342,7 @@ $\Leftrightarrow  \dfrac{\Delta Q_e K_f -40}{40K_{\text{cap}}K_mK_{\text{pom}}}<
 \else
 \fi
 
-\subparagraph{}
-\textit{Proposer un réglage de $K_p$ pour vérifier le critère d’amortissement.}
+\question{Proposer un réglage de $K_p$ pour vérifier le critère d’amortissement.}
 \ifprof
 \begin{corrige}
 Pour avoir aucun dépassement, il est nécessaire que, si la FTBF du système est d'ordre 2, on ait $\xi\geq 1$. (Si la FTBF est d'ordre 1, il n'y aura pas de dépassement, si la FTBF est d'ordre supérieur à 2 il n'y a pas de résultat connu.)
@@ -385,8 +376,7 @@ En conséquence, $\xi>1\Leftrightarrow \dfrac{\left(T_1+T_2\right)^2-4T_1T_2 }{4
 \fi
 
 
-\subparagraph{}
-\textit{À partir des résultats des questions précédentes, conclure quant au choix d’un correcteur proportionnel.}
+\question{À partir des résultats des questions précédentes, conclure quant au choix d’un correcteur proportionnel.}
 \ifprof
 \begin{corrige}
 On a donc : 
@@ -408,8 +398,7 @@ On se propose de corriger le système avec le correcteur défini sur le schéma-
 \end{center}
 
 
-\subparagraph{}
-\textit{Déterminer la fonction de transfert $C(p)$ de ce correcteur.}
+\question{Déterminer la fonction de transfert $C(p)$ de ce correcteur.}
 \ifprof
 \begin{corrige}
 On a $C(p)=\dfrac{K_i}{p}+K_p = \dfrac{K_i+K_p p}{p}= \dfrac{K_i}{p}\left(1+\dfrac{K_p}{K_i} p\right)$.
@@ -419,8 +408,7 @@ On a $C(p)=\dfrac{K_i}{p}+K_p = \dfrac{K_i+K_p p}{p}= \dfrac{K_i}{p}\left(1+\dfr
 
 
 
-\subparagraph{}
-\textit{Tracer l’allure de son diagramme de Bode en fonction des coefficients $K_i$ et $K_p$.}
+\question{Tracer l’allure de son diagramme de Bode en fonction des coefficients $K_i$ et $K_p$.}
 \ifprof
 \begin{corrige}
 
@@ -428,8 +416,7 @@ On a $C(p)=\dfrac{K_i}{p}+K_p = \dfrac{K_i+K_p p}{p}= \dfrac{K_i}{p}\left(1+\dfr
 \else
 \fi
 
-\subparagraph{}
-\textit{Quelle est l’influence d’un tel correcteur sur la précision et la stabilité ? Justifier.}
+\question{Quelle est l’influence d’un tel correcteur sur la précision et la stabilité ? Justifier.}
 \ifprof
 \begin{corrige}
 L'intégrateur va permettre d'annuler l'erreur (du à la consigne et à la perturbation).
@@ -438,8 +425,7 @@ De plus, suivant le positionnement du correcteur, le déphasage de -90\degres pr
 \else
 \fi
 
-\subparagraph{}
-\textit{Quelle valeur faut-il donner à $\omega_{\SI{0}{dB}}$ pour répondre au critère de rapidité du cahier des charges ?}
+\question{Quelle valeur faut-il donner à $\omega_{\SI{0}{dB}}$ pour répondre au critère de rapidité du cahier des charges ?}
 \ifprof
 \begin{corrige}
 On souhaite que $t_e<\SI{40}{s} \Leftrightarrow \dfrac{3}{\omega_{\SI{0}{dB}}}<40 \Leftrightarrow \dfrac{3}{40}<\omega_{\SI{0}{dB}}$ et donc $\omega_{\SI{0}{dB}}>\SI{0,075}{rad.s^{-1}}$.
@@ -447,8 +433,7 @@ On souhaite que $t_e<\SI{40}{s} \Leftrightarrow \dfrac{3}{\omega_{\SI{0}{dB}}}<4
 \else
 \fi
 
-\subparagraph{}
-\textit{Déterminer alors le rapport $T=K_p/K_i$ pour obtenir la marge de phase spécifiée dans le cahier des charges.} 
+\question{Déterminer alors le rapport $T=K_p/K_i$ pour obtenir la marge de phase spécifiée dans le cahier des charges.} 
 \ifprof
 \begin{corrige}
 On désire une marge de phase de 60\degres. Il faut donc que $\varphi\left( \omega_{\SI{0}{dB}}\right)=-120\degres$.
@@ -460,8 +445,7 @@ $\varphi(\omega)=-90+\arctan\left( \dfrac{K_p}{K_i}\omega \right)-\arctan\left( 
 
 %0,8911
 
-\subparagraph{}
-\textit{En déduire les valeurs de $K_p$ et de $K_i$ qui permettent de régler rapidité et marge de phase.}
+\question{En déduire les valeurs de $K_p$ et de $K_i$ qui permettent de régler rapidité et marge de phase.}
 \ifprof
 \begin{corrige}
 On souhaite que le gain soit nul lorsque $\omega_{\SI{0}{dB}}=\SI{0,075}{rad.s^{-1}}$. 
@@ -497,8 +481,7 @@ On donne ensuite sa réponse temporelle avec et sans débit de fuite pour une pr
 \includegraphics[width=\linewidth]{fig_09}
 \end{center}
 
-\subparagraph{}
-\textit{La réponse du système est-elle satisfaisante au regard du cahier des charges ? Justifier.}
+\question{La réponse du système est-elle satisfaisante au regard du cahier des charges ? Justifier.}
 \ifprof
 \begin{corrige}
 
@@ -513,7 +496,7 @@ On donne ensuite sa réponse temporelle avec et sans débit de fuite pour une pr
 %\end{document}
 %\newpage
 %
-%\subparagraph{}\textit{}
+%\question{}
 %\begin{center}
 %\includegraphics[width=\linewidth]{}
 %%\textit{}
