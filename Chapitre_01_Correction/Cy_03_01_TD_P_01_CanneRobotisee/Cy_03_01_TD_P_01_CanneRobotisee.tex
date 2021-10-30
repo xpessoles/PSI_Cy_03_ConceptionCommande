@@ -320,7 +320,7 @@ Lors d'une marche saine à allure rapide la cadence moyenne est de 113 pas par m
 
 \ifprof
 \begin{corrige}
-Une cadence de 113 pas par minute correspond à une fréquence de marche de l'ordre de $\frac{113}{60} \simeq $ 1,88 Hz.
+Une cadence de 113 pas par minute correspond à une fréquence de marche de l'ordre de $\frac{113}{60} \simeq  \SI{1,88}{Hz}$.
  \end{corrige}
 \fi
 
@@ -578,10 +578,10 @@ Avec cette correction, le système est précis mais les valeurs des marges de ga
 \ifprof
 \begin{corrige}
 La modification de la valeur du gain $K_{\text{corr}}$ n'affecte que la courbe de gain. L'augmentation de $K_{\text{corr}}$ va faire remonter la courbe de gain du système en boucle ouverte. Graphiquement, on observe que c'est le critère sur la marge de Gain qui limite la remonté de la courbe de gain (voir figure ci-dessous). La courbe de gain peut donc être remontée de +15 dB, on relève alors une marge de Gain $M_G \simeq$ 45 dB et une marge de Phase $M_{\phi} \simeq$ 65\degre. \\
-Initialement on avait $K_{\text{corr}}^{init} = 1000$, pour remonter la courbe de gain de +15 dB, il faudra prendre $K_{\text{corr}}^{new}$ tel que : \\
-$20 \times log(K_{\text{corr}}^{new}) = 20 \times log(K_{\text{corr}}^{init}) + 15$\\
-$\Leftrightarrow K_{\text{corr}}^{new} = K_{\text{corr}}^{init} \times 10^{15/20}$\\
-L'application numérique donne $K_{\text{corr}}^{new} \simeq$ 5620. 
+Initialement on avait $K_{\text{corr}}^{\text{init}} = 1000$, pour remonter la courbe de gain de +\SI{15}{dB}, il faudra prendre $K_{\text{corr}}^{\text{new}}$ tel que : \\
+$20 \times \log(K_{\text{corr}}^{\text{new}}) = 20 \times \log(K_{\text{corr}}^{\text{init}}) + 15$\\
+$\Leftrightarrow K_{\text{corr}}^{\text{new}} = K_{\text{corr}}^{\text{init}} \times 10^{15/20}$\\
+L'application numérique donne $K_{\text{corr}}^{\text{new}} \simeq$ 5620. 
  
  
 \begin{center}
@@ -617,10 +617,12 @@ Les figures \ref{fig:reponse_perturbe_corr_PI_gen} donnent la réponse temporell
 \ifprof
 \begin{corrige}
 Avec cette correction la réponse temporelle respecte l'ensemble des critères du cahier des charges :\\
-- le système est stable et $M_G \simeq$ 45 dB et $M_{\phi} \simeq$ 65\degre $ \Rightarrow $ cdcf vérifié,\\
-- le système est précis $ \Rightarrow $ cdcf vérifié,\\
-- système ne présente pas de dépassement $ \Rightarrow $ cdcf vérifié,\\
-- tr$5\% \simeq$ 50 ms $ \Rightarrow $ cdcf vérifié (< 60 ms).\\
+\begin{itemize}
+\item le système est stable et $M_G \simeq \SI{45}{dB}$ et $M_{\phi} \simeq 65\degres  \Rightarrow $ cdcf vérifié;
+\item le système est précis $ \Rightarrow $ cdcf vérifié;
+\item système ne présente pas de dépassement $ \Rightarrow $ cdcf vérifié;
+\item tr$5\% \simeq \SI{50}{ms}  \Rightarrow $ cdcf vérifié (< \SI{60}{ms}).
+\end{itemize}
 Par contre, on relève un courant $I_{mot}^{\text{\text{MAX}}} \simeq$ 35 A. Or la carte ELMO ne supporte qu'un courant maximal de 20 A. Le contrôleur ELMO ne permet donc pas de réaliser cette commande. 
 
 
@@ -724,8 +726,10 @@ Les figures \ref{fig:suivi_pied_orientation_normale} et \ref{fig:suivi_pied_orie
 \ifprof
 \begin{corrige}
 Le cahier des charges stipule comme performance à atteindre pour l'assistance de la marche (cadre Id 7) :\\
-- un écart maximal sur l'angle d'orientation entre la canne et la jambe de 20\degre,\\
-- le respect de l'exigence de suivi du pied, l'appui au sol de la canne doit se situer entre l'avant et l'arrière du pied de la jambe invalide.\\
+\begin{itemize}
+\item un écart maximal sur l'angle d'orientation entre la canne et la jambe de 20\degres;
+\item le respect de l'exigence de suivi du pied, l'appui au sol de la canne doit se situer entre l'avant et l'arrière du pied de la jambe invalide.\\
+\end{itemize}
 Pour les deux allures de marche, l'exigence de suivi de pied est respectée car la courbe de position de la canne reste comprise entre les courbes de position de l'avant du pied et de l'arrière du pied (c'est à la limite de l'avant du pied pour le cas de la marche rapide).\\
 Pour ce qui concerne l'exigence sur l'angle d'orientation, pour les deux allures l'exigence est respectée car les écarts restent inférieurs à 20\degre. Mise à part la phase d'appui en allure normale, l'orientation de la canne est en retard par rapport à l'orientation de la jambe, et ce retard est d'autant plus important que l'allure de la marche est élevée.\\
 On peut donc conclure que ce réglage des paramètres d'asservissement permet de satisfaire les performances liées à la synchronisation de la canne avec le cycle locomoteur à différentes allures.
@@ -754,37 +758,29 @@ On peut donc conclure que ce réglage des paramètres d'asservissement permet de
 
 \ifprof
 \else
+\footnotesize
+\begin{enumerate}
+\item $H_{BO\_1}(p) = K_{\text{BO}}  \frac{1}{p} \frac{1}{1+T_1p}  \frac{1}{1+T_2p} $ avec 
+$\omega_{c1} \simeq \SI{1e4}{rad/s}$ et $T_1 = \SI{0,1}{ms}$, 
+$\omega_{c2} \simeq \SI{1e2}{rad/s}$ et $T_2 = \SI{10}{ms}$. $K_{\text{BO}} = 10^{-30/20} \simeq  \SI{0,032}{s^{-1}}$.
+\item $\SI{1,88}{Hz}$.
+\item .
+\item $H_{\text{BF}}(p)= \frac{1}{1+\frac{1}{K_{\text{BO}}}p}$ et $1/K_{\text{BO}} =\SI{30}{s}$.\\
+\item $K_{\text{corr}} \ge  1500$.
+\item .
+\item $K_{\text{corr}} \leq  1700$.
+\item $tr_{5\%} \simeq  \SI{38}{ms} < \SI{60}{ms}$.
+\item .
+\item $M_G \simeq \SI{60}{dB}$ et une marge de Phase $M_{\varphi} \simeq 50\degres$.
+\item $K_{\text{corr}}^{\text{new}} \simeq 5620$.
+\item .
+\item .
+\item .
+\end{enumerate}
+
+\normalsize
 \end{multicols}
 \fi
 
 
-\ifprof
-\else
-
-
-\begin{center}
-%\includegraphics[width=\linewidth]{ecart}
-%\textit{}
-\end{center}
-
-\begin{center}
-%\includegraphics[width=.9\linewidth]{PositionQuille}
-\end{center}
-
-
-\fi
-%
-%\end{document}
-%
-%\question{}
-%\ifprof
-%\begin{corrige}
-%\end{corrige}
-%\else
-%\fi
-%
-%\begin{center}
-%\includegraphics[width=\linewidth]{fig_04}
-%%\textit{}
-%\end{center}
 
