@@ -49,11 +49,12 @@
 
 La boucle de position est représentée figure ci-dessous. On admet que : 
 \begin{itemize}
-\item $H(p)=\dfrac{\Omega_m(p)}{U_v(p)}=\dfrac{30}{1+5\cdot 10^{-3} p}$;
+\item $H(p)=\dfrac{\Omega_m(p)}{U_v(p)}=\dfrac{K'_m}{1+\tau'_m p}=\dfrac{30}{1+5\cdot 10^{-3} p}$;
 \item $K_r = \SI{4}{V.rad^{-1}}$ : gain du capteur de position;
 \item $K_a$ : gain de l'adaptateur du signal de consigne $\alpha_e(t)$;
 \item le signal de consigne $\alpha_e(t)$ est exprimé en degrés;
-\item le correcteur $C(p)$ est à action proportionnelle de gain réglable $K_c$.
+\item le correcteur $C(p)$ est à action proportionnelle de gain réglable $K_c$;
+\item $N=200$ : rapport de transmission.
 \end{itemize}
 
 \begin{obj}
@@ -146,6 +147,20 @@ de précision imposée par le cahier des charges ? Conclure. }
 \end{corrige}
 \else
 \fi
+
+\footnotesize
+\begin{enumerate}
+\item $R(p)=\dfrac{1}{Np}$.
+\item $K_a = \dfrac{\pi}{180}K_r$.
+\item $T(p)=\dfrac{K_{\text{BO}}}{p\left( 1+\tau'_m p\right)}$ avec $K_{\text{BO}}=\dfrac{K_cK'_m K_r}{N}$.
+\item $K_{\text{BO}}=\dfrac{\sqrt{2}}{\tau'_m}$.
+\item $K_c = \dfrac{\sqrt{2}N}{\tau'_m K'_M K_r}$.
+\item $\varepsilon_S = 0$.
+\item $\alpha_e (p) = \dfrac{105}{p^2}$.
+\item $\varepsilon_d = \dfrac{105 K_a}{K_{\text{BO}}}$.
+\end{enumerate}
+
+\normalsize
 
 
 
