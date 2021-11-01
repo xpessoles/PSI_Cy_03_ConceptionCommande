@@ -89,7 +89,7 @@ $x_v(t)$ de l’organe terminal est représentée par le schéma-blocs suivant.
 \end{itemize}
 
 
-\question{Simplifier le schéma bloc précédant pour lui donner la forme illustrée par la figure suivante.
+\question{Simplifier le schéma-blocs précédant pour lui donner la forme illustrée par la figure suivante.
 Exprimer $H_t(p)$ et $H(p)$ en fonction de $k_e$, $k_a$ et $H_S(p)$.}
 \ifprof
 \begin{corrige}
@@ -104,7 +104,7 @@ Exprimer $H_t(p)$ et $H(p)$ en fonction de $k_e$, $k_a$ et $H_S(p)$.}
 
 Pour la suite du problème, on prendra : $H(p) = \dfrac{1}{m_S p^2 + b_S p + k_e}$.
 
-\subsection*{Vérification des exigences sans correction : $C(p) = 1$}
+\subsection*{Vérification des exigences sans correction : $C(p) =~1$}
 
 \question{Déterminer la fonction de transfert en boucle fermée (avec une perturbation nulle :
 $X^{*}_e(p)=0$) : $F_{\text{BF1}}(p) =\dfrac{X_v(p)}{X_m(p)}$, puis la mettre sous forme canonique de façon à identifier les paramètres caractéristiques : gain statique ($K$), pulsation propre ($\omega_0$) et coefficient d’amortissement
@@ -292,6 +292,21 @@ $\Rightarrow  T< e^{-2}/25$ et $T<\SI{0,005}{s}$.
 \includegraphics[width=1.0\linewidth]{dr_04}
 \end{center}
 
+
+\footnotesize
+\begin{enumerate}
+\item $H(p)=\dfrac{K_aH_s(p)}{1+k_e H_S(p)}$ et $H_t(p)=\dfrac{1}{1+k_e H_s(p)}$.
+\item $K=\dfrac{1}{1+k_e}$, $\omega_0=\sqrt{\dfrac{1+k_e}{m_s}}$, $\xi=\dfrac{b_s}{2\sqrt{m_s\left(1+k_e\right)}}$.
+\item .
+\item .
+\item .
+\item $K_{i \text{max}} = 133$.
+\item $G_{\text{dB max} } = -\SI{30}{dB} $.
+\item $T\leq \SI{0,02}{s}$.
+\item $T\leq \SI{0,4}{ms}$.
+\end{enumerate}
+
+\normalsize
 \end{multicols}
 
 \begin{center}
