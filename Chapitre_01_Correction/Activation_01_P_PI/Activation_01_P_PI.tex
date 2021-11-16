@@ -40,6 +40,7 @@
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -225,13 +226,13 @@ La marge de phase est alors de 70\degres ($\omega=\SI{0,0333}{rad/s})$.
 
 \subsection*{Correcteur proportionnel intégral}
 \textit{D'après ressources P. Dupas.}
-\setcounter{exo}{0}
+\setcounter{numques}{0}
 
 Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(p+1\right)\left(\dfrac{p}{8}+1\right)}$ placé dans une boucle à retour unitaire.
 
 On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteur proportionnel intégral de la forme $C(p)=K_p\dfrac{1+\tau p}{\tau p}$.
 
-\question{Tracer le diagramme de Bode de la boucle ouverte non corrigée.}
+\question{Justifier le diagramme de Bode de la boucle ouverte non corrigée.}
 \ifprof
 \begin{corrige}
 \begin{center}
@@ -239,6 +240,9 @@ On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteu
 \end{center}
 \end{corrige}
 \else
+\begin{center}
+\includegraphics[width=\linewidth]{exo_02_bode}
+\end{center}
 \fi
 
 \question{Déterminer les paramètres du correcteur pour avoir une marge de phase de 45\degres. }

@@ -139,7 +139,7 @@
 \subsection*{Correcteur proportionnel}
 Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(1+10p\right)\left(1+0,1p\right)\left(1+0,2p\right)}$ placé dans une boucle à retour unitaire.
 
-\question{Calculer la précision du système $\varepsilon_S$ pour une entrée échelon unitaire.}
+\question{Déterminer la précision du système $\varepsilon_S$ pour une entrée échelon unitaire.}
 \ifprof
 \begin{corrige}
 Le système est de classe 0. L'entrée est de type échelon. $K_{\text{BO}}=1$.
@@ -148,7 +148,7 @@ L'écart statique est de $\dfrac{1}{1+1}=\dfrac{1}{2}$.
 \else
 \fi
 
-\question{Tracer dans  le diagramme de Bode la fonction de transfert en boucle ouverte du système.}
+\question{Justifier le tracer du diagramme de Bode de la fonction de transfert en boucle ouverte du système.}
 \ifprof
 \begin{corrige}
 \begin{center}
@@ -156,6 +156,9 @@ L'écart statique est de $\dfrac{1}{1+1}=\dfrac{1}{2}$.
 \end{center}
 \end{corrige}
 \else
+\begin{center}
+\includegraphics[width=\linewidth]{01_exo_01_bode}
+\end{center}
 \fi
 
 
@@ -235,22 +238,25 @@ $\varphi\left(\omega\right)=-135\degres \Leftrightarrow \omega = \SI{2,95}{rad.s
 %\end{multicols}
 
 
-\ifprof
-\else
-\begin{center}
-\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
-\end{center}
-\fi
+%\ifprof
+%\else
+%\begin{center}
+%\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
+%\end{center}
+%\fi
 
 
 
 \subsection*{Correcteur à avance de phase}
-\setcounter{exo}{0}
+\setcounter{numques}{0}
 Soit un système de fonction de transfert $G(p)=\dfrac{100}{\left(p+1\right)^2}$ placé dans une boucle à retour unitaire. On souhaite corrige ce système en utilisant un correcteur à avance de phase de la forme $C(p)=K\dfrac{1+a\tau p}{1+\tau p}$.
 
 
-\question{Tracer le diagramme de Bode de $G(p)$.}
+\question{Justifier le tracer du diagramme de Bode de $G(p)$.}
 
+\begin{center}
+\includegraphics[width=\linewidth]{01_exo_01_bode}
+\end{center}
 
 \question{Corriger ce système de sorte que sa marge de phase soit égale à 45\degres.}
 \ifprof
@@ -307,11 +313,11 @@ $\Rightarrow a=-\dfrac{\sin \left(\varphi_{\text{max}}\right)+1}{ \sin \left(\va
 
 \ifprof
 \else
-\begin{center}
-\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
-
-\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
-\end{center}
+%\begin{center}
+%\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
+%
+%\rotatebox{90}{\includegraphics[width=.8\linewidth]{fig_04}}
+%\end{center}
 
 \fi
 
