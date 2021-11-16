@@ -114,7 +114,13 @@ On considère ici que $C(p)=1$. On donne l'abaque des temps de réponse réduit 
 
 \question{Déterminer l'écart en position et l'écart en traînage.}
 
-\question{Tracer le diagramme de Bode de la FTBO.}
+\question{Justifier le tracé du diagramme de Bode de la FTBO non corrigée.}
+\ifprof
+\else
+\begin{center}
+\includegraphics[width=\linewidth]{Bode_FTBO_NC}
+\end{center}
+\fi
 
 \question{Déterminer la marge de gain et la marge de phase.}
 
@@ -151,7 +157,7 @@ On souhaite maintenant corriger le système avec en utilisant une action proport
 \item \SI{218}{s}.
 \item $\varepsilon_P = \dfrac{1}{1+G_{\text{FTBO}}}$ et $\varepsilon_v =\infty$.
 \item .
-\item $M_G = \infty$, $M_{\varphi}=180\degres$.
+\item Système stable (FTBO ordre 2 et critère du Revers respecté) ($M_G \to \infty$, $M_{\varphi}$ non définie$).
 \item $K=9$.
 \item \SI{50}{s}, \item $\varepsilon_P = \dfrac{1}{1+G_{\text{FTBO}}}$ et $\varepsilon_v =\infty$.
 \item $U_a =\SI{450}{V}$.
