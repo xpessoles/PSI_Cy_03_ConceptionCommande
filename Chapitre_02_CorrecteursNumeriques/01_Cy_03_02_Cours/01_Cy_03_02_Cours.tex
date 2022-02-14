@@ -50,12 +50,23 @@
 \subsection{Conversion analogique -- numérique}
 
 \subsection{Conversion numérique -- analogique}
+
+\section{Filtrage numérique}
  
 
 \section{Correcteurs numériques}
  
 \subsection{Correcteur P}
+\begin{defi}{Correcteur proportionnel}
+Dans le domaine temporel, on a $u(t)=K_P \varepsilon(t)$. Cela est traduit par le relation de récurrence suivante : 
+$u_k = K_p \varepsilon_k$.
+\end{defi}
 \subsection{Correcteur PI}
+\begin{defi}{Correcteur proportionnel intégral}
+Dans le domaine temporel, on a $u(t)=K_P  \left(\varepsilon(t)+\dfrac{1}{T_i}\int\limits_0^t \varepsilon(\tau) \dd \tau \right)$. Cela est traduit par le relation de récurrence suivante : 
+$u_k = u_{k-1} K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1} \right)$.
+\end{defi}
+
 \subsection{Correcteur PID}
 
 \section{Limite des correcteurs lors de la commande de systèmes}
