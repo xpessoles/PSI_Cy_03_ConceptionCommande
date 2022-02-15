@@ -37,15 +37,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Rappels sur les caractéristiques des signaux numériques}
+Lors du traitement des signaux par un ordinateur, un microcôntroleur, un automate ou autre dispositif, les signaux analogiques (continues) sont convertis en signaux numériques (discrets) pour être traités. On parle de conversion analogique -- numérique (CAN). 
+L'opération inverse est alors réalisée lorsqu'il est nécessaire de restituer de l'information à l'utilisateur.
+\begin{center}
+\includegraphics[width=.8\linewidth]{CAN_CNA}
+\end{center}
 
 \subsection{Echantillonnage et quantification}
+
 \begin{defi}{Echantillonnage}
+Échantillonner un signal consiste à prélever les valeurs de ce signal à intervalles définis. Si ces intervalles sont réguliers, on note $T_e$ la période d'échantillonnage (en seconde), c'est-à-dire la durée entre deux prélèvements. On note $f_e = \dfrac{1}{T_e}$ la fréquence d'écantillonnage (en Hertz), c'est-à-dire le nombre d'échantillons par seconde.
+
+Si on note e(t) le signal continu, on notera $e_k = e(kT_e)$ la valeur de l'échantillon $e(t)$ à l'instant $kT_e$. 
+
 \end{defi}
-\begin{defi}{Quantification}
-\end{defi}
+
+*** Choix de la période d'échantillonnage***
+
+
 
 \begin{theorem}{Théorème de Shannon}
 \end{theorem}
+
+
+
+\begin{defi}{Quantification}
+\end{defi}
+
 
 \subsection{Conversion analogique -- numérique}
 
@@ -64,10 +82,16 @@ $u_k = K_p \varepsilon_k$.
 \subsection{Correcteur PI}
 \begin{defi}{Correcteur proportionnel intégral}
 Dans le domaine temporel, on a $u(t)=K_P  \left(\varepsilon(t)+\dfrac{1}{T_i}\int\limits_0^t \varepsilon(\tau) \dd \tau \right)$. Cela est traduit par le relation de récurrence suivante : 
-$u_k = u_{k-1} K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1} \right)$.
+$u_k = u_{k-1} +  K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1} \right)$.
 \end{defi}
 
 \subsection{Correcteur PID}
+\begin{defi}{Correcteur proportionnel intégral et dérivé}
+
+Dans le domaine temporel, on a $u(t)=K_P  \left(\varepsilon(t)+\dfrac{1}{T_i}\int\limits_0^t \varepsilon(\tau) \dd \tau +T_d \dfrac{\dd \varepsilon(t)}{\dd t}\right)$. Cela est traduit par le relation de récurrence suivante : 
+$u_k = u_{k-1} + K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}+\dfrac{T_d}{T_e}\right) - \varepsilon_{k-1} \left( 1+\dfrac{T_d}{T_e}\right)\right)$.
+\end{defi}
+
 
 \section{Limite des correcteurs lors de la commande de systèmes}
 
