@@ -57,11 +57,22 @@ Si on note e(t) le signal continu, on notera $e_k = e(kT_e)$ la valeur de l'éch
 
 
 \begin{theorem}{Théorème de Shannon}
+Soit un signal périodique décomposable en signaux périodiques dont la fréquence maximale présente est largement supérieure à celle minimale présente.
+La représentation discrète d’un signal par des échantillons régulièrement espacés exige une fréquence d’échantillonnage supérieure au double de la fréquence maximale présente dans ce signal.
 \end{theorem}
+*** Conséquences du théorème Shannon *** 
 
 
 
 \begin{defi}{Quantification}
+Quantifier in signal consiste à approcher un signal continu par les valeurs d'un ensemble discret. 
+
+En général, le système étant échantilloné sur un système binaire sur $N$ bits, on peut donc approcher le signal par $2^N$ valeurs discrètes.
+\end{defi}
+
+\begin{defi}{Erreur de quantification}
+Soit un signal continu borné entre les valeurs $e_{\text{min}}$ et $e_{\text{max}}$ échantilloné sur $N$ bits. Le pas de quantification donne aussi l'erreur maximala de quantification. On a $q = \dfrac{e_{\text{max}}-e_{\text{min}}}{2^N}$.
+
 \end{defi}
 
 
@@ -70,7 +81,9 @@ Si on note e(t) le signal continu, on notera $e_k = e(kT_e)$ la valeur de l'éch
 \subsection{Conversion numérique -- analogique}
 
 \section{Filtrage numérique}
- 
+\subsection{Filtrage numérique passe-bas}
+
+\subsection{Filtrage numérique à moyenne glissante} 
 
 \section{Correcteurs numériques}
  
