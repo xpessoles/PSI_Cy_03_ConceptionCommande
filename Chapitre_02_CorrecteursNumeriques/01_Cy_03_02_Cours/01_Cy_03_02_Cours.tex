@@ -53,7 +53,7 @@ Si on note e(t) le signal continu, on notera $e_k = e(kT_e)$ la valeur de l'éch
 \end{defi}
 
 \begin{center}
-\includegraphics[width=.8\linewidth]{echantillonnage}
+\includegraphics[width=.8\linewidth]{fig_03}
 \end{center}
 
 \begin{theorem}{\small{\textsf{\textbf{Théorème de Shannon}}}} ~\\
@@ -63,7 +63,7 @@ La représentation discrète d’un signal par des échantillons régulièrement
 
 Dans le cas suivant, le signal est sinusoïdal de fréquence $\SI{1}{Hz}$. Avec un échantillonnage de \SI{1}{Hz} ou \SI{2}{Hz}, on prélève le signal lorsqu'il est nul. Il est donc opportun de prendre une fréquence d'échantillonnage plus grande afin de ne pas perdre d'information. 
 \begin{center}
-\includegraphics[width=.8\linewidth]{shannon}
+\includegraphics[width=.8\linewidth]{fig_04}
 \end{center}
 
 
@@ -75,6 +75,13 @@ Quantifier in signal consiste à approcher un signal continu par les valeurs d'u
 En général, le système étant échantilloné sur un système binaire sur $N$ bits, on peut donc approcher le signal par $2^N$ valeurs discrètes.
 \end{defi}
 
+La figure ci-dessous illustre un signal échantillonné à \SI{7}{Hz}. Il a ensuite été numérisé selon 4 niveaux de quantication. Plus le nombre de bits de codage est élevé, plus l'erreur entre signal numérisé et signal initial est faible.
+ 
+\begin{center}
+\includegraphics[width=.8\linewidth]{fig_05}
+\end{center}
+
+
 \begin{defi}{Erreur de quantification}
 Soit un signal continu borné entre les valeurs $e_{\text{min}}$ et $e_{\text{max}}$ échantilloné sur $N$ bits. Le pas de quantification donne aussi l'erreur maximala de quantification. On a $q = \dfrac{e_{\text{max}}-e_{\text{min}}}{2^N}$.
 
@@ -82,6 +89,12 @@ Soit un signal continu borné entre les valeurs $e_{\text{min}}$ et $e_{\text{ma
 
 
 \subsection{Conversion analogique -- numérique}
+La conversion analogique consiste, lors de l'acquisition d'un signal, à léchantillonner et le  numériser. 
+\begin{defi}{Signal numérique}
+
+Un signal numérique est un système échantillonné et quantifié. 
+
+\end{defi}
 
 \subsection{Conversion numérique -- analogique}
 
