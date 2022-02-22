@@ -112,6 +112,17 @@ On a  $s(t)+\tau \deriv{s(t)}{} = e(t)$. En approximant $\deriv{s(t)}{}$ par $\d
 
 \section{Correcteurs numériques}
  
+ Les systèmes asservis utilisés sont en réalité le plus souvent numérique. Ainsi, le calcul de l'écart et la correction sont 
+ réalisés sous formes numériques par le microcontrôleur, la carte d'axe ou l'automate. 
+ 
+ \begin{center}
+\includegraphics[width=\linewidth]{fig_02}
+\end{center}
+
+Ainsi le correcteur numérique va devoir synthétiser la commande numérique $u_k$ en fonction de l'écart $\varepsilon_k$. 
+
+
+ 
 \subsection{Correcteur P}
 \begin{defi}{Correcteur proportionnel}
 Dans le domaine temporel, on a $u(t)=K_P \varepsilon(t)$. Cela est traduit par le relation de récurrence suivante : 
@@ -123,12 +134,47 @@ Dans le domaine temporel, on a $u(t)=K_P  \left(\varepsilon(t)+\dfrac{1}{T_i}\in
 $u_k = u_{k-1} +  K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1} \right)$.
 \end{defi}
 
+\begin{demo}
+Pour déterminer la relation de récurrence, il faut calculer $\int\limits_0^t \varepsilon(\tau) \dd \tau$. 
+Pour cela, si on utilise la méthode des rectangles à droite, on a 
+$\int\limits_0^t \varepsilon(\tau) \dd \tau \simeq \sum\limits_{j=1}^k \varepsilon_k T_e$; donc 
+$u_k = K_p\left(\varepsilon_k + \dfrac{T_e}{T_i}\sum\limits_{j=1}^k \varepsilon_j T_e\right)$.
+
+Par ailleurs, à l'instant $k-1$, $u_{k-1} = K_p\left(\varepsilon_{k-1} + \dfrac{T_e}{T_i}\sum\limits_{j=1}^{k-1} \varepsilon_j \right)$
+
+
+Cherchons une relation entre $u_{k-1}$ et $u_{k}$ : 
+$u_k = K_p\left(\varepsilon_k + \dfrac{T_e}{T_i}\sum\limits_{j=1}^{k-1} \left(\varepsilon_j \right) + \dfrac{T_e}{T_i} \varepsilon_k \right)$
+
+$= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right)+ \dfrac{T_e}{T_i}\sum\limits_{j=1}^{k-1} \left(\varepsilon_j \right) + \varepsilon_{k-1} - \varepsilon_{k-1}\right)$
+
+$= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1}\right)
++ K_p\left(\dfrac{T_e}{T_i}\sum\limits_{j=1}^{k-1} \left(\varepsilon_j \right) + \varepsilon_{k-1} \right) $
+$= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1}\right) + u_{k-1} $. \textit{CQFD.}
+\end{demo}
+
+
 \subsection{Correcteur PID}
 \begin{defi}{Correcteur proportionnel intégral et dérivé}
 
 Dans le domaine temporel, on a $u(t)=K_P  \left(\varepsilon(t)+\dfrac{1}{T_i}\int\limits_0^t \varepsilon(\tau) \dd \tau +T_d \dfrac{\dd \varepsilon(t)}{\dd t}\right)$. Cela est traduit par le relation de récurrence suivante : 
 $u_k = u_{k-1} + K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}+\dfrac{T_d}{T_e}\right) - \varepsilon_{k-1} \left( 1+\dfrac{T_d}{T_e}\right)\right)$.
+
 \end{defi}
+
+\begin{demo}
+On a déjà vu que pour un correcteur PI, $u_k = K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1}\right) + u_{k-1} $.
+
+Par ailleurs, $T_d  \dfrac{\dd \varepsilon(t)}{\dd t} \simeq T_d  \dfrac{\varepsilon_k -\varepsilon_{k-1}}{T_e}$. 
+On a donc 
+ $u_k = K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1}\right) + u_{k-1}  + K_p  T_d  \dfrac{\varepsilon_k -\varepsilon_{k-1}}{T_e} $
+ 
+
+$= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}\right) - \varepsilon_{k-1} +  T_d  \dfrac{\varepsilon_k -\varepsilon_{k-1}}{T_e}\right) + u_{k-1}   $
+
+$= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}+\dfrac{T_d}{T_e}\right) - \varepsilon_{k-1}\left( 1+\dfrac{T_d}{T_e}\right) \right) + u_{k-1}   $
+
+\end{demo}
 
 
 \section{Limite des correcteurs lors de la commande de systèmes}
