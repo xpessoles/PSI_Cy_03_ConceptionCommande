@@ -99,6 +99,9 @@ Un signal numérique est un système échantillonné et quantifié.
 \subsection{Conversion numérique -- analogique}
 
 \section{Filtrage numérique}
+Lors de l'acquisition de signaux, le signal numérique issu du convertsisseur numérique est (quasiment toujours) bruité. 
+De ce fait, il est nécessaire de le filtrer pour supprimer ce bruit, sans pour autant déformer le signal utilie. 
+
 \begin{defi}{Filtrage numérique}~\\
 \begin{minipage}[c]{.7\linewidth}
 Soit $e_k$ un signal discret. Soit $s_k$ un signal discret filtré. $k\in \mathbb{N}$ est le numéro de l'échantillon. On appelle filtrage numérique l'opération mathématique permettant de filtrer un signal, c'est-à-dire d'éliminer certaines composantes harmoniques. 
@@ -114,7 +117,7 @@ Soit $e_k$ un signal discret. Soit $s_k$ un signal discret filtré. $k\in \mathb
 \begin{defi}{Filtre passe-bas du premier ordre}~\\
 On donne l'équation différentielle d'un filtre du premier ordre : $s(t)+\tau \deriv{s(t)}{} = e(t)$.  $T_e$ est la période d'échantillonnage du système. La pulsation de coupure à $-\SI{3}{dB}$ du filtre est donné par $\omega_c = \dfrac{1}{\tau}$.
 
-On montre que $s_k = \dfrac{T_e}{T_e+\tau} e_k + \dfrac{\tau}{T_e+\tau} s_{k-1}$. 
+On montre que $s_k = \dfrac{T_e}{T_e+\tau} e_k + \dfrac{\tau}{T_e+\tau} s_{k-1}$ avec $T_e$ période d'échantillonnage du système.  
 \end{defi}
 
 \begin{demo}
@@ -122,8 +125,8 @@ On a  $s(t)+\tau \deriv{s(t)}{} = e(t)$. En approximant $\deriv{s(t)}{}$ par $\d
  $s_k +\tau \dfrac{s_k - s_{k-1}}{T_e} = e_k$
  $\Leftrightarrow s_k \left(1+\dfrac{\tau}{T_e}\right) - s_{k-1}\dfrac{\tau}{T_e} = e_k$
  $\Leftrightarrow s_k \dfrac{T_e+\tau}{T_e}  = e_k + s_{k-1}\dfrac{\tau}{T_e}$
-  $\Leftrightarrow s_k   = e_k \dfrac{T_e}{T_e+\tau}+ s_{k-1}\dfrac{\tau}{T_e}\dfrac{T_e}{T_e+\tau}$
-   $\Leftrightarrow s_k   = e_k \dfrac{T_e}{T_e+\tau}+ s_{k-1}\dfrac{\tau}{T_e+\tau}$.
+ $\Leftrightarrow s_k   = e_k \dfrac{T_e}{T_e+\tau}+ s_{k-1}\dfrac{\tau}{T_e}\dfrac{T_e}{T_e+\tau}$
+ $\Leftrightarrow s_k   = e_k \dfrac{T_e}{T_e+\tau}+ s_{k-1}\dfrac{\tau}{T_e+\tau}$.
 \end{demo}
 
 \subsection{Filtrage numérique à moyenne glissante} 
