@@ -97,6 +97,13 @@ Un signal numérique est un système échantillonné et quantifié.
 \end{defi}
 
 \subsection{Conversion numérique -- analogique}
+Le plus souvent, la conversion numérique -- analogique a pour but de synthétiser un signal de commande. Il va donc falloir passé d'un système quantifié échantillonné à un signal analogique. Le plus souvent, on utilise un bloqueur qui va maintenir la valeur $u_k$ de l'instant $k$ à l'instant $k+1$ (c'est à dire pendant la durée de la période d'échantillonnage $T_e$). 
+
+Mathématiquement, on utilise un bloqueur d'ordre 0 dont la fonction de transfert $B_0(p)$ est $B_0(p)=\dfrac{1-e^{-T_e p}}{p}$.
+
+\begin{center}
+\includegraphics[width=.8\linewidth]{fig_06_CNA}
+\end{center}
 
 \section{Filtrage numérique}
 Lors de l'acquisition de signaux, le signal numérique issu du convertsisseur numérique est (quasiment toujours) bruité. 
@@ -129,7 +136,35 @@ On a  $s(t)+\tau \deriv{s(t)}{} = e(t)$. En approximant $\deriv{s(t)}{}$ par $\d
  $\Leftrightarrow s_k   = e_k \dfrac{T_e}{T_e+\tau}+ s_{k-1}\dfrac{\tau}{T_e+\tau}$.
 \end{demo}
 
+\begin{minipage}[c]{.48\linewidth}
+Caractéristiques du signal bruité :
+\begin{itemize}
+\item $s(t)=\sin(t) + 0,1\sin(2\pi \times 10 t)+ 0,05\sin(2\pi \times 100 t)$.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[c]{.48\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{fig_07_filtrePB.png}
+\end{center}
+\end{minipage}
+
+
 \subsection{Filtrage numérique à moyenne glissante} 
+Pour réaliser un filtrage à moyenne glissante, le signal filtré $f_k$ à l'instant $k$ est égale à le moyenne des $N$ précédentes valeurs du signal $s_k$. On a donc, $\forall k \geq N-1, f_k = \dfrac{1}{N}\sum\limits_{i=0}^{N-1} s_{k-i}$.
+
+Pendant les $N-1$ premiers instants le signal filtré est donc à l'état nul. Ce filtre induit donc un retard temporel.
+
+\begin{minipage}[c]{.48\linewidth}
+Caractéristiques du signal bruité :
+\begin{itemize}
+\item $s(t)=\sin(t) + 0,1\sin(2\pi \times 10 t)+ 0,05\sin(2\pi \times 100 t)$.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[c]{.48\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{fig_08_moyenneg.png}
+\end{center}
+\end{minipage}
 
 \section{Correcteurs numériques}
  
