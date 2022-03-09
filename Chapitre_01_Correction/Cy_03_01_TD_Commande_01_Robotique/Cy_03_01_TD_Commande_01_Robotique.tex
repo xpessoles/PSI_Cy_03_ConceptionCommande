@@ -188,8 +188,7 @@ X_F \\ Z_F
 \fi
 
 
-\subparagraph{}
-\textit{Calculer les couples $(C_1,C_2)$ exercés par les actionneurs sur les axes des articulations dans le cas où
+\question{Calculer les couples $(C_1,C_2)$ exercés par les actionneurs sur les axes des articulations dans le cas où
 l’on n’exerce pas de force à l’extrémité du solide \{Avant-bras\} ($X_F = 0$, $Z_F = 0$) et dans une position statique. Discuter de la configuration angulaire la plus défavorable vis-à-vis du cahier des charges.}
 \ifprof
 \begin{corrige}
@@ -198,8 +197,7 @@ l’on n’exerce pas de force à l’extrémité du solide \{Avant-bras\} ($X_F
 \fi
 
 
-\subparagraph{}
-\textit{Compte-tenu du cahier des charges, quelle charge statique maximale peut-on exercer sur l’extrémité du solide \{Avant-bras\} ?}
+\question{Compte-tenu du cahier des charges, quelle charge statique maximale peut-on exercer sur l’extrémité du solide \{Avant-bras\} ?}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -233,9 +231,7 @@ Le principe de cette loi de commande est donné par la structure représentée p
 \includegraphics[width=1.0\linewidth]{fig_07}
 \end{center}
 
-
-\subparagraph{}
-\textit{Donner au moins un argument, en particulier vis-à-vis du cahier des charges souhaité, de l’intérêt de la
+\question{Donner au moins un argument, en particulier vis-à-vis du cahier des charges souhaité, de l’intérêt de la
 boucle interne correspondant à la loi non linéaire donnée précédemment.}
 
 Pour la synthèse de la loi de commande, il est nécessaire de linéariser le modèle dynamique autour d’un point
@@ -250,8 +246,7 @@ $\ddot{q}= U + N\left(q, \dot{q}, F\right)$, où $N\left(q, \dot{q}, F\right) = 
 
 
 
-\subparagraph{}
-\textit{Préciser l’expression de la matrice $M$ en fonction de $A$ et de $Q$.}
+\question{Préciser l’expression de la matrice $M$ en fonction de $A$ et de $Q$.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -260,8 +255,7 @@ $\ddot{q}= U + N\left(q, \dot{q}, F\right)$, où $N\left(q, \dot{q}, F\right) = 
 
 
 
-\subparagraph{}
-\textit{Donner, par exemple sous forme algorithmique, une démarche permettant de linéariser le modèle dynamique selon la forme $\ddot{q}_1 = \tilde{A}q_1+\tilde{B}\dot{q}_1+\tilde{G}u+\tilde{H}f$ où $\tilde{A}$, $\tilde{B}$, $\tilde{G}$ et $\tilde{H}$ sont des matrices constantes, éventuellement
+\question{Donner, par exemple sous forme algorithmique, une démarche permettant de linéariser le modèle dynamique selon la forme $\ddot{q}_1 = \tilde{A}q_1+\tilde{B}\dot{q}_1+\tilde{G}u+\tilde{H}f$ où $\tilde{A}$, $\tilde{B}$, $\tilde{G}$ et $\tilde{H}$ sont des matrices constantes, éventuellement
 dépendantes du point de fonctionnement.}
 \ifprof
 \begin{corrige}
@@ -312,7 +306,7 @@ commande au point de fonctionnement ne fait pas partie du cadre de cette étude.
 
 
 
-\subparagraph{}\textit{En justifiant la réponse, étudier la stabilité du modèle donné ci-dessus.}
+\question{En justifiant la réponse, étudier la stabilité du modèle donné ci-dessus.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -320,7 +314,7 @@ commande au point de fonctionnement ne fait pas partie du cadre de cette étude.
 \fi
 
 
-\subparagraph{}\textit{En utilisant un raisonnement qualitatif (sans calcul), et en supposant que le système bouclé est stable, justifier qu’une régulation de type proportionnelle-intégrale (sur chaque composante des positions du bras) :
+\question{En utilisant un raisonnement qualitatif (sans calcul), et en supposant que le système bouclé est stable, justifier qu’une régulation de type proportionnelle-intégrale (sur chaque composante des positions du bras) :
 $\dfrac{U_1(p)}{\varepsilon_1(p)}=K_1\left(1+\dfrac{1}{T_1 p}\right)$
 et
 $\dfrac{U_2(p)}{\varepsilon_2(p)}=K_2\left(1+\dfrac{1}{T_2 p}\right)$
@@ -355,7 +349,7 @@ Par souci de simplicité, on pourra utiliser $q_{1\text{ref}}=0$ et $\dot{q}_{1\
 
 
 
-\subparagraph{}\textit{Déterminer les coefficients des matrices $K_p$ et $K_v$ afin que le comportement entrée-sortie entre les positions du bras et de l’avant bras, et les forces exercées par le patient, soit celui de fonctions du deuxième ordre :
+\question{Déterminer les coefficients des matrices $K_p$ et $K_v$ afin que le comportement entrée-sortie entre les positions du bras et de l’avant bras, et les forces exercées par le patient, soit celui de fonctions du deuxième ordre :
 $\dfrac{\gamma_1(p)}{Z_F(p)}=\dfrac{K_1}{1+\dfrac{2\xi}{\omega_1}p+\dfrac{p^2}{\omega_1^2}}$ 
 et 
 $\dfrac{\delta_1(p)}{Z_F(p)}=\dfrac{K_2}{1+\dfrac{2\xi}{\omega_2}p+\dfrac{p^2}{\omega_2^2}}$
@@ -375,8 +369,7 @@ Les figures suivantes montrent un ensemble de résultats correspondant à deux t
 et des couples sur les axes des articulations, en réponse à une variation intervenant à $t_0 = \SI{1}{s}$ de la force $z_F = \Delta Z_F = -\SI{1}{N}$;
 \item la seconde figure montre le ralliement à une position de référence avec des efforts constants, $X_F = \SI{50}{N}$ et $Z_F = -\SI{50}{N}$ en partant de conditions initiales nulles.
 \end{itemize}
-\subparagraph{}\textit{
-Commenter ces courbes et conclure sur l’adéquation de la loi de commande proposée comparativement au cahier
+\question{Commenter ces courbes et conclure sur l’adéquation de la loi de commande proposée comparativement au cahier
 des charges.}
 \ifprof
 \begin{corrige}
