@@ -150,11 +150,13 @@ Caractéristiques du signal bruité :
 
 
 \subsection{Filtrage numérique à moyenne glissante} 
+
+
+\begin{minipage}[c]{.48\linewidth}
 Pour réaliser un filtrage à moyenne glissante, le signal filtré $f_k$ à l'instant $k$ est égale à le moyenne des $N$ précédentes valeurs du signal $s_k$. On a donc, $\forall k \geq N-1, f_k = \dfrac{1}{N}\sum\limits_{i=0}^{N-1} s_{k-i}$.
 
 Pendant les $N-1$ premiers instants le signal filtré est donc à l'état nul. Ce filtre induit donc un retard temporel.
 
-\begin{minipage}[c]{.48\linewidth}
 Caractéristiques du signal bruité :
 \begin{itemize}
 \item $s(t)=\sin(t) + 0,1\sin(2\pi \times 10 t)+ 0,05\sin(2\pi \times 100 t)$.
@@ -232,14 +234,14 @@ $= K_p\left(\varepsilon_k \left(1+\dfrac{T_e}{T_i}+\dfrac{T_d}{T_e}\right) - \va
 
 \end{demo}
 
-
-\section{Limite des correcteurs lors de la commande de systèmes}
-
-\begin{thebibliography}{2}
-%   \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
-%   \bibitem[2]{ref2} Florestan Mathurin, {\it Correction des SLCI, Lycée Bellevue, Toulouse, \url{http://florestan.mathurin.free.fr/}.}
-%   \bibitem[3]{ref3} Damien Iceta, David Violeau, Alain Caignot, Xavier Pessoles, Vincent Boyer, François Golanski, {\it Sciences industrielles de l'ingénieur MP/MP* PSI/PSI* PT/PT*, Méthodes. Exercices. Problèmes. Sujets de concours. Vuibert Prépas.}
-\end{thebibliography}
+%
+%\section{Limite des correcteurs lors de la commande de systèmes}
+%
+%\begin{thebibliography}{2}
+%%   \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
+%%   \bibitem[2]{ref2} Florestan Mathurin, {\it Correction des SLCI, Lycée Bellevue, Toulouse, \url{http://florestan.mathurin.free.fr/}.}
+%%   \bibitem[3]{ref3} Damien Iceta, David Violeau, Alain Caignot, Xavier Pessoles, Vincent Boyer, François Golanski, {\it Sciences industrielles de l'ingénieur MP/MP* PSI/PSI* PT/PT*, Méthodes. Exercices. Problèmes. Sujets de concours. Vuibert Prépas.}
+%\end{thebibliography}
 
 
 
