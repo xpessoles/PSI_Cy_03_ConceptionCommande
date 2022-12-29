@@ -23,16 +23,10 @@
 
 
 \def\xxfigures{
-%\includegraphics[width=3cm]{SoloWheel_Orbit}%
-%\\
-%\textit{SoloWheel Orbit.}
 }%figues de la page de garde
 
 
 \input{\repStyle/new_pagegarde}
-
-\setlength{\columnseprule}{.1pt}
-
 \vspace{2cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
@@ -94,10 +88,8 @@ Au vue de ces conclusions, le choix d'un correcteur se fera dans le domaine fré
 
 \section{Le correcteur proportionnel}
 
-\begin{defi}
-
+\begin{defi}{}
 Le correcteur proportionnel a pour fonction de transfert $C(p)=K$.
-
 \end{defi}
 
 Prenons le cas d'un système du second ordre bouclé ($K=15$, $\xi=3$, $\omega=1$).
@@ -178,7 +170,7 @@ Pour un système d'ordre supérieur à 2, l'augmentation du gain provoque une ma
 \subsection{Le correcteur intégral pur}
 
 \noindent\begin{minipage}[c]{.49\linewidth}
-\begin{defi}  ~\\
+\begin{defi}{}  ~\\
 
 Un correcteur intégral pur a pour fonction de transfert $C(p)=\dfrac{U(p)}{\varepsilon(p)}=\dfrac{1}{T_i p}$.
 
@@ -209,7 +201,7 @@ Le déphasage de -90\degres sur tout le spectre de pulsation entraîne une rédu
 \subsection{Le correcteur proportionnel intégral}
 
 \noindent\begin{minipage}[c]{.49\linewidth}
-\begin{defi} ~\\
+\begin{defi}{} ~\\
 
 Un correcteur intégral pur a pour fonction de transfert $C(p)=\dfrac{U(p)}{\varepsilon(p)}=K\left( 1+\dfrac{1}{T_i p}\right)$.
 
@@ -255,7 +247,7 @@ Une autre possibilité pour régler $T_i$ est de réaliser \textbf{une compensat
 
 
 \noindent\begin{minipage}[c]{.49\linewidth}
-\begin{defi} ~\\
+\begin{defi}{} ~\\
 
 Un correcteur à avance de phase a pour fonction de transfert $C(p)=\dfrac{U(p)}{\varepsilon(p)}=K\dfrac{1+a\tau p}{1+\tau p}$ avec $\alpha>1$.
 

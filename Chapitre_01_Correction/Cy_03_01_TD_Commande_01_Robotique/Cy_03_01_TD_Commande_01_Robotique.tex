@@ -1,5 +1,5 @@
 %%%% Paramétrage du TD %%%%
-\def\xxactivite{TD 1 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxactivite{TD 10 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 
@@ -8,19 +8,14 @@
 
 
 \def\xxcompetences{%
-\vspace{-.3cm}
 \textsl{%
-\textbf{Savoirs et compétences :}\\
-\vspace{-.4cm}
-\begin{itemize}[label=\ding{112},font=\color{ocre}] 
-%\item \textit{Res1.C4 : } Correction
-\item \textit{Res1.C4.SF1 : } Proposer la démarche de réglage d’un correcteur proportionnel, 
-proportionnel intégral 
-%et à avance de phase
-\item \textit{Con.C2 : } 	Correction d’un système asservi	
-%\item \textit{Con.C2.SF1 : } Choisir un type de correcteur adapté
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
 \end{itemize}
 }}
+
 
 \def\xxtitreexo{La robotique au service du handicap}
 \def\xxsourceexo{\hspace{.2cm} Centrale Supélec -- PSI 2010}
@@ -31,27 +26,28 @@ proportionnel intégral
 }%figues de la page de garde
 
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
+\input{\repRel/Style/pagegarde_TD}
+
+\setcounter{numques}{0}
+
 \setlength{\columnseprule}{.1pt}
 
 \pagestyle{fancy}
 \thispagestyle{plain}
 
-\vspace{4.9cm}
+\vspace{4.7cm}
 
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
-%%%%%%%%%%%%%%%%%%%%%%%
-
 \setcounter{exo}{0}
-\begin{multicols}{2}
 
-%\section*{}
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
+\fi
+
 
 \subsection*{Synthèse d’une loi de commande pour l’exosquelette}
 
