@@ -196,8 +196,8 @@ $u_k = u_{k-1} +  K_p \left( \varepsilon_k \left( 1+\dfrac{T_e}{T_i}\right) - \v
 \begin{demo}
 Pour déterminer la relation de récurrence, il faut calculer $\int\limits_0^t \varepsilon(\tau) \dd \tau$. 
 Pour cela, si on utilise la méthode des rectangles à droite, on a 
-$\int\limits_0^t \varepsilon(\tau) \dd \tau \simeq \sum\limits_{j=1}^k \varepsilon_k T_e$; donc 
-$u_k = K_p\left(\varepsilon_k + \dfrac{T_e}{T_i}\sum\limits_{j=1}^k \varepsilon_j T_e\right)$.
+$\int\limits_0^t \varepsilon(\tau) \dd \tau \simeq \sum\limits_{j=1}^k \varepsilon_j T_e$; donc 
+$u_k = K_p\left(\varepsilon_k + \dfrac{T_e}{T_i}\sum\limits_{j=1}^k \varepsilon_j \right)$.
 
 Par ailleurs, à l'instant $k-1$, $u_{k-1} = K_p\left(\varepsilon_{k-1} + \dfrac{T_e}{T_i}\sum\limits_{j=1}^{k-1} \varepsilon_j \right)$
 
