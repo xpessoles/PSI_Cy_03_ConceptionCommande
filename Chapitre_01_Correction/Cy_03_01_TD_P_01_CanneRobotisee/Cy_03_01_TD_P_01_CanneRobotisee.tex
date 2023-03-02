@@ -751,6 +751,8 @@ On peut donc conclure que ce réglage des paramètres d'asservissement permet de
 
 \ifprof
 \else
+\ifcolle
+\else
 \footnotesize
 \begin{enumerate}
 \item $H_{BO\_1}(p) = K_{\text{BO}}  \frac{1}{p} \frac{1}{1+T_1p}  \frac{1}{1+T_2p} $ avec 
@@ -770,8 +772,9 @@ $\omega_{c2} \simeq \SI{1e2}{rad/s}$ et $T_2 = \SI{10}{ms}$. $K_{\text{BO}} = 10
 \item .
 \item .
 \end{enumerate}
-
 \normalsize
+\fi
+
 \end{multicols}
 \fi
 
