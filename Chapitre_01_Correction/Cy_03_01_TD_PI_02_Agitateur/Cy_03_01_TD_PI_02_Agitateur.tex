@@ -1,5 +1,5 @@
 %%%% Paramétrage du TD %%%%
-\def\xxactivite{TD 3 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxactivite{\ifcolle Colle 1 \else TD 3 \fi  \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 
@@ -127,7 +127,7 @@ On envisage une première correction en utilisant un correcteur proportionnel de
 
 \question{En déduire le temps de réponse à 5\%, l'écart en position et l'écart de traînage.}
 
-\question{Déterminez alors, la tension en sortie de l'amplificateur , si on envoie un échelon de tension de consigne $U_{tc}$ de \SI{5}{V}. Le gain de l'amplificateur étant de 10, critiquez vos résultats.}
+\question{Déterminez alors, la tension en sortie de l'amplificateur , si on envoie un échelon de tension de consigne $U_{\text{tc}}$ de \SI{5}{V}. Le gain de l'amplificateur étant de 10, critiquez vos résultats.}
 
 On souhaite maintenant corriger le système avec en utilisant une action proportionnelle intégrale $C(p)=\dfrac{K}{T_i p}\left( 1+T_i p\right)$. On utilise pour cela la méthode des compensation de pôles. 
 
