@@ -85,7 +85,19 @@ $x_v(t)$ de l’organe terminal est représentée par le schéma-blocs suivant.
 \question{Simplifier le schéma-blocs précédant pour lui donner la forme illustrée par la figure suivante.
 Exprimer $H_t(p)$ et $H(p)$ en fonction de $k_e$, $k_a$ et $H_S(p)$.}
 \ifprof
-\begin{corrige}
+\begin{corrige} (Il faudrait faire un schéma :))
+On commence par décaler le sommateur de droite vers la gauche. Il faut donc ajouter un bloc $\dfrac{1}{H_s(p) }$ dans la perturbation. 
+
+On a alors le bloc $C(p)$, le bloc $\indice{H}{ad}(p)$, le sommateur et une FTBF : $F(p)=\dfrac{H_S(p)}{1+k_eH_s(p)}$.
+
+On redécale le sommateur vers la gauche. 
+
+On a donc $H(p)=\indice{H}{ad}(p) F(p) = \dfrac{ \indice{H}{ad}(p) H_S(p)}{1+k_eH_s(p)}$ et le bloc   $\dfrac{1}{H_s(p) \indice{H}{ad}(p)}$  dans la perturbation. 
+
+On redécale la perturbation vers la droite et $H_t(p)=  \dfrac{H(p)}{H_s(p) \indice{H}{ad}(p)} =  \dfrac{1}{1+k_eH_s(p)}$.
+
+Conclusion : $H(p)= \dfrac{ \indice{H}{ad}(p) H_S(p)}{1+k_eH_s(p)}$ et 
+$H_t(p)=  \dfrac{1}{1+k_eH_s(p)}$.
 \end{corrige}
 \else
 \fi
@@ -104,6 +116,13 @@ $X^{*}_e(p)=0$) : $F_{\text{BF1}}(p) =\dfrac{X_v(p)}{X_m(p)}$, puis la mettre so
 ($z$). Faire l’application numérique.}
 \ifprof
 \begin{corrige}
+On a $F_{\text{BF1}}(p) = \dfrac{H(p)}{1+H(p)} $ $=\dfrac{\dfrac{1}{m_S p^2 + b_S p + k_e}}{1+\dfrac{1}{m_S p^2 + b_S p + k_e}} = \dfrac{1}{m_S p^2 + b_S p + k_e+1}$
+$= \dfrac{\dfrac{1}{1+k_e}}{\dfrac{m_S}{ k_e+1} p^2 + \dfrac{b_S}{ k_e+1} p +1}$.
+
+On a donc $K  = \dfrac{1}{1+k_e}$, $\omega_0 = \sqrt{\dfrac{k_e+1}{m_S}}$ et $2\xi / \omega_0 = \dfrac{b_S}{ k_e+1}$ soit $\xi = \dfrac{1}{2}\dfrac{b_S}{ k_e+1}  \sqrt{\dfrac{k_e+1}{m_S}} $ $= \dfrac{b_S }{2  \sqrt{m _S(k_e +1) }}$. 
+
+Application numériques : 
+$K = \dfrac{1}{1+200} = 0,005$, $\xi = \dfrac{1,426}{2 \times  \sqrt{0,152\times (200 +1)}}=0,13$ et $\omega_0 = \SI{36,4}{rad.s^{-1}}$.
 \end{corrige}
 \else
 \fi
@@ -112,6 +131,16 @@ $X^{*}_e(p)=0$) : $F_{\text{BF1}}(p) =\dfrac{X_v(p)}{X_m(p)}$, puis la mettre so
 (uniquement l’amortissement), « rapidité » et « précision » (uniquement l’erreur statique).}
 \ifprof
 \begin{corrige}
+\begin{itemize}
+\item Stabilité : 
+\begin{itemize}
+\item Amortissement : pas de dépassement : \textbf{Non respecté : $\xi <1$}. 
+\item Marge de gain : \SI{7,5}{dB} mini.
+\item Marge de phase : \SI{45}{\degres} 
+\end{itemize}
+\item Rapidité : temps de réponse à 5\% : inférieur à \SI{0,1}{s} : \textbf{$\xi = 0,1 \Rightarrow t_5\omega_0 = 30$ soit $t_{5\%} = 30 / 36,4 =\SI{0,8}{s}$ Non respecté.}
+\item Précision : erreur statique inférieur à 1\%  : \textbf{Système de classe 0, $\varepsilon_S = \dfrac{1}{1+K} = 0,995$  >> 0,1, non respecté.}
+\end{itemize}
 \end{corrige}
 \else
 \fi
