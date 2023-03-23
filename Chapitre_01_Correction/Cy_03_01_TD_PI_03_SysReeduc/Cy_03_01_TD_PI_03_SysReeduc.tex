@@ -201,20 +201,6 @@ $\Leftrightarrow \varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \righ
 \fi
 
 
-\question{Tracer le diagramme de Bode de la FTBO du système pour $K_C=1$ et donner les marges. Le cahier des charges est-il vérifié ?}
-\ifprof
-\begin{corrige}~\\
-On a $\text{FTBO}(p)=\dfrac{A}{p\left(Bp+1\right)}$.
-\begin{center}
-\includegraphics[width=\linewidth]{cor_02}
-%\textit{}
-\end{center}
-
-La marge de phase n'est pas respectée. 
-
-\end{corrige}
-\else
-\fi
 
 \question{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
@@ -228,6 +214,21 @@ $= \lim_{p\to 0} \dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_C}{X_0}+\dfr
 $= \dfrac{D }{K_C} {F_p} $
 
 L'écart en position n'est donc pas nul.
+\end{corrige}
+\else
+\fi
+
+\question{Tracer le diagramme de Bode de la FTBO du système pour $K_C=1$ et donner les marges. Le cahier des charges est-il vérifié ?}
+\ifprof
+\begin{corrige}~\\
+On a $\text{FTBO}(p)=\dfrac{A}{p\left(Bp+1\right)}$.
+\begin{center}
+\includegraphics[width=\linewidth]{cor_02}
+%\textit{}
+\end{center}
+
+La marge de phase n'est pas respectée. 
+
 \end{corrige}
 \else
 \fi
