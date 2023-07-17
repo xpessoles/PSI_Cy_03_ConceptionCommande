@@ -1,25 +1,49 @@
-%\setchapterimage{bandeau}
-\chapter*{Colle \arabic{cptColle} \\ 
-Réglage d'un correcteur proportionnel et d'un correcteur à avance de phase -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Colle \arabic{cptColle} :
-Réglage d'un correcteur proportionnel et d'un correcteur à avance de phase -- 
-\ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptColle} \else
-\ifprof  \stepcounter{cptColle} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{Equipe PT -- La Martinière Monplaisir.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{Colle 02 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
-%\begin{marginfigure} [4cm]
-%\includegraphics[width=\linewidth]{fig_01a}
-%\end{marginfigure}
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxtitreexo{Réglage d'un correcteur proportionnel et d'un correcteur à avance de phase}
+\def\xxsourceexo{\hspace{.2cm} Equipe PT -- La Martinière Monplaisir}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+%\includegraphics[width=.35\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
+
+%\section*{}
 
 
 On considère un système de fonction de transfert en boucle ouverte $G(p)$ que l'on souhaite réguler à l’aide d'une boucle à retour unitaire : $G(p)=\dfrac{K}{\left(10p+1 \right)^2\left(p+1 \right)}$
@@ -58,9 +82,9 @@ Avec la valeur de $K=16,1$, on introduit, en amont de $G(p)$, dans la chaîne di
 \question{Déterminer alors la fonction de transfert de ce correcteur à avance de phase permettant d’obtenir une marge de phase de 60\degres.}
 
 
-
+\end{multicols}
 \ifprof
-
+\newpage
 \begin{center}
 
 \includegraphics[width=\linewidth]{cor_01}
