@@ -1,25 +1,153 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Avance de Phase -- Train d’atterrissage d'hélicoptère \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Avance de Phase -- Train d’atterrissage d'hélicoptère \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle 4 \else TD 8 \fi  \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxfigures{
+\includegraphics[width=.65\textwidth]{fig_00}
+}%figues de la page de garde
+
+\def\xxtitreexo{Avance de Phase -- Train d’atterrissage d'hélicoptère \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Banque PT -- SIA 2014}}
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.5cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+\setcounter{exo}{0}
+
+%\documentclass[10pt,fleqn]{article} % Derfault font size and left-justified equations
+%\usepackage[%
+%    pdftitle={Correction des SLCI : Correcteur Avance de Phase},
+%    pdfauthor={Xavier Pessoles}]{hyperref}
+%
+%\input{style/new_style}
+%\input{style/macros_SII}
+%\usepackage{multicol}
+%\usepackage{siunitx}
+%\usepackage{schemabloc}
+%%\usepackage{picins}
+%\fichetrue
+%%\fichefalse
+%
+%\proftrue
+%\proffalse
+%
+%\tdtrue
+%%\tdfalse
+%
+%\courstrue
+%\coursfalse
+%
+%\newif\ifnormal
+%%\normaltrue
+%\normalfalse
+%
+%\newif\ifdifficile
+%\difficilefalse
+%\difficiletrue
+%
+%\newif\iftdifficile
+%\tdifficilefalse
+%%\tdifficiletrue
+%
+%% -------------------------------------
+%% Déclaration des titres
+%% -------------------------------------
+%
+%\def\classe{\textsf{PSI$\star$ -- MP}}
+%\def\xxnumpartie{Cycle 03}
+%\def\xxpartie{Concevoir la partie commande des systèmes asservis afin de valider leurs performances}
+%
+%
+%\def\xxnumchapitre{Chapitre 1.3 \vspace{.2cm}}
+%\def\xxchapitre{\hspace{.12cm} Correction des SLCI -- Correcteur à avance de phase}
+%
+%\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+%\def\xxtete{Sciences Industrielles de l'Ingénieur}
+%
+%\def\xxposongletx{2}
+%\def\xxposonglettext{1.45}
+%\def\xxposonglety{19}%16
+%
+%\def\xxonglet{\textsf{Cycle 03}}
+%
+%\def\xxactivite{TD 01}
+%\def\xxauteur{\textsl{Xavier Pessoles}}
+%
+%
+%\def\xxtitreexo{Train d'aterrissage d'hélicoptère \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+%\def\xxsourceexo{\hspace{.2cm} \footnotesize{Banque PT -- SIA 2014}}
+%
+%\def\xxcompetences{%
+%\textsl{%
+%\textbf{Savoirs et compétences :}\\
+%\begin{itemize}
+%\item \textit{Con.C2} : Correction d’un système asservi.
+%\item \textit{Con.C2.SF1} : Choisir un type de correcteur adapté.
+%\end{itemize}
+%}}
+%
+%\def\xxfigures{
+%\includegraphics[width=.65\textwidth]{fig_00}
+%}%figues de la page de garde
+%\def\xxpied{%
+%Cycle 03 -- Concevoir la commande des SLCI\\% afin de valider leurs performances.\\
+%Chapitre 1 -- \xxactivite%
+%}
+%
+%
+%\setcounter{secnumdepth}{5}
+%%---------------------------------------------------------------------------
+%
+%
+%\begin{document}
+%%\chapterimage{png/Fond_Cin}
+%\input{style/new_pagegarde}
+%\vspace{4.5cm}
+%\pagestyle{fancy}
+%\thispagestyle{plain}
+%
+%
+%\def\columnseprulecolor{\color{ocre}}
+%\setlength{\columnseprule}{0.4pt} 
+
+\ifprof
+\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Banque PT -- SIA 2014.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
-
 
 
 \section*{Mise en situation}
@@ -161,14 +289,13 @@ $H_{\text{BONC}}(p) = \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a 
 
 \ifprof
 \else
+On donne le diagramme de Bode de $H_F(p)$.
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_03}
 %\textit{}
-\end{marginfigure}
+\end{center}
 \fi
-
-On donne le diagramme de Bode de $H_F(p)$.
 
 \question{Justifier la forme de ce diagramme en traçant les asymptotes et en indiquant comment retrouver sur le tracé les valeurs de $K_z$ et $\omega_z$. Tracer en rouge les diagrammes de la fonction $H_{\text{BONC}}(p)$. On prendra pour cela $20\log K_S \simeq \SI{100}{dB}$.}
 \ifprof
@@ -212,10 +339,10 @@ Pour que l'erreur statique soit nulle, il faut que la classe de la FTBO soit de 
 \else
 On choisit dans un premier temps un correcteur de la forme $C(p)=\dfrac{K_p}{p^2}$. On donne les diagrammes de Bode de la fonction de transfert en boucle ouverte du système ainsi corrigé pour $K_p =1$. 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_04}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 \fi
 
@@ -314,10 +441,10 @@ Pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$ l'accélération reste bien inf�
 
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_06}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 \fi
 
@@ -327,8 +454,7 @@ Pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$ l'accélération reste bien inf�
 \else
 \ifcolle
 \else
-\marginnote{
-\begin{solution}
+Eléments de corrigé : 
 \begin{enumerate}
 \item $H_F(p)= \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a K_Z\right)p+\dfrac{p^2}{\omega_Z^2} }$.
 \item $H_{\text{BONC}}(p) = \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a K_Z\right)p+\dfrac{p^2}{\omega_Z^2} } \cdot \dfrac{K_S}{1+T_Sp} $.
@@ -336,7 +462,29 @@ Pour une vitesse d'impact de $\SI{4}{m.s^{-1}}$ l'accélération reste bien inf�
 \item 2.
 \item 
 \end{enumerate}
-\end{solution}}
 \fi
 \fi
 
+
+\ifprof
+\end{multicols}
+\else
+\end{multicols}
+\fi
+
+%
+%\end{document}
+%
+%\question{}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{fig_04}
+%%\textit{}
+%\end{center}
+%
+%

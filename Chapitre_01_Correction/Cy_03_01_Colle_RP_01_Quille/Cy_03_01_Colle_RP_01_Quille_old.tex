@@ -1,24 +1,52 @@
-%\setchapterimage{bandeau}
-\chapter*{Colle \arabic{cptColle} \\ 
-Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Colle \arabic{cptColle} :
-Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle 5 \else TD \fi \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptColle} \else
-\ifprof  \stepcounter{cptColle} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxtitreexo{Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Commun Mines Ponts 2014}}
+
+\def\xxfigures{
+\includegraphics[width=.75\textwidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.7cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Concours Commun Mines Ponts 2014.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
 
 
 \section*{Mise en situation}
@@ -35,11 +63,11 @@ Les actions de l'air et de l'eau permettent au voilier d'avancer mais provoquent
 
 Une évolution récente des voiliers de course océanique a été de les doter d’une quille pendulaire. Cette quille est en liaison pivot d’axe $\left(O,\vect{z}_N \right)$ avec la coque du navire et peut être orientée d’un côté ou de l’autre du navire. Une fois l’orientation désirée obtenue, tout mouvement dans la liaison pivot est supprimé par le blocage en rotation de celle-ci. 
 
-\begin{marginfigure}[-2cm]
-\includegraphics[width=\linewidth]{fig_03}
+\begin{center}
+\includegraphics[width=.6\linewidth]{fig_03}
 
-\caption{Modèle volumique 3D}
-\end{marginfigure}
+\textit{Modèle volumique 3D}
+\end{center}
 
 
 Afin de garantir sa répétabilité, la mise en position angulaire de la quille fait l’objet d’un contrôle par une boucle d’asservissement, dont le cahier des charges est donné en fin de sujet.
@@ -78,7 +106,6 @@ La quille est manoeuvrée par deux vérins hydrauliques. Chacun d’eux est pilo
 
 Lors d’un déplacement de la quille, les mouvements d’oscillation du cylindre de vérin par rapport à la coque étant de faible amplitude et s’effectuant à de faibles vitesses, on se place dans une situation où le corps de vérin est considéré comme fixe. La tige est alors considérée en mouvement de translation galiléen.
 On considère également que les mouvements étudiés sont de petits mouvements autour d’une position moyenne et que l’hypothèse des conditions initiales nulles est valide. Dans ces conditions, le comportement du vérin est défini par le modèle continu ci-dessous.
-
 
 \footnotesize
 \begin{center}
@@ -168,7 +195,6 @@ Au final,  $A_1=\dfrac{1}{Sp}$,  $A_2 = \dfrac{S2B}{V} $,  $A_3 = S$  et $A_4 = 
 
 Le schéma-blocs de la figure précédente peut se mettre sous la forme suivante. 
 
-\begin{marginfigure}
 \footnotesize
 \begin{center}
 \begin{tikzpicture}
@@ -210,7 +236,7 @@ Le schéma-blocs de la figure précédente peut se mettre sous la forme suivante
 \end{tikzpicture}
 \end{center}
 \normalsize
-\end{marginfigure}
+
 \fi
 
 \question{Donner les expressions des fonctions de transfert $H_1$
@@ -496,9 +522,9 @@ figure suivante, obtenues pour deux valeurs du correcteur proportionnel :
 \item $C(p) = 0,44$ : toutes les exigences du domaine temporel sont vérifiées (2.1.2, 2.2.1; 2.2.2, 2.3.1).%(C12, C21, C22, C3).
 \end{itemize}
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_06}
-\end{marginfigure}
+\end{center}
 
 À l’utilisation, le correcteur proportionnel réglé à 0,44 n’a pas donné satisfaction car le mouvement saccadé
 de la quille dû aux fluctuations de sa vitesse de rotation générait dans certaines conditions de navigation des
@@ -555,10 +581,10 @@ $\Delta K = 20\log \left( \dfrac{1}{2\xi \sqrt{1-\xi^2}}\right)=20\log \left( \d
 
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_08}
 %\textit{}
-\end{marginfigure}
+\end{center}
 \fi
 
  \ifprof
@@ -657,10 +683,10 @@ CDCF validé.
 
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_09}
 %\textit{}
-\end{marginfigure}
+\end{center}
 \fi
 
 
@@ -671,8 +697,7 @@ CDCF validé.
 \ifcolle
 \else
 \footnotesize
-\marginnote{
-\begin{solution}
+
 \begin{enumerate}
 \item $A_1=\dfrac{1}{Sp}$,  $A_2 = \dfrac{S2B}{V} $,  $A_3 = S$  et $A_4 = \dfrac{1}{Mp^2  +\lambda p  + k}$.
 \item $H_1(p)=A_1  A_2A_3$ et $H_2 = \dfrac{A_4}{1+ A_2A_3A_4 }$.
@@ -689,12 +714,12 @@ CDCF validé.
 \item  $b=3,02$,  $T=\SI{0,127}{s}$,   $\phi\left(\omega^{*}\right) \simeq -28,79\degres $.
 \item $t_5\%\simeq \SI{2,3}{s}<\SI{4}{s}$ $ 4 \degres/s< 8 \degres/s$.
 \end{enumerate}
-\end{solution}}
 \normalsize
 \fi
 \fi
 \ifprof
 \else
+\end{multicols}
 \fi
 
 

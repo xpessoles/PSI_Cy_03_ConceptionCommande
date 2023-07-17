@@ -16,7 +16,6 @@ Réglage d'un correcteur proportionnel et d'un correcteur à avance de phase --
 \UPSTIcompetence[2]{C1-02}
 \UPSTIcompetence[2]{C2-04}}
 
-
 %\begin{marginfigure} [4cm]
 %\includegraphics[width=\linewidth]{fig_01a}
 %\end{marginfigure}
@@ -41,14 +40,15 @@ correcteur.
 
 
 \subsection*{Correction intégrale -- Asservissement en accélération}
-\setcounter{exo}{0}
+%\setcounter{exo}{0}
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_02}
+\end{marginfigure}
+
 On désire contrôler l'accélération $\gamma(t)$ d'un plateau. Pour cela, un capteur d'accélération, fixé sur le plateau
 et de sensibilité $B$, est utilisé dans la chaîne de retour du système. Le moteur permettant la motorisation du
 plateau est modélisé par la fonction de transfert : $H(s)=\dfrac{A}{1+\tau s}$. 
 On modélise le correcteur par la fonction de transfert $C(s)$.
-\begin{center}
-\includegraphics[width=\linewidth]{fig_02}
-\end{center}
 
 On a $A=\SI{100}{g.m.s^{-2}.V^{-1}}$, $\tau=\SI{0,2}{s}$ et $B=10^{-2}\,\text{g}^{-1}\text{V}\text{m}^{-1}\text{s}^{-2}$.
 
@@ -65,7 +65,12 @@ Système asservi sans correction : $C(s)=1$.
 
 \question{Donner l'allure de la réponse de ce système en précisant les points caractéristiques.}
 
-Système asservi avec correction intégrale : $C(s)=\dfrac{1}{s}$.
+\subsection*{Système asservi avec correction intégrale : $C(s)=\dfrac{1}{s}$.}
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_01}
+\end{marginfigure}
+
 
 \question{Déterminer l'expression de la fonction de transfert en boucle fermée de ce système. Identifier les
 différents paramètres de cette fonction. Réaliser l'application numérique.}
@@ -79,12 +84,7 @@ régime permanent. Pouvait-on prévoir ce résultat.}
 
 
 
-\begin{center}
-\includegraphics[width=\linewidth]{fig_01}
-\end{center}
-
 \ifprof
-\newpage
 \begin{center}
 \includegraphics[width=\linewidth]{cor_01}
 \includegraphics[width=\linewidth]{cor_02}

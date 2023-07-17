@@ -1,25 +1,53 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-La robotique au service du handicap -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-La robotique au service du handicap -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 10 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+
+\def\xxtitreexo{La robotique au service du handicap}
+\def\xxsourceexo{\hspace{.2cm} Centrale Supélec -- PSI 2010}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.35\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.7cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
 
-\setcounter{question}{0}
-\marginnote{Centrale Supélec -- PSI 2010.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=.6\linewidth]{fig_00}
-\end{marginfigure}
 
 \subsection*{Synthèse d’une loi de commande pour l’exosquelette}
 
@@ -37,11 +65,11 @@ plus, de valider le dimensionnement de la chaîne de motorisation.
 Le cahier des charges est rappelé partiellement par les exigences données dans le tableau suivant. Les actionneurs peuvent fournir, en régime permanent, sur l’axe de l’articulation un
 couple de module inférieur à \SI{50}{Nm}. On suppose qu’en régime transitoire le couple maximal peut atteindre quatre fois la valeur maximale autorisée en régime permanent.
 
-La structure des axes étudiés est donnée dans la figure ci-contre.
+La structure des axes étudiés est donnée dans la figure suivante.
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_05}
-\end{marginfigure}
+\end{center}
 
 
 
@@ -72,10 +100,11 @@ La structure de commande retenue est représentée par le schéma de la figure s
 référence $C_a = C_{\text{ref}}$ .
 \end{itemize}
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_04}
-\end{marginfigure}
+\end{center}
 
+\newpage
 
 \subsection*{Modélisation dynamique «deux axes» de l’exosquelette}
 
@@ -96,6 +125,7 @@ $\torseurstat{T}{\text{Actionneur 2}}{\text{Avant-bras}}=\torseurl{\vect{0}}{C_2
 
 En utilisant le PFD on peut établir les lois de commandes suivantes pour piloter chacun des deux axes : 
 
+\footnotesize
 $$
 \begin{array}{ll}
 C_1(t)=&
@@ -117,6 +147,7 @@ C_2(t) =&  - l_2X_F \cos \left(\gamma+\delta\right)
 \end{array}
 $$
 
+\normalsize
 
 \begin{center}
 \includegraphics[width=1.0\linewidth]{fig_06}
@@ -192,9 +223,9 @@ où $U = ^t(U_1 \quad U_2)$ sont les deux nouvelles commandes issues du correcte
 
 Le principe de cette loi de commande est donné par la structure représentée par le schéma suivant.
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_07}
-\end{marginfigure}
+\end{center}
 
 \question{Donner au moins un argument, en particulier vis-à-vis du cahier des charges souhaité, de l’intérêt de la
 boucle interne correspondant à la loi non linéaire donnée précédemment.}
@@ -343,6 +374,12 @@ des charges.}
 \fi
 
 
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\end{multicols}
+\fi
 
 \begin{center}
 \includegraphics[width=1.0\linewidth]{fig_08}
