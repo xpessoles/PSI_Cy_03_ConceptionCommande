@@ -1,27 +1,48 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-La robotique au service du handicap -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-La robotique au service du handicap -- 
-\ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{Centrale Supélec -- PSI 2010.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 7 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxtitreexo{La robotique au service du handicap}
+\def\xxsourceexo{\hspace{.2cm} Centrale Supélec -- PSI 2010}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.35\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
+
+%\section*{}
 
 \subsection*{Présentation}
 On s'intéresse à la conception de la loi de commande d'un des moteurs d'une orthèse d'épaule permettant d'améliorer le rétablissement de patients en cours de rééducation. 
@@ -116,10 +137,6 @@ boucle fermée.}
 \else
 \fi
 
-\begin{marginfigure}
-\includegraphics[width=1.0\linewidth]{fig_03}
-\end{marginfigure}
-
 La figure suivante représente la structure de l’actionneur (la boucle de courant du moteur étant fermée) : $i_c$ et $i$
 sont respectivement la consigne et le courant moteur, $C_{\text{ref}}$ est le couple de référence souhaité, $C_a$ est le couple
 appliqué par l’actionneur sur l’axe de l’articulation et $G_{ic}$ est un gain pur correspondant à la relation entre le
@@ -127,6 +144,9 @@ courant et le couple $C_a$. On suppose pour toute cette question que le couple d
 d’amplitude $C_{\text{ref}} = C_{\text{ref0}}$.
 
 
+\begin{center}
+\includegraphics[width=1.0\linewidth]{fig_03}
+\end{center}
 
 \question{Exprimer $G_{ic}$ en fonction de $K_c$ et de~$N$.
 }
@@ -168,8 +188,7 @@ On admettra sans aucune justification que la pulsation de coupure à $\SI{0}{dB}
 
 \ifcolle
 \else
-\marginnote[-7cm]{
-\begin{solution}
+\footnotesize
 \begin{enumerate}
 \item .
 \item .
@@ -182,13 +201,21 @@ On admettra sans aucune justification que la pulsation de coupure à $\SI{0}{dB}
 \item $k_1 = k$.
 \item OK.
 \end{enumerate}
-\end{solution}}
 \normalsize
 \fi
 
-
+\end{multicols}
 
 
 \begin{center}
 \includegraphics[width=1.0\linewidth]{fig_01}
 \end{center}
+%\end{document}
+%
+%\question{}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%%\textit{}
+%\end{center}
+%
+%

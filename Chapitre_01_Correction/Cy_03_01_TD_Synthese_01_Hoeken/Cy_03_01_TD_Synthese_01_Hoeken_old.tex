@@ -1,27 +1,49 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Téléchirurgie robotisée au contact d’organes mobiles -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Téléchirurgie robotisée au contact d’organes mobiles -- 
-\ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{CCP -- PSI 2015.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle 3 \else TD 11 \fi  \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxtitreexo{Téléchirurgie robotisée au contact d’organes mobiles}
+\def\xxsourceexo{\hspace{.2cm} CCP -- PSI 2015}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.35\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
+
+%\section*{}
 
 \subsection*{Présentation}
 
@@ -33,7 +55,7 @@ exigences incluses dans l’exigence « Commande » (id 1.1).
 \end{obj}
 
 \begin{center}
-\includegraphics[width=.8\linewidth]{req_01}
+\includegraphics[width=1.0\linewidth]{req_01}
 \end{center}
 
 \begin{center}
@@ -81,9 +103,9 @@ $H_t(p)=  \dfrac{1}{1+k_eH_s(p)}$.
 \fi
 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_03}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=.8\linewidth]{fig_03}
+\end{center}
 
 Pour la suite du problème, on prendra : $H(p) = \dfrac{1}{m_S p^2 + b_S p + k_e}$.
 
@@ -124,14 +146,14 @@ $K = \dfrac{1}{1+200} = 0,005$, $\xi = \dfrac{1,426}{2 \times  \sqrt{0,152\times
 \fi
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_04}
-\end{marginfigure}
+\end{center}
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_05}
-\end{marginfigure}
+\end{center}
 
 \subsection*{Modélisation et étude des performances du système avec correction intégrale : $C(p) = \dfrac{K_i}{p}$}
 
@@ -147,13 +169,13 @@ Vérifier la capacité d’une correction intégrale à atteindre les exigences.
 \fi
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{dr_01}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{dr_02}
-\end{marginfigure}
+\end{center}
 
 
 \question{Justifier exhaustivement le tracé des diagrammes de Bode. Tracer le diagramme asymptotique.}
@@ -177,9 +199,9 @@ coefficient $K_i$ qui permet de respecter les marges de stabilité.}
 \end{corrige}
 \else
 \fi
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{dr_03}
-\end{marginfigure}
+\end{center}
 
 
 \question{Le diagramme de Bode de la figure suivante représente la réponse fréquentielle (courbe de gain
@@ -199,9 +221,9 @@ Le critère d'atténuation n'est pas vérifié sur l'ensemble de l'intervalle.
 
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_06}
-\end{marginfigure}
+\end{center}
 
 
 
@@ -215,9 +237,9 @@ Pour améliorer l’atténuation de la perturbation sinusoïdale, il est possibl
 structure de l’asservissement et d’opter pour une correction IMC (Internal Model Corrector)
 dont le schéma-blocs est donné sur la figure suivante.
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{fig_07}
-\end{marginfigure}
+\end{center}
 
 Avec $F(p)$ la fonction de transfert d’un filtre de la forme $F(p) = \dfrac{1}{\left(1+Tp\right)^2}$ et la fonction de
 transfert $H(p) =\dfrac{1}{m_S p^2 + b_S p + k_e}$.
@@ -289,15 +311,13 @@ $\Rightarrow  T< e^{-2}/25$ et $T<\SI{0,005}{s}$.
 \else
 \fi
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{dr_04}
-\end{marginfigure}
+\end{center}
 
 \ifcolle
 \else
 \footnotesize
-\marginnote{
-\begin{solution}
 \begin{enumerate}
 \item $H(p)=\dfrac{K_aH_s(p)}{1+k_e H_S(p)}$ et $H_t(p)=\dfrac{1}{1+k_e H_s(p)}$.
 \item $K=\dfrac{1}{1+k_e}$, $\omega_0=\sqrt{\dfrac{1+k_e}{m_s}}$, $\xi=\dfrac{b_s}{2\sqrt{m_s\left(1+k_e\right)}}$.
@@ -309,7 +329,21 @@ $\Rightarrow  T< e^{-2}/25$ et $T<\SI{0,005}{s}$.
 \item $T\leq \SI{0,02}{s}$.
 \item $T\leq \SI{0,4}{ms}$.
 \end{enumerate}
-\end{solution}}
 \normalsize
 \fi
 
+
+\end{multicols}
+
+\begin{center}
+%\includegraphics[width=1.0\linewidth]{}
+\end{center}
+%\end{document}
+%
+%\question{}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%%\textit{}
+%\end{center}
+%
+%

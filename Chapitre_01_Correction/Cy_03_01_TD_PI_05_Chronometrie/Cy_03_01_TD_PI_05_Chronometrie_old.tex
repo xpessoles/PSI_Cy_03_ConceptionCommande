@@ -1,26 +1,48 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Étude d'un automate d'exploration de l'hémostase par chronométrie -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Étude d'un automate d'exploration de l'hémostase par chronométrie -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 6 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
 
-\setcounter{question}{0}
-\marginnote{Emilien Durif.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
 
-%\begin{marginfigure} [4cm]
-%\centering
-%\includegraphics[width=.6\linewidth]{fig_00}
-%\end{marginfigure}
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
 
+\def\xxtitreexo{Étude d'un automate d'exploration de l'hémostase par chronométrie}
+\def\xxsourceexo{\hspace{.2cm} Emilien Durif}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+%\includegraphics[width=.7\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
+
+%\section*{}
 
 \subsection*{Présentation}
 
@@ -41,10 +63,10 @@ motoréducteur à courant continu et système pignon-crémaillère.
 
 
 %\begin{figure}[h!]
-\begin{marginfigure}
-\includegraphics[width=1.0\linewidth]{chronometrie_IBD}\\
-\includegraphics[width=1.0\linewidth]{schema_axez}
-\end{marginfigure}
+	\begin{center}
+			\includegraphics[width=1.0\linewidth]{chronometrie_IBD}\\
+			\includegraphics[width=1.0\linewidth]{schema_axez}
+    \end{center}
 %	%\caption{Diagramme de bloc interne et présentation de l'architecture du système de mesure et du système de guidage \label{chronometrie_IBD}}
 %%\end{figure}
 
@@ -58,9 +80,9 @@ Le couple résistant $C_r$ est constant et vaut $C_{r0} = 2,7 \cdot 10^{-3} \tex
 
 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{schema_bloc.pdf}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{schema_bloc.pdf}
+\end{center}
 
 On suppose le correcteur proportionnel : $H_{cor}(p)=K_p$.
 
@@ -68,9 +90,9 @@ Les performances du système sont détaillées dans le diagramme des exigences p
 
 
 %\begin{figure}[h!]
-	\begin{marginfigure}
+	\begin{center}
 			\includegraphics[width=1.0\linewidth]{req.pdf}
-    \end{marginfigure}
+    \end{center}
 	%\caption{Diagramme des exigences \label{req}}
 %\end{figure}
 
@@ -96,28 +118,35 @@ donne la réponse à un échelon de position de \SI{50}{mm} avec trois types de 
 
 
 %\begin{figure}[!htb]
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{matlab/rep_temp.pdf}
 %\caption{Réponse à un échelon de position de $50 mm$ avec trois correcteurs P(question 2) PI (question 5) et PID (déterminé numériquement)\label{reponse_2nd_ordre}}
-\end{marginfigure}
+\end{center}
 %\end{figure}
 
 
 \question{Analyser les résultats à l'aide du diagramme de Bode de la FTBO corrigé avec un PID optimisé.}% (figure \ref{bode_pid}.)}
 
 %\begin{figure}[!htb]
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=1.0\linewidth]{matlab/bode_pid.pdf}
 %\caption{Diagramme de Bode de $H_{bo}(p)$ avec un correcteur PID pour $K_p=0,19$, $K_i=2,1$ et $K_d=0,0038$\label{bode_pid}}
-\end{marginfigure}
+\end{center}
 %\end{figure}
 
 
 %\begin{figure}[!htb]
-\begin{figure}[!h]
-\includegraphics[width=.48\linewidth]{matlab/bode_total0.pdf}
-\includegraphics[width=.48\linewidth]{matlab/bode_total0_pi.pdf}
-\end{figure}
+\begin{center}
+\includegraphics[width=1.0\linewidth]{matlab/bode_total0.pdf}
+%\caption{Diagramme de Bode de $H_{bo}(p)$ pour $K_p=1$ \label{bode_bo}}
+\end{center}
+%\end{figure}
+
+%\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=1.0\linewidth]{matlab/bode_total0_pi.pdf}
+%\caption{Diagramme de Bode de $H_{bo}(p)$ avec un correcteur PI pour $K_p=1$ et $T_i=1s$ \label{bode_bo_PI}}
+\end{center}
 %\end{figure}
 %
 %%\begin{figure}[!htb]
@@ -128,7 +157,7 @@ donne la réponse à un échelon de position de \SI{50}{mm} avec trois types de 
 %%\end{figure}
 
 
-
+\end{multicols}
 
 \ifprof
 \newpage
@@ -230,7 +259,37 @@ donc respecté.
 
 On trouve une marge de phase supérieure à $60^{\circ}$ et une bande passante à $0dB$ égale à $100rad/s$ supérieure aux réglages précédents ce qui donne une réponse plus rapide et plus stable.
 
-
+\end{multicols}
 
 \else
 \fi
+%\end{document}
+%
+%\question{}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%%\textit{}
+%\end{center}
+%
+%
+%%\newpage
+%
+%%\begin{center}
+%%\includegraphics[width=\linewidth]{cor_01}
+%%\textit{}
+%%\end{center}
+%
+%
+%
+%
+%
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{fig_06}
+%%\textit{}
+%\end{center}
+%\begin{center}
+%\includegraphics[width=\linewidth]{img_04}
+%%\textit{}
+%\end{center}
+%
