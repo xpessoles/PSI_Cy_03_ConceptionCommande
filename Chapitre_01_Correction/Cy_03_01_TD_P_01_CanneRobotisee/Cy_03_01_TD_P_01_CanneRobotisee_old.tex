@@ -1,25 +1,52 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Mobilité assistée à l'aide d'une canne robotisée \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Mobilité assistée à l'aide d'une canne robotisée \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 1 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxtitreexo{Mobilité assistée à l'aide d'une canne robotisée \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours CCP -- PSI 2018}}
+
+\def\xxfigures{
+%\includegraphics[width=.75\textwidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{5cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{question}{0}
-\marginnote{Concours CCP -- PSI 2018.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
 
-%\begin{marginfigure} [4cm]
-%\centering
-%\includegraphics[width=.6\linewidth]{fig_00}
-%\end{marginfigure}
 
 
 
@@ -32,13 +59,13 @@ L'objectif de cette canne est de prendre en charge une partie des efforts normau
 Le prototype de canne robotisée envisagé conserve une forme longiligne, un point d'appui au sol ainsi qu'un encombrement et un poids réduits. La canne robotisée, dont la structure mécanique est présentée en \ref{fig:schema_general_canne}, se compose d'un axe linéaire motorisé et d'une roue motorisée située à son extrémité.
 
 
-\begin{marginfigure}%[!ht]
+\begin{center}%[!ht]
 %\centering
 \includegraphics[width=\linewidth]{schema_general_canne2.pdf}
 %\includegraphics[width=.6\linewidth]{schema_general_canne.jpg}
-\caption{Schéma cinématique et photographie du prototype de canne robotisée}
+\captionof{figure}{{ Schéma cinématique et photographie du prototype de canne robotisée}}
 \label{fig:schema_general_canne}
-\end{marginfigure}
+\end{center}
 
 
 Les deux degrés de mobilité, rendus possibles par cette structure, permettent de suivre la marche d'un sujet et lui offre un point d'appui. L'avantage est d'éviter aux utilisateurs la manipulation de la canne (levée et positionnement) pendant la marche, la roue restant toujours en contact avec le sol.
@@ -104,9 +131,9 @@ Les deux degrés de mobilité, rendus possibles par cette structure, permettent 
 \else
  Le maintien d'une hauteur constante lors de la phase d'appui revient finalement à asservir en position le déplacement $x(t)$ de la canne supérieure 3 par rapport à la canne inférieure 2.
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{schema}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=.9\linewidth]{schema}
+\end{center}
 %Au cours de cette phase, l'angle de la hanche varie de \SI{+15}{\degree} à \SI{-10}{\degree}. Cette variation impose un déplacement relatif $x(t)$ quasi linéaire de l'ordre de quelques centimètres. Pour la suite, afin d'ajuster le réglage du correcteur réalisé par le contrôleur ELMO du moteur de l'axe linéaire, on se place dans le cas plus contraignant. Ce cas correspond à une consigne en échelon de 10 mm tout en prenant en compte l'action $F_p$ du patient en $H$, agissant ainsi comme une perturbation pour le déplacement $x(t)$.
 
 
@@ -259,9 +286,9 @@ Afin de proposer une modélisation simplifiée de la chaîne d'énergie de l'axe
 
 \question{À partir\label{Q_Bode} du diagramme de Bode, proposer un modèle de comportement du système en boucle ouverte. Soit $H_{BO\_1}(p)$ cette fonction de transfert, donner sa forme canonique factorisée. Soient $T_1$ et $T_2$, telles que $T_1 < T_2$, les constantes de temps introduites et $K_{\text{BO}}$ le gain de $H_{BO\_1}(p)$, préciser les valeurs numériques et unités de $T_1$, $T_2$ et $K_{\text{BO}}$. Vous laisserez apparaître les traits de construction nécessaires à l'identification du modèle sur le document réponse.}%}\DR{bode_BO_sans_corr}.}
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_03}
-\end{marginfigure}
+\end{center}
 
 
 \ifprof
@@ -316,8 +343,7 @@ Le schéma-blocs du système non perturbé correspond alors à celui de la figur
 
 %\begin{figure}[!ht]
 %\centering
-\begin{marginfigure}
-\centering
+\begin{center}
 \begin{tikzpicture}
 \sbEntree{E1}
 \sbComp{C1}{E1}
@@ -333,9 +359,9 @@ Le schéma-blocs du système non perturbé correspond alors à celui de la figur
 \sbRenvoi[3]{B-S}{C1}{}{}{}
 
 \end{tikzpicture}%}
-\caption{{ Schéma-bloc  simplifié du système non perturbé avec $C(p) = K_{\text{corr}}$}
+\captionof{figure}{{ Schéma-bloc  simplifié du système non perturbé avec $C(p) = K_{\text{corr}}$}
 \label{fig:schema_bloc_simplifie}}
-\end{marginfigure}
+\end{center}
 
 \fi
 
@@ -380,15 +406,15 @@ L'application numérique donne $K_{\text{corr}} \ge  1500$.
 La \ref{fig:reponse_Kcorr_1500}  donne l'évolution de la réponse temporelle $x(t)$ du système réel non perturbé à un échelon en déplacement de valeur finale $X_c = 10$ mm, pour une correction proportionnelle $K_{\text{corr}}$ = \num{1500}.
 
 
-\begin{marginfigure}%[!ht]
+\begin{center}%[!ht]
 %\centering
 
 
 %\begin{minipage}[c]{.8\linewidth}
-\includegraphics[width=\linewidth]{fig_11}
-   \caption{{ Évolution de la réponse temporelle $x(t)$ du système réel non perturbé à un échelon de valeur $X_c = 10$ mm, pour $K_{\text{corr}}$ = \num{1500}}\label{fig:reponse_Kcorr_1500}}
+\includegraphics[width=.9\linewidth]{fig_11}
+   \captionof{figure}{{ Évolution de la réponse temporelle $x(t)$ du système réel non perturbé à un échelon de valeur $X_c = 10$ mm, pour $K_{\text{corr}}$ = \num{1500}}\label{fig:reponse_Kcorr_1500}}
 %\end{minipage}
-\end{marginfigure}
+\end{center}
 \fi
 
 
@@ -429,9 +455,9 @@ L'application numérique donne $K_{\text{corr}} \leq 1700$. On prend donc $K_{\t
 \question{Déterminer la valeur du temps de réponse à $5\ \%$, $t_{r5\%}$ de ce modèle pour $K_{\text{corr}} = K_{\text{corr}}^{\text{\text{MAX}}}$ à partir de l'abaque du temps de réponse réduit donné ci-dessous.}
 \ifprof
 \else
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Abaque_tr_reduit.jpg}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=.9\linewidth]{Abaque_tr_reduit.jpg}
+\end{center}
 \fi
 
 \ifprof
@@ -450,11 +476,9 @@ La figure  \ref{fig:reponse_kcorr_kcorrmax} donne les évolutions des réponses 
 \begin{center}%[!ht]
 
 \iflivret
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_06}
-\caption{{ Réponses temporelles $x(t)$ du système réel perturbé à un échelon en déplacement de valeur finale $X_c = 10$ mm, pour une correction proportionnelle $K_{\text{corr}} = \num{1500}$ et pour $K = K_{\text{corr}}^{\text{\text{MAX}}}$}
-\label{fig:reponse_kcorr_kcorrmax}}
-\end{marginfigure}
+\end{center}
 \else
 %\centering
 %\includegraphics[width=0.6\linewidth]{reponse_kcorr_kcorrmax.pdf}
@@ -485,9 +509,9 @@ font=\footnotesize,
 \fi
 
 %\begin{minipage}[c]{.8\linewidth}
-   %\captionof{figure}{{ Réponses temporelles $x(t)$ du système réel perturbé à un échelon en déplacement de valeur finale $X_c = 10$ mm, pour une correction proportionnelle $K_{\text{corr}} = \num{1500}$ et pour $K = K_{\text{corr}}^{\text{\text{MAX}}}$}
-%\label{fig:reponse_kcorr_kcorrmax}
-%}
+   \captionof{figure}{{ Réponses temporelles $x(t)$ du système réel perturbé à un échelon en déplacement de valeur finale $X_c = 10$ mm, pour une correction proportionnelle $K_{\text{corr}} = \num{1500}$ et pour $K = K_{\text{corr}}^{\text{\text{MAX}}}$}
+\label{fig:reponse_kcorr_kcorrmax}
+}
 %\end{minipage}
 \end{center}
 \fi
@@ -540,9 +564,9 @@ Avec cette correction, le système est précis mais les valeurs des marges de ga
 \question{En déduire la valeur maximale à donner au gain $K_{\text{corr}}$, en conservant $T_d = 0,2$ s, afin de respecter les performances en stabilité de l'asservissement de l'axe linéaire tout en augmentant au maximum la bande passante du système. }
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_04}
-\end{marginfigure}
+\end{center}
 
 \ifprof
 \begin{corrige}
@@ -567,15 +591,15 @@ L'application numérique donne $K_{\text{corr}}^{\text{new}} \simeq$ 5620.
 %La \ref{fig:reponse_perturbe_corr_PI_gen}\textbf{(a)} donne la réponse temporelle à un échelon de consigne $X_c = 10$ mm du système simulé, perturbé et corrigé. La \ref{fig:reponse_perturbe_corr_PI_gen}\textbf{(b)} donne l'évolution de l'intensité simulée (en Ampères) circulant au sein du moteur lors de cette réponse.   
 Les figures \ref{fig:reponse_perturbe_corr_PI_gen} donnent la réponse temporelle à un échelon de consigne $X_c = 10$ mm du système simulé, perturbé et corrigé du déplacement $x(t)$ (en mm)  ainsi que l'évolution de l'intensité simulée (en Ampères) circulant au sein du moteur.
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics{reponse_temp_pert_a}
 \textit{Déplacement (mm) en fonction du temps~(s)}
 
 \includegraphics{reponse_temp_pert_b}
 \textit{Intensité simulée (A) en fonction du temps~(s)}
 
- \caption{Réponses temporelles à un échelon d'amplitude $X_c = 10$ mm du système simulé, perturbé et corrigé \label{fig:reponse_perturbe_corr_PI_gen}}
-\end{marginfigure}
+ \captionof{figure}{Réponses temporelles à un échelon d'amplitude $X_c = 10$ mm du système simulé, perturbé et corrigé \label{fig:reponse_perturbe_corr_PI_gen}}
+\end{center}
 
 \fi
 
@@ -637,12 +661,12 @@ Par contre, on relève un courant $I_{mot}^{\text{\text{MAX}}} \simeq$ 35 A. Or 
 \else
 L'objectif de cette synthèse est de vérifier que les paramètres d'asservissement mis finalement en place sur la commande de l'axe linéaire et sur la commande de la roue permettent d'atteindre les performances de l'exigence 3.1 \og Assistance de la marche\fg{}.
 
-\begin{marginfigure}%[ht!]
+\begin{center}%[ht!]
 %\begin{minipage}[c]{1\linewidth}
 %\centering
-\includegraphics[width=\linewidth]{evol_hauteur_main.pdf}
+\includegraphics[width=0.9\linewidth]{evol_hauteur_main.pdf}
 %\begin{minipage}[c]{.9\linewidth}
-   \caption{
+   \captionof{figure}{
    { Hauteur de la main au cours de la marche pour $V = 0,22$ m/s
 %Trait gris continu système non corrigé, trait noir pointillé système avec correction PI généralisée.
 }
@@ -650,7 +674,7 @@ L'objectif de cette synthèse est de vérifier que les paramètres d'asservissem
 }
 %\end{minipage}
 %\end{minipage}
-\end{marginfigure}
+\end{center}
 
 La \ref{fig:evol_hauteur_main} donne les évolutions de la hauteur de main mesurées lors d'une marche assistée avec le prototype de canne à la vitesse $V = 0,22$ m/s.\\ La courbe grise en trait continu correspond au cas où l'axe linéaire est sans correction ($C(p) = 1$).\\ La courbe noire en trait pointillé correspond au cas où l'axe linéaire est corrigé (correction PI généralisée avec paramètres optimisés). \\Il est à remarquer que lors de cet essai, le patient avait pour consigne de conserver sa main immobile lors du déplacement. Cette condition est difficilement vérifiable en pratique car le patient ne peut pas vraiment se concentrer sur la position de sa main pendant la marche.
 \vspace{1em}
@@ -672,19 +696,19 @@ Avec correction les variations de hauteur de la main sont donc moins importantes
 Les figures \ref{fig:suivi_pied_orientation_normale} et \ref{fig:suivi_pied_orientation_rapide} donnent pour $V = 0,22$ m/s (allure normale), respectivement pour $V = 0,29$ m/s (allure rapide), le suivi du pied de la jambe gauche par la canne observé au niveau du sol et le suivi de l'orientation de la cuisse gauche (angle $\theta_g$) par la canne (angle~$\theta$).
 
 
-\begin{marginfigure}%[ht!]
+\begin{center}%[ht!]
 %\centering
 \includegraphics[width=0.9\linewidth]{suivi_pied_orientation_normale_.pdf}
-   \caption{{ $V = 0,22$ m/s, allure normale -- (a) : suivi du pied de la jambe gauche par la canne observé au niveau du sol -- (b) : suivi de l'orientation de la cuisse gauche (angle $\theta_g$) par la canne (angle $\theta$)} 
+   \captionof{figure}{{ $V = 0,22$ m/s, allure normale -- (a) : suivi du pied de la jambe gauche par la canne observé au niveau du sol -- (b) : suivi de l'orientation de la cuisse gauche (angle $\theta_g$) par la canne (angle $\theta$)} 
 \label{fig:suivi_pied_orientation_normale}}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}%M[!ht]
+\begin{center}%M[!ht]
 %\centering
 \includegraphics[width=0.9\linewidth]{suivi_pied_orientation_rapide_.pdf}
-   \caption{{ $V = 0,29$ m/s, allure rapide -- (a) : suivi du pied de la jambe gauche par la canne observé au niveau du sol -- (b) : suivi de l'orientation de la cuisse gauche (angle $\theta_g$) par la canne (angle $\theta$)}
+   \captionof{figure}{{ $V = 0,29$ m/s, allure rapide -- (a) : suivi du pied de la jambe gauche par la canne observé au niveau du sol -- (b) : suivi de l'orientation de la cuisse gauche (angle $\theta_g$) par la canne (angle $\theta$)}
 \label{fig:suivi_pied_orientation_rapide}}
-\end{marginfigure}
+\end{center}
 
 %\FloatBarrier
 
@@ -711,11 +735,11 @@ On peut donc conclure que ce réglage des paramètres d'asservissement permet de
 \ifprof
 \else
 \subsection*{Annexes -- Diagramme partiel des exigences\label{Annexe_diag_exigences}}
-\begin{marginfigure}
+\begin{center}
 %\includegraphics[width=\linewidth]{req_.pdf}
 \includegraphics[width=\linewidth]{req_3162}
 %\includegraphics[width=\linewidth]{ibd.pdf}
-\end{marginfigure}
+\end{center}
 %}
 \fi
 
@@ -729,7 +753,6 @@ On peut donc conclure que ce réglage des paramètres d'asservissement permet de
 \else
 \ifcolle
 \else
-\begin{solution}
 \footnotesize
 \begin{enumerate}
 \item $H_{BO\_1}(p) = K_{\text{BO}}  \frac{1}{p} \frac{1}{1+T_1p}  \frac{1}{1+T_2p} $ avec 
@@ -749,11 +772,10 @@ $\omega_{c2} \simeq \SI{1e2}{rad/s}$ et $T_2 = \SI{10}{ms}$. $K_{\text{BO}} = 10
 \item .
 \item .
 \end{enumerate}
-\end{solution}
 \normalsize
 \fi
 
-
+\end{multicols}
 \fi
 
 

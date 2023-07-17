@@ -1,26 +1,53 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$) -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$) -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 2 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxfigures{
+\includegraphics[width=.55\linewidth]{fig_01}
+}%figues de la page de garde
+
+\def\xxtitreexo{Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$)}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Commun Mines Ponts 2016}}
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.5cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\setcounter{exo}{0}
+
+\ifprof
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Concours Commun Mines Ponts 2016.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_01}
-\end{marginfigure}
-
+%\begin{multicols}{2}
 \section*{Mise en situation}
 \ifprof
 \else
@@ -53,12 +80,11 @@ On notera $\theta_m(p)$, $\Omega_m(p)$, $C_m(p)$ et $C_e(p)$ les transformées d
 On pose $C_e(t)=K_{C\theta}\theta_m(t)$ où  $K_{C\theta}$ est une constante positive. On a de plus $\dfrac{\text{d}\theta_m(t)}{\text{d}t}=\omega_m(t)$. La régulation se met alors sous la forme du schéma-blocs à retour unitaire simplifié que l’on
 admettra :
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=.8\linewidth]{Sujet/images/fig_06}
+\begin{center}
+\includegraphics[width=\linewidth]{Sujet/images/fig_06}
 
-\caption{Modèle simplifié du montage du capteur d’effort.}
-\end{figure}
+\textit{Modèle simplifié du montage du capteur d’effort.}
+\end{center}
 %\end{multicols}
 
 Avec :
@@ -117,12 +143,11 @@ interne numérique, dite tachymétrique, de gain $B$. On s’intéresse ici à l
 Le schéma-blocs modifié est donné figure suivante.
 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=.8\linewidth]{Sujet/images/fig_07}
+\begin{center}
+\includegraphics[width=.9\linewidth]{Sujet/images/fig_07}
 
-\caption{Régulation avec retour tachymétrique} 
-\end{figure}
+\footnotesize \textit{Régulation avec retour tachymétrique} \normalsize
+\end{center}
 
 
 On règle B de telle façon que, pour $H_{\text{cor}}(p)=1$, la fonction de transfert en boucle ouverte, notée $H_{\text{BO}}(p)$, puisse être mise sous la forme suivante : 
@@ -163,12 +188,11 @@ Les exigences du cahier des charges sont données plus loin (exigences 1.2.2.1 �
 
 Afin de répondre à ces exigences, on choisit un correcteur proportionnel-intégral de gain $K_i$ et de constante de temps $T_i$. Le schéma-blocs de la régulation se met sous la forme de la figure qui suit.
 
-\begin{figure}[!h]
-\centering
+\begin{center}
 \includegraphics[width=.7\linewidth]{Sujet/images/fig_08}
 
-\caption{Régulation avec correcteur PI.} 
-\end{figure}
+\footnotesize \textit{Régulation avec correcteur PI.} \normalsize
+\end{center}
 \fi
 
 \question{Donner l’expression de l’erreur statique en réponse à un échelon d'amplitude $C_0$. Conclure vis-à-vis du cahier des charges.}
@@ -254,25 +278,25 @@ $K_i=1$ et les réponses fréquentielles en boucle fermée pour différentes val
 \ifprof
 \else
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{bo}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{bf}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{abaque}
+\begin{center}
+\includegraphics[width=.9\linewidth]{abaque}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{abaque_tr}
+\begin{center}
+\includegraphics[width=.8\linewidth]{abaque_tr}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 \fi
 
@@ -324,23 +348,13 @@ Le cahier des charges est donc respecté.
 \else
 \fi
 
-
-\ifprof
-\else
-
-\begin{center}
-%\includegraphics[width=\linewidth]{Sujet/images/fig_05}
-\includegraphics[width=\linewidth]{mc2e}
-%Figure 1 : Modèle de la commande en effort
-\end{center}
-\fi
-
-
 \ifcolle
 \else
 \ifprof
 \else
-\begin{solution}
+\footnotesize
+\textbf{Corrigé résumé}
+\begin{multicols}{2}
 \begin{enumerate}
 \item $H_1(p)=\dfrac{1}{Jp}$, $H_2(p)=\dfrac{1}{p}$, $H_3(p)=K_{C\theta}$.
 \item $H_{\text{BF}}(p)=\dfrac{K_{C\theta}}{Jp^2+2K_{C\theta}}$.
@@ -351,8 +365,19 @@ Le cahier des charges est donc respecté.
 \item $K_i=0,4 (<1,58)$.
 \item .
 \end{enumerate}
-\end{solution}
+\end{multicols}
+\normalsize 
 \fi
+\fi
+
+\ifprof
+\else
+\end{multicols}
+\begin{center}
+%\includegraphics[width=\linewidth]{Sujet/images/fig_05}
+\includegraphics[width=.85\linewidth]{mc2e}
+%Figure 1 : Modèle de la commande en effort
+\end{center}
 \fi
 
 %\end{document}
