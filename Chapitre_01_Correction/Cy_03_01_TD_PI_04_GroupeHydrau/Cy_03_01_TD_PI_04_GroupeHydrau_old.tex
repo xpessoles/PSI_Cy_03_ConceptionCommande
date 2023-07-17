@@ -1,28 +1,48 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Banc d’épreuve hydraulique -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Banc d’épreuve hydraulique -- 
-\ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{CCP -- PSI -- 2010.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{TD 5 \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
 
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxtitreexo{Banc d’épreuve hydraulique}
+\def\xxsourceexo{\hspace{.2cm} CCP -- PSI -- 2010}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.7\linewidth]{fig_00}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.9cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{multicols}{2}
+\setcounter{exo}{0}
+
+%\section{Banc d'épreuve hydraulique}
 \subsection*{Présentation}
 \ifprof
 \else
@@ -47,7 +67,7 @@ Afin de valider la caractéristique de tenue en pression des tubes, ceux-ci sont
 %
 Un schéma hydraulique simplifié est donné figure suivante :
 \begin{center}
-\includegraphics[width=.8\linewidth]{fig_01}
+\includegraphics[width=\linewidth]{fig_01}
 \end{center}
 %
 %
@@ -204,7 +224,10 @@ Un schéma hydraulique simplifié est donné figure suivante :
 Pour limiter l’erreur statique due aux fuites, on envisage d’asservir la pression d’eau dans le tube. L’objectif est ici de proposer un réglage du correcteur pour répondre aux critères du cahier des charges.
 La pression d’eau à l’intérieur du tube est mesurée par un capteur de pression. Le schéma-blocs de l’asservissement est défini ci-dessous.
 
-\begin{marginfigure}
+\begin{center}
+\includegraphics[width=\linewidth]{fig_06}
+\end{center}
+
 \begin{itemize}
 \item $P_{\text{con}}(p)$ 	: 	pression de consigne d’eau dans le tube (Pa);
 \item $P_e(p)$ 	:	pression d’eau dans le tube (Pa);
@@ -213,13 +236,6 @@ La pression d’eau à l’intérieur du tube est mesurée par un capteur de pre
 \item $\Delta Q_e(p)$ 	:	débit de fuite ($\text{m}^3/\text{s}$);
 \item $U_m(p)$ 	:	tension de mesure du capteur (V).
 \end{itemize}
-\end{marginfigure}
-
-\begin{center}
-\includegraphics[width=.8\linewidth]{fig_06}
-\end{center}
-
-
 
 Hypothèses : 
 \begin{itemize}
@@ -235,7 +251,7 @@ La pression de consigne est de $P_{\text{con}} = \SI{800}{bars}$ et les débits 
 
 On rappelle que le cahier des charges concernant le réglage de la pression de test est le suivant :
 \begin{center}
-\begin{tabular}{lp{8cm}}
+\begin{tabular}{|l|p{5cm}|}
 \hline
 Stabilité : & marge de phase de $60\degres$
 
@@ -370,9 +386,9 @@ Les 3 conditions sont incompatibles. Un autre correcteur doit être envisagé.
 
 \subsection*{Correction proportionnelle intégrale}
 On se propose de corriger le système avec le correcteur défini sur le schéma-blocs ci-dessous :
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=.4\linewidth]{fig_07}
+\end{center}
 
 
 \question{Déterminer la fonction de transfert $C(p)$ de ce correcteur.}
@@ -444,21 +460,19 @@ $G_{\text{dB}}\left(\omega_{\SI{0}{dB}}\right) =0 \Rightarrow K_i = 0,089$ et $K
 
 \subsection*{Bilan}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_08}
-\end{marginfigure}
-
 On donne les diagrammes de Bode en gain et en phase de la fonction de transfert en boucle ouverte corrigée avec le correcteur Proportionnel Intégral déterminé précédemment.
 
-
+\begin{center}
+\includegraphics[width=\linewidth]{fig_08}
+\end{center}
 
 
 On donne ensuite sa réponse temporelle avec et sans débit de fuite pour une pression de consigne d’eau de \SI{800}{bars}.
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_09}
-\end{marginfigure}
+\end{center}
 
 \question{La réponse du système est-elle satisfaisante au regard du cahier des charges ? Justifier.}
 \ifprof
@@ -467,3 +481,39 @@ On donne ensuite sa réponse temporelle avec et sans débit de fuite pour une pr
 \end{corrige}
 \else
 \fi
+
+
+
+\end{multicols}
+
+%\end{document}
+%\newpage
+%
+%\question{}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%%\textit{}
+%\end{center}
+%
+%
+%%\newpage
+%
+%%\begin{center}
+%%\includegraphics[width=\linewidth]{cor_01}
+%%\textit{}
+%%\end{center}
+%
+%
+%
+%
+%
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{fig_06}
+%%\textit{}
+%\end{center}
+%\begin{center}
+%\includegraphics[width=\linewidth]{img_04}
+%%\textit{}
+%\end{center}
+%
