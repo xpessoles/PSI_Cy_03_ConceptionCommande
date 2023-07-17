@@ -1,27 +1,46 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Agitateur médical avec chambre de Riccordi -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Agitateur médical avec chambre de Riccordi -- 
-\ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{CCP -- PSI -- 2006.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle 1 \else TD 3 \fi  \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxfigures{
+\includegraphics[width=.8\linewidth]{fig_00}
+}%figues de la page de garde
+
+\def\xxtitreexo{Agitateur médical avec chambre de Riccordi}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP -- PSI -- 2006}}
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.7cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\setcounter{exo}{0}
+\begin{multicols}{2}
 
 \subsection*{Présentation}
 
@@ -91,9 +110,9 @@ On considère ici que $C(p)=1$. On donne l'abaque des temps de réponse réduit 
 \question{Justifier le tracé du diagramme de Bode de la FTBO non corrigée.}
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{Bode_FTBO_NC}
-\end{marginfigure}
+\end{center}
 \fi
 
 \question{Déterminer la marge de gain et la marge de phase.}
@@ -102,11 +121,6 @@ On considère ici que $C(p)=1$. On donne l'abaque des temps de réponse réduit 
 
 On envisage une première correction en utilisant un correcteur proportionnel de la forme $C(p)=K$.
 
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_04}
-%%\textit{}
-\end{marginfigure}
 
 \question{Déterminer le gain $K$ de manière à obtenir le système le plus rapide sans aucun dépassement.}
 
@@ -125,11 +139,15 @@ On souhaite maintenant corriger le système avec en utilisant une action proport
 %qui correspond à l'augmentation de tension $U_t$ en sortie du capteur de température, identifier la
 %fonction de transfert du système en Boucle ouverte défini par le rapport $\text{FTBO(p)}=\dfrac{U_t(p)}{U_c(p)}$. On pourra utiliser la forme suivante : $\dfrac{G}{\left(1+\tau_1 p \right)\left(1+\tau_2 p \right)}$.}
 
+\begin{center}
+\includegraphics[width=\linewidth]{fig_04}
+%%\textit{}
+\end{center}
 \ifprof
 \else
 \ifcolle
 \else
-\begin{solution}
+\footnotesize
 \begin{enumerate}
 \item \SI{218}{s}.
 \item $\varepsilon_P = \dfrac{1}{1+G_{\text{FTBO}}}$ et $\varepsilon_v =\infty$.
@@ -141,12 +159,14 @@ On souhaite maintenant corriger le système avec en utilisant une action proport
 \item $K=10$ et $T_i = \SI{100}{s}$.
 \item $\varepsilon_P =0$.
 \end{enumerate}
-\end{solution}
 \normalsize
 \fi
 \fi
 
+\end{multicols}
 
+
+%\newpage
 
 \ifprof
 \begin{center}
