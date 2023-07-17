@@ -1,27 +1,53 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Machine de rééducation SysReeduc -- 
-\ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} :
-Machine de rééducation SysReeduc -- 
-\ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle 2 \else TD 4 \fi   \ifprof -- Corrigé \else \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Correction des systèmes}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\ \vspace{-.4cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}]
+\item \textit{C1-02 : }Proposer une démarche de réglage d'un correcteur.
+\item \textit{C2-04 : }Mettre en œuvre une démarche de réglage d’un correcteur.
+\end{itemize}
+}}
+
+\def\xxtitreexo{\noindent Machine de rééducation SysReeduc}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP PSI 2013}}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxfigures{
+\includegraphics[width=.6\linewidth]{fig_01}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\vspace{4.7cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\setcounter{exo}{0}
+\ifprof
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{CCP PSI 2013.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
-\begin{marginfigure} [4cm]
-\centering
-\includegraphics[width=\linewidth]{fig_01}
-\end{marginfigure}
-
-
 \section*{Mise en situation}
 
 \ifprof
@@ -30,10 +56,10 @@ Machine de rééducation SysReeduc --
 \textit{La machine de rééducation SYS-REEDUC est issue d'un projet régional entre différents laboratoires de recherche : le CReSTIC (Centre de Recherche en Sciences et Technologies de l'Information et de la Communication) de Reims et le CRITT-MDTS (Centre Régional d'Innovation et de Transfert de Technologie) de Charleville-Mézières. L'objectif de ce projet était de réaliser un système capable d'évaluer et d'aider à la rééducation des membres inférieurs.}
 
 
-\begin{marginfigure}[6cm]
-\includegraphics[width=\linewidth]{fig_02}
+\begin{center}
+\includegraphics[width=.8\linewidth]{fig_02}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 \begin{obj}
 L'objectif de cette partie est de modéliser l'asservissement du système, puis de paramétrer le correcteur pour répondre aux exigences.
@@ -145,10 +171,10 @@ On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$
 
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_08}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{V/N}$.
 
@@ -210,7 +236,6 @@ La marge de phase n'est pas respectée.
 \subsection*{Correction proportionnelle intégrale}
 On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 
-
 \question{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
 \ifprof
 \begin{corrige}~\\
@@ -221,20 +246,6 @@ $\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\
 \end{corrige}
 \else
 \fi
-
-\ifprof
-\else
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_06}
-%\textit{}
-\end{marginfigure}
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
-%\textit{}
-\end{marginfigure}
-\fi
-
 
 \question{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
@@ -293,9 +304,6 @@ On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2
 \else
 \fi
 
-
-
-
 On donne sur le document réponse la réponse temporelle du système à une entrée de type échelon unitaire sur le déplacement ($F_p=0$) ainsi que le diagramme de Bode de la FTBO.
 
 \question{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
@@ -317,8 +325,23 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 \fi
 
 
+\ifprof
+\else
+\begin{center}
+\includegraphics[width=\linewidth]{fig_06}
+%\textit{}
+\end{center}
 
+\begin{center}
+\includegraphics[width=\linewidth]{fig_07}
+%\textit{}
+\end{center}
+\fi
 
+\ifprof
+\else
+\end{multicols}
+\fi
 
 
 
