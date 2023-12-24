@@ -41,7 +41,7 @@ La boucle de position est représentée figure ci-dessous. On admet que :
 \question{Déterminer la fonctionde transfert $R(p)= \dfrac{\alpha_r(p)}{\Omega_m(p)}$ du réducteur.}
 \ifprof
 \begin{corrige}
-
+D'une part le réducteur permet de réduire la vitesse. D'autre part, le schéma-bloc pemet de convertir une vitesse en position. Il joue donc le rôle d'intégrateur. On a donc $R(p)=\dfrac{1}{Np}$
 \end{corrige}
 \else
 \fi
@@ -50,7 +50,10 @@ La boucle de position est représentée figure ci-dessous. On admet que :
 \question{Déterminer le gain $K_a$ de l'adaptateur.}
 \ifprof
 \begin{corrige}
-
+On a 
+$\varepsilon_(p)=K_a \alpha_e(p) - K_r \alpha_r(p) $
+$=K_a \alpha_e(p) - K_r \dfrac{\pi}{180}\alpha_(p) $.
+Pour que le système soit correctement asservi, il faut donc  $K_a =  K_r \dfrac{\pi}{180}$.
 \end{corrige}
 \else
 \fi
@@ -61,7 +64,8 @@ en boucle ouverte $T(p)$ que l’on exprimera sous forme canonique. En déduire 
 gain de boucle, noté $K_{\text{BO}}$. }
 \ifprof
 \begin{corrige}
-
+On a $T(p)= C(p)H(p)R(p)K_r$ 
+$=K_c \dfrac{K'_m}{1+\tau'_m p}\dfrac{1}{Np} K_r  $. On a dond $\indice{K}{BO}=\dfrac{K_c K'_mK_r}{N} $
 \end{corrige}
 \else
 \fi

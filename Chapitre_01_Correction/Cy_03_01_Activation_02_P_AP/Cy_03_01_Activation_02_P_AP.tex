@@ -21,8 +21,10 @@ Réglage de correcteurs P et AP --
 
 
 \subsection*{Correcteur proportionnel}
+\ifprof
+\else
 Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(1+10p\right)\left(1+0,1p\right)\left(1+0,2p\right)}$ placé dans une boucle à retour unitaire.
-
+\fi
 \question{Déterminer la précision du système $\varepsilon_S$ pour une entrée échelon unitaire.}
 \ifprof
 \begin{corrige}
@@ -129,14 +131,18 @@ $\varphi\left(\omega\right)=-135\degres \Leftrightarrow \omega = \SI{2,95}{rad.s
 
 \subsection*{Correcteur à avance de phase}
 
+\ifprof
+\else
 Soit un système de fonction de transfert $G(p)=\dfrac{100}{\left(p+1\right)^2}$ placé dans une boucle à retour unitaire. On souhaite corrige ce système en utilisant un correcteur à avance de phase de la forme $C(p)=K\dfrac{1+a\tau p}{1+\tau p}$.
-
+\fi
 
 \question{Justifier le tracer du diagramme de Bode de $G(p)$.}
-
+\ifprof
+\else
 \begin{center}
 \includegraphics[width=\linewidth]{01_exo_01_bode}
 \end{center}
+\fi
 
 \question{Corriger ce système de sorte que sa marge de phase soit égale à 45\degres.}
 \ifprof
@@ -177,12 +183,13 @@ $\Rightarrow a=-\dfrac{\sin \left(\varphi_{\text{max}}\right)+1}{ \sin \left(\va
 
 
 \ifprof
+\begin{corrige}
 \begin{center}
 \includegraphics[width=.8\linewidth]{AP_BodeC.png}
 
 \includegraphics[width=.8\linewidth]{AP_corrige.png}
 \end{center}
-
+\end{corrige}
 \fi
 
 \ifprof

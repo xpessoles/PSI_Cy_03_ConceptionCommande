@@ -125,14 +125,15 @@ Réglage de correcteurs P et PI --
 \subsection*{Correcteur proportionnel}
 \marginnote{D'après ressources P. Dupas.}
 
-
+\ifprof
+\else
 Soit un système de fonction de transfert $G(p)=\dfrac{10}{p\left(1+p+p^2\right)}$ placé dans une boucle à retour unitaire. On souhaite corriger le comportement de ce système par un correcteur proportionnel. On désire une marge de phase de \SI{45}{\degres} et une marge de gain de $\SI{10}{dB}$.
 
 On donne le diagramme de Bode associé à cette fonction de transfert. 
 \begin{center}
 \includegraphics[width=\linewidth]{exo_01_bode}
 \end{center}
-
+\fi
 
 \question{Mesurer puis calculer la marge de phase.}
 \ifprof
@@ -202,10 +203,12 @@ La marge de phase est alors de 70\degres ($\omega=\SI{0,0333}{rad/s})$.
 \subsection*{Correcteur proportionnel intégral}
 \marginnote{D'après ressources P. Dupas.}
 
-
+\ifprof
+\else
 Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(p+1\right)\left(\dfrac{p}{8}+1\right)}$ placé dans une boucle à retour unitaire.
 
 On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteur proportionnel intégral de la forme $C(p)=K_p\dfrac{1+\tau p}{\tau p}$.
+\fi
 
 \question{Justifier le diagramme de Bode de la boucle ouverte non corrigée.}
 \ifprof
