@@ -69,17 +69,30 @@ La structure du schéma-blocs permettant l'asservissement du déplacement longit
 
 \ifprof
 \else
+
+\marginnote{
+Le moteur à courant continu est régi par les équations suivantes :
+\begin{itemize}
+\item $ u_m(t)=e(t)+Ri(t)$;
+\item  $e(t)=k_e\omega_m(t)$;
+\item  $C_{M1}(t)=k_t i(t)$.
+\end{itemize}}
+
 On propose alors une modélisation par schéma-blocs dans la figure suivante. 
 \begin{center}
 \includegraphics[width=\linewidth]{fig_04}
 %\textit{}
 \end{center}
 
-Le moteur à courant continu est régi par les équations suivantes :
-$ u_m(t)=e(t)+Ri(t)$, $e(t)=k_e\omega_m(t)$ et $C_{M1}(t)=k_t i(t)$. 
-
 Une étude dynamique a mené à l'équation suivante : 
-$$\left(M+m\right)r\rho_1 \dot{\omega}_m(t)=\dfrac{C_{M1}(t)}{\rho_1 r}-F_p(t)$$ avec : $M$ la masse du chariot et $m$ la masse du support de pied, $\rho_1=\dfrac{1}{10}$ le rapport de réduction du réducteur, $r=\SI{46,1}{mm}$ le rayon de la poulie du transmetteur poulie--courroie, $C_{M1}(t)$ le couple délivré par le moteur et $F_p(t)$ l'effort délivré par le patient sur le support 3. 
+$$\left(M+m\right)r\rho_1 \dot{\omega}_m(t)=\dfrac{C_{M1}(t)}{\rho_1 r}-F_p(t).$$
+\marginnote{On note: 
+\begin{itemize}
+\item $M$ la masse du chariot et $m$ la masse du support de pied;
+\item $\rho_1=\dfrac{1}{10}$ le rapport de réduction du réducteur;
+\item $r=\SI{46,1}{mm}$ le rayon de la poulie du transmetteur poulie--courroie,
+\item $C_{M1}(t)$ le couple délivré par le moteur et $F_p(t)$ l'effort délivré par le patient sur le support 3. 
+\end{itemize}}
 
 Le codeur incrémental possède 500 fentes équiréparties. Deux émetteurs-récepteurs positionnés en quadrature permettent de mesurer l'information. 
 \fi
@@ -101,7 +114,7 @@ On a :
 \else
 \fi
 
-\question{Montrer que le schéma-blocs peut être mis sous la forme suivante. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
+\question{Montrer que le schéma-blocs peut être mis sous la forme ci-cont. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
 \ifprof
 \begin{corrige}~\\
 %D'une part,
@@ -150,7 +163,7 @@ On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$
 %\textit{}
 \end{marginfigure}
 
-Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{V/N}$.
+\marginnote{Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{V/N}$.}
 
 \fi
 \subsection*{Correction proportionnelle}
@@ -222,18 +235,6 @@ $\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\
 \else
 \fi
 
-\ifprof
-\else
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_06}
-%\textit{}
-\end{marginfigure}
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
-%\textit{}
-\end{marginfigure}
-\fi
 
 
 
@@ -295,6 +296,18 @@ On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2
 \fi
 
 
+\ifprof
+\else
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_06}
+%\textit{}
+\end{marginfigure}
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_07}
+%\textit{}
+\end{marginfigure}
+\fi
 
 
 On donne sur le document réponse la réponse temporelle du système à une entrée de type échelon unitaire sur le déplacement ($F_p=0$) ainsi que le diagramme de Bode de la FTBO.
