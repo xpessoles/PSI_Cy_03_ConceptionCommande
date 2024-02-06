@@ -12,11 +12,11 @@ Vanoise Express --
 
 \setcounter{question}{0}
 \marginnote{E3A -- PSI -- 2014.}
-\marginnote[1cm]{
+\marginnote{
 \UPSTIcompetence[2]{C1-02}
 \UPSTIcompetence[2]{C2-04}}
 
-\begin{marginfigure} [4cm]
+\begin{marginfigure} %[4cm]
 \centering
 \includegraphics[width=\linewidth]{fig_00}
 \end{marginfigure}
@@ -53,7 +53,7 @@ Dans ce qui suit, on désire respecter les critères suivants du cahier des char
 %En effet, afin de respecter les consignes de vitesse pour un trajet entre «~Les Arcs~» et «~La Plagne~», il est nécessaire que l’asservissement de vitesse des moteurs à courant continu ait des qualités en précision, stabilité et rapidité.
 
 
-\subsection*{Modélisation du moteur à courant continu\sidenote{On peut passer directement à la question 3 pour aborder plus rapidement les asservissements.}}
+\subsection*{Modélisation du moteur à courant continu\sidenote{On peut passer directement à la question 6 pour aborder plus rapidement les asservissements.}}
 %\begin{multicols}{2}
 
 \marginnote{
@@ -87,7 +87,7 @@ Hypothèses et données :
 
 %\end{multicols}
 
-\question{Le schéma-blocs de la double motorisation étant fourni ci-après, déterminez les fonctions de transfert $G_1(p)$, $G_2(p)$, $G_3(p)$ et $G_4(p)$ écrites dans le domaine de Laplace.}
+\question{Le schéma-blocs de la double motorisation étant fourni ci-après, déterminer les fonctions de transfert $G_1(p)$, $G_2(p)$, $G_3(p)$ et $G_4(p)$ écrites dans le domaine de Laplace.}
 
 \begin{center}
 	\includegraphics[width=\linewidth]{fig_02}
@@ -122,7 +122,7 @@ On donne les résultats d’une simulation réalisée sur l’ensemble de la mot
 
 
 
-\question{Choisissez et justifiez un modèle d’identification de ces fonctions (premier ordre, second ordre etc...). Déterminez numériquement les deux fonctions $F_1(p)$ et $F_2(p)$ par identification.}
+\question{Choisisser et justifier un modèle d’identification de ces fonctions (premier ordre, second ordre etc...). Déterminer numériquement les deux fonctions $F_1(p)$ et $F_2(p)$ par identification.}
 
 
 En faisant l’approximation que les deux fonctions $F_1(p)$ et $F_2(p)$ ont sensiblement le même dénominateur, le schéma-blocs ci-dessus peut se mettre sous la forme suivante :
@@ -131,7 +131,7 @@ En faisant l’approximation que les deux fonctions $F_1(p)$ et $F_2(p)$ ont sen
 \end{center}
 
 
-\question{Donnez la valeur numérique des trois constantes $B$, $D$ et $T$.}
+\question{Donner la valeur numérique des trois constantes $B$, $D$ et $T$.}
 
 La motorisation modélisée ci-dessus est insérée dans une boucle d’asservissement de vitesse.
 
@@ -147,9 +147,9 @@ La motorisation modélisée ci-dessus est insérée dans une boucle d’asservis
 \end{itemize}
 
 %\subparagraph{}
-%\textit{Déterminez l’expression du gain $E$. Faire une application numérique.}
+%\textit{Déterminer l’expression du gain $E$. Faire une application numérique.}
 
-\question{Déterminez l’expression du gain $F$ pour que $\varepsilon(t)=0$ entraîne $v_c(t)=v(t)$. Faire une application numérique.}
+\question{Déterminer l’expression du gain $F$ pour que $\varepsilon(t)=0$ entraîne $v_c(t)=v(t)$. Faire une application numérique.}
 
 
 Par transformation du schéma-blocs, le système est mis en retour unitaire. On obtient le résultat ci-dessous :
@@ -166,46 +166,51 @@ On se propose de tester successivement 3 correcteurs, et de retenir celui qui pe
 $C(p)=C_0=1$.
 
 
-\question{Justifiez en quelques mots que le système est stable avec ce correcteur.}
+\question{Justifier en quelques mots que le système est stable avec ce correcteur.}
 
-\question{On suppose $C_r(p)=0$. Calculez en fonction de $C_0$, $A’$, $B$, $G$ et $V_0$ l’expression de l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$. Faire l’application numérique.}
+\question{On suppose $C_r(p)=0$. Calculer en fonction de $C_0$, $A’$, $B$, $G$ et $V_0$ l’expression de l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$. Faire l’application numérique.}
 
 \vspace{.5cm}
 
 On suppose $V_c(p)=0$.
-\question{Calculez en fonction de $C_0$, $A’$, $B$, $G$ et $C_{r0}$ l’expression de l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation en échelon d’amplitude $C_{r0}=\SI{-7270}{Nm}$ qui modéliserait la descente des Arcs. Faire l’application numérique.}
+\question{Calculer en fonction de $C_0$, $A’$, $B$, $G$ et $C_{r0}$ l’expression de l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation en échelon d’amplitude $C_{r0}=\SI{-7270}{Nm}$ qui modéliserait la descente des Arcs. Faire l’application numérique.}
 
 \question{Faire également une application numérique si $C_{r0}=\SI{7460}{Nm}$ qui modéliserait la montée vers La Plagne.}
 
-\question{Donnez numériquement l’écart statique total $\varepsilon_s=\varepsilon'_s+ \varepsilon''_s$  dans les deux cas suivants : descente des Arcs et montée vers La Plagne.}
+\question{Donner numériquement l’écart statique total $\varepsilon_s=\varepsilon'_s+ \varepsilon''_s$  dans les deux cas suivants : descente des Arcs et montée vers La Plagne.}
 
-\question{Existe-t-il une valeur réaliste de $C_0$ pour laquelle le critère «~Écart statique en vitesse en présence d’une perturbation échelon~» serait vérifié ? Justifiez.}
+\question{Existe-t-il une valeur réaliste de $C_0$ pour laquelle le critère «~Écart statique en vitesse en présence d’une perturbation échelon~» serait vérifié ? Justifier.}
 
 
 \subsection*{Utilisation d'un correcteur intégral}
 
 On choisit maintenant le correcteur $C(p)=\dfrac{C_i}{p}$.
 
-\question{Donnez l’expression de la fonction de transfert en boucle ouverte du système, notée $\text{FTBO}(p)$. Faire l’application numérique pour $C_i=1$.}
+\question{Donner l’expression de la fonction de transfert en boucle ouverte du système, notée $\text{FTBO}(p)$. Faire l’application numérique pour $C_i=1$.}
 
-\question{Tracez le diagramme asymptotique de Bode de $\text{FTBO}(p)$. Tracez également l’allure des courbes.}
+\question{Tracer le diagramme asymptotique de Bode de $\text{FTBO}(p)$. Tracer également l’allure des courbes.}
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{bode.png}
+\caption{Diagramme de Bode correspondant à la question 13.}
+\end{marginfigure}
 
 \question{Donner la valeur maximale de $C_i$ permettent de respecter le critère de «~Marge de phase~» du cahier des charges ?}
 
-\question{Trouver la valeur minmale de $C_i$ permettant de respecter le critère de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Justifiez.}
+\question{Trouver la valeur minmale de $C_i$ permettant de respecter le critère de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Justifier.}
 \ifprof
 Il faut que la pulsation de coupure à \SI{0}{dB} soit supérieure à \SI{1}{rad/s}. Sur la BO non corrigée, on mesure que le gain vaut \SI{4,23}{dB} pour cette pulsation. On a donc $\indice{C}{i min}=0,61$.
 \else
 \fi
-\question{On suppose Cr(p)=0. Calculez numériquement l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$.}
+\question{On suppose Cr(p)=0. Calculer numériquement l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$.}
 
-\question{On suppose $V_c(p)=0$. Calculez numériquement l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation échelon d’amplitude $C_{r0}=\SI{-7270}{N.m}$ qui modéliserait la descente des «~Arcs~».}
+\question{On suppose $V_c(p)=0$. Calculer numériquement l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation échelon d’amplitude $C_{r0}=\SI{-7270}{N.m}$ qui modéliserait la descente des «~Arcs~».}
 
-\question{Donnez numériquement l’écart statique total $\varepsilon_s=\varepsilon'_s+ \varepsilon_s''$. Le critère «~Écart statique en vitesse en présence d’une perturbations échelon~» est-il vérifié ? Justifiez.}
+\question{Donner numériquement l’écart statique total $\varepsilon_s=\varepsilon'_s+ \varepsilon_s''$. Le critère «~Écart statique en vitesse en présence d’une perturbations échelon~» est-il vérifié ? Justifier.}
 
 
 On suppose $C_r(p)=0$.
-\question{Calculez l’expression de l’écart de traînage $\varepsilon_v$ engendré par une consigne en rampe unitaire. Existe-t-il une valeur de   réaliste qui permette de vérifier le critère «~Écart de traînage (ou écart dynamique) en vitesse en l’absence de perturbations~» ? Justifiez.}
+\question{Calculer l’expression de l’écart de traînage $\varepsilon_v$ engendré par une consigne en rampe unitaire. Existe-t-il une valeur de   réaliste qui permette de vérifier le critère «~Écart de traînage (ou écart dynamique) en vitesse en l’absence de perturbations~» ? Justifier.}
 
 \subsection*{Utilisation d’un double correcteur intégral et d’un correcteur à avance de phase}
 
@@ -215,27 +220,27 @@ On décide d’utiliser le correcteur $C(p)=C_a(p)\dfrac{1}{p^2}$, produit de la
 
 
 
-\question{Montrez que le système n’est pas stable sans la fonction  $C_a(p)$ ?}
+\question{Montrer que le système n’est pas stable sans la fonction  $C_a(p)$ ?}
 
 	La fonction $C_a(p)$ va nous permettre de stabiliser le système et de respecter les critères de «~Marge de phase~» et de «~Pulsation de coupure en boucle ouverte~». Pour cela, il faut suivre la démarche suivante.
 
 \question{Combien de degrés de phase faut-il ajouter à la pulsation \SI{1}{rad/s} pour obtenir une phase de $-135\degres$ ?}
 
-\question{Tracez en fonction de $a$, $\tau$ et $K$ les diagrammes asymptotiques de Bode (amplitude et phase) du correcteur $C_a(p)=K\dfrac{1+a\tau p}{1+\tau p}$  avec a>1. Précisez clairement les amplitudes ou les phases de toutes les asymptotes horizontales en fonction des différents paramètres. Précisez de même les pulsations des points particuliers.}
+\question{Tracer en fonction de $a$, $\tau$ et $K$ les diagrammes asymptotiques de Bode (amplitude et phase) du correcteur $C_a(p)=K\dfrac{1+a\tau p}{1+\tau p}$  avec a>1. Préciser clairement les amplitudes ou les phases de toutes les asymptotes horizontales en fonction des différents paramètres. Préciser de même les pulsations des points particuliers.}
 
-\question{La phase maximum $\varphi_{\text{max}}$ ajoutée par $C_a(p)$ peut être calculée par la formule : $\sin \varphi_{\text{max}}=\dfrac{a-1}{a+1}$ . Calculez numériquement $a$ pour obtenir la remontée de phase déterminée sur le diagramme de Bode précédemment.}
+\question{La phase maximum $\varphi_{\text{max}}$ ajoutée par $C_a(p)$ peut être calculée par la formule : $\sin \varphi_{\text{max}}=\dfrac{a-1}{a+1}$ . Calculer numériquement $a$ pour obtenir la remontée de phase déterminée sur le diagramme de Bode précédemment.}
 
 Pour cette question, on pourra utiliser les propriétés de symétrie de la courbe de phase. 
 
-\question{Donnez l’expression en fonction de $a$ et $\tau$ de la pulsation $\omega$ pour laquelle la courbe de phase atteint son maximum.}
+\question{Donner l’expression en fonction de $a$ et $\tau$ de la pulsation $\omega$ pour laquelle la courbe de phase atteint son maximum.}
 
 \question{En déduire la valeur numérique de $\tau$ pour que $\varphi_{\text{max}}$ soit ajoutée à la pulsation \SI{1}{rad/s}.}
 
-\question{Calculez numériquement la valeur à donner à $K$ pour respecter les critères de «~Marge de phase~» et de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Précisez la démarche utilisée.}
+\question{Calculer numériquement la valeur à donner à $K$ pour respecter les critères de «~Marge de phase~» et de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Préciser la démarche utilisée.}
 
-\question{Les critères «~Écart statique en vitesse en présence d’une perturbation échelon~» et  «~Écart de traînage (ou écart dynamique) en vitesse en l’absence de perturbations~» sont-ils vérifiés ? Justifiez.}
+\question{Les critères «~Écart statique en vitesse en présence d’une perturbation échelon~» et  «~Écart de traînage (ou écart dynamique) en vitesse en l’absence de perturbations~» sont-ils vérifiés ? Justifier.}
 
-\question{Ce correcteur permet-il de vérifier les critères du cahier des charges ? Justifiez.}
+\question{Ce correcteur permet-il de vérifier les critères du cahier des charges ? Justifier.}
 
 
 
