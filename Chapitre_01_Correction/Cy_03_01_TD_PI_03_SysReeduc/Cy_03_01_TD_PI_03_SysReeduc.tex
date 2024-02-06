@@ -65,6 +65,10 @@ La structure du schéma-blocs permettant l'asservissement du déplacement longit
 
 \fi
 
+
+Soit le modèle donné dans la figure ci-contre.
+
+
 \subsection*{Éléments de modélisation}
 
 \ifprof
@@ -114,6 +118,9 @@ On a :
 \else
 \fi
 
+\ifcolle
+\else
+
 \question{Montrer que le schéma-blocs peut être mis sous la forme ci-cont. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
 \ifprof
 \begin{corrige}~\\
@@ -155,6 +162,9 @@ On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$
 \end{corrige}
 \else
 \fi
+\fi
+
+
 
 \ifprof
 \else
@@ -167,7 +177,10 @@ On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$
 
 \fi
 \subsection*{Correction proportionnelle}
-
+\ifcolle
+On utilise maintenant le schéma-bloc ci-contre.
+\else
+\fi
 On suppose que $C(p)=K_c$. 
 
 
