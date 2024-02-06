@@ -190,10 +190,13 @@ On choisit maintenant le correcteur $C(p)=\dfrac{C_i}{p}$.
 
 \question{Tracez le diagramme asymptotique de Bode de $\text{FTBO}(p)$. Tracez également l’allure des courbes.}
 
-\question{Quelles valeurs numériques de $C_i$ permettent de respecter le critère de «~Marge de phase~» du cahier des charges ?}
+\question{Donner la valeur maximale de $C_i$ permettent de respecter le critère de «~Marge de phase~» du cahier des charges ?}
 
-\question{Ces valeurs numériques de $C_i$ permettent-elles de respecter le critère de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Justifiez.}
-
+\question{Trouver la valeur minmale de $C_i$ permettant de respecter le critère de «~Pulsation de coupure en boucle ouverte~» du cahier des charges ? Justifiez.}
+\ifprof
+Il faut que la pulsation de coupure à \SI{0}{dB} soit supérieure à \SI{1}{rad/s}. Sur la BO non corrigée, on mesure que le gain vaut \SI{4,23}{dB} pour cette pulsation. On a donc $\indice{C}{i min}=0,61$.
+\else
+\fi
 \question{On suppose Cr(p)=0. Calculez numériquement l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$.}
 
 \question{On suppose $V_c(p)=0$. Calculez numériquement l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation échelon d’amplitude $C_{r0}=\SI{-7270}{N.m}$ qui modéliserait la descente des «~Arcs~».}
@@ -263,7 +266,7 @@ $F_2(p)=\dfrac{G_3(p)}{1+2G_1(p)G_2(p)G_3(p)G_4(p)}$.
 \item $\text{FTBO}(p)=\dfrac{1,8}{p\left(1+0,47 p \right)}$
 \item $\quad$
 \item $\omega_{\SI{0}{dB}}\leq\SI{2,13}{rad.s^{-1}}$ et $C_i\leq1,67$.
-\item $\quad$
+\item $C_i\geq 0,61$.
 \item FTBO de classe 1 $\varepsilon'_S=0$.
 \item Intégrateur en amont de la perturbation $\varepsilon''_S=0$.
 \item CDCF OK.
