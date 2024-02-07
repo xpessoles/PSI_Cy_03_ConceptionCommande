@@ -94,13 +94,25 @@ proportionnel intégral seront envisagés.
 \question{La figure en toute fin de document montre le diagramme de Bode de la fonction $H(p)$. Tracer directement sur cette figure le diagramme de Bode (tracés réels des module et phase) de la fonction de transfert en boucle ouverte non corrigée (soit en prenant $C_1(p)=1$).}
 
 \ifprof
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{cor_01}
+\caption{FTBO retardée.}
+\end{marginfigure}
 \begin{corrige}
 La fonction de transfert de la FTBO non corrigée est donc $\indice{F}{BO}(p)=H(p)e^{-\tau p}$.
 
 On note $\indice{G}{dB}(\omega)$ le gain de la fonction de transfert et $\varphi(\omega)$ la phase. 
  
 $e^{-\tau j \omega}$ est un nombre complexe de gain 1 et de phase $-\tau\omega = -0,04 \omega $ (en rad). 
-En degrés, le retard ajoute un déphasage de  $-0,04 \omega \dfrac{180}{\pi}$.
+En degrés, le retard ajoute un déphasage de  $-0,04 \omega \dfrac{180}{\pi}$. 
+Ainsi :
+\begin{itemize}
+\item pour $\omega = \SI{1}{rad/s}$, la phase est baissée de 2\degres,
+\item pour $\omega = \SI{10}{rad/s}$, la phase est baissée de 20\degres,
+\item pour $\omega = \SI{50}{rad/s}$, la phase est baissée de 100\degres,
+\item pour $\omega = \SI{100}{rad/s}$, la phase est baissée de 220\degres ...
+\end{itemize}
+Ce qui permet de modifier le diagramme de bode de la phase. 
 
 \end{corrige}
 \else
@@ -121,6 +133,16 @@ En degrés, le retard ajoute un déphasage de  $-0,04 \omega \dfrac{180}{\pi}$.
 
 \ifprof
 \begin{corrige}
+D'après le cahier des charges : 
+\begin{itemize}
+\item pulsation de coupure $\omega_c$ à \SI{0}{dB} en boucle ouverte $\omega_c = \SI{60}{rad.s^{-1}}$;
+\item marge de phase $\Delta \varphi \geq 45 \degres$.
+\end{itemize}
+
+Pour le système non retardé, le correcteur PI permettra de remonter le gain de $\SI{45}{dB}$ afin d'obtenir la pulsation de coupire souhaitée. En réglant $T_i$ tel que $1/T_i = 60/10$, on pourra conserver une marge de phase de 55 à 60\degres ce qui est compatible avec le cahier des charges (ou la descebdre à 45\degres en affinant la valeur de $T_i$.
+
+
+Pour le systèmer retardé, le correcteur PI permettra de régler la pulsation de coupure, mais la phase est trop basse pour espérer la corriger ainsi.  
 \end{corrige}
 \else
 \fi
@@ -148,6 +170,16 @@ phase souhaitée. En déduire alors la valeur numérique du temps d’action int
 
 \ifprof
 \begin{corrige}
+Le système non corrigé a une marge de phase de $60\degres$. On veut que la pulsation de coupure soit de 
+$\SI{60}{rad/s}$.
+
+On cherche donc $T_i$, tel que $\text{arg}\left( K\dfrac{T_i p+1}{T_i p }\right) =-15\degres$ pour 
+$\SI{60}{rad/s}$.
+Soit $\arctan \left(60 T_i\right)- 90 = -15$ soit $T_i = \dfrac{\tan 75}{60} \simeq \SI{0,062}{s}$.
+
+De plus pour que la pulsation de coupure soit à $\SI{60}{rad/s}$, il faut que $\left| K\dfrac{T_i p+1}{T_i p }\right| = 10^{\dfrac{45}{20}} $ pour $\SI{60}{rad/s}$.
+
+On a donc $K \sqrt{T_i^2 \omega ^2 + 1 } = 60 T_i\times  10^{\dfrac{45}{20}}$ et $K =  \dfrac{0,062\times 60\times  10^{\dfrac{45}{20}} }{\sqrt{0,062^2 \times 60^2 + 1 }} = 171$.
 \end{corrige}
 \else
 \fi
@@ -163,7 +195,35 @@ Pour une consigne nulle $L^*(t)$, une perturbation en sortie nulle $d(t)=0$ et u
 }
 
 \ifprof
-\begin{corrige}
+\begin{corrige} 
+Pour le schéma $a$, on a 
+$U(p) =-L^d(p) e^{-\tau p} \times \dfrac{C(p)}{1+C(p)H(p)\left( 1- e^{\tau p}\right)}$ 
+et $L^d(p) = H(p)\left( U(p)+F_u(p)\right)$.
+On a donc 
+$U(p) =-H(p)\left( U(p)+F_u(p)\right) e^{-\tau p} \times \dfrac{C(p)}{1+C(p)H(p)\left( 1- e^{\tau p}\right)}$ .
+
+$\Rightarrow 
+U(p) \left(1+  \dfrac{C(p) H(p)e^{-\tau p} }{1+C(p)H(p)\left( 1- e^{\tau p}\right)} \right)=-\dfrac{C(p) H(p) F(p) e^{-\tau p} }{1+C(p)H(p)\left( 1- e^{\tau p}\right)}$
+
+$\Rightarrow 
+U(p)   \dfrac{1+C(p)H(p)\left( 1- e^{\tau p}\right)+C(p) H(p)e^{-\tau p} }{1+C(p)H(p)\left( 1- e^{\tau p}\right)} =-\dfrac{C(p) H(p) F(p) e^{-\tau p} }{1+C(p)H(p)\left( 1- e^{\tau p}\right)}$
+
+$\Rightarrow 
+U(p)   =-\dfrac{C(p) H(p) F(p) e^{-\tau p} }{1+C(p)H(p)\left( 1- e^{\tau p}\right)+C(p) H(p)e^{-\tau p}}$
+
+
+$\Rightarrow 
+U(p)   =-\dfrac{C(p) H(p) F(p) e^{-\tau p} }{1+C(p)H(p)}$
+
+
+On a alors, 
+$\lim\limits_{t \to \infty} u(t) = \lim\limits_{p \to 0} - p \dfrac{C(p) H(p) F(p) e^{-\tau p} }{1+C(p)H(p)}$
+
+$= \lim\limits_{p \to 0}  -\dfrac{K\dfrac{1+T_i p}{T_i p} \dfrac{0,5}{p\left(1+0,01 p \right)} F_0 e^{-\tau p} }{1+K\dfrac{1+T_i p}{T_i p}\dfrac{0,5}{p\left(1+0,01 p \right)}}$
+$= \lim\limits_{p \to 0} - \dfrac{0,5K\left(1+T_i p\right)  F_0 e^{-\tau p} }{T_i p^2\left(1+0,01 p \right) +0,5K\left(1+T_i p\right)}$
+$=  -  F_0$
+
+[A CONTINUER]
 \end{corrige}
 \else
 \fi
