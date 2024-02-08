@@ -23,12 +23,13 @@ Asservissement par traitement d’image d’une plateforme Hexapode --
 
 
 \section*{Mise en situation}
+\ifprof
+\else
 \begin{obj}
 En vue d’asservir la position de la colonne vertébrale à une position de référence, une structure de
 commande à partir de l’estimation de la position réelle est mise en place. Après la définition des
 modèles nécessaires à la synthèse des lois de commande, l’objet de cette partie est de concevoir le
 régulateur de cette architecture de commande.
-
 \end{obj}
 
 
@@ -39,7 +40,10 @@ Pour la synthèse des régulateurs de la boucle externe, on adopte le modèle du
 \caption{Modèle du procédé pour la conception de la loi de commande
 de la chaine d’asservissement}
 \end{marginfigure}
+\fi
 
+\ifprof
+\else
 \ifcolle
 \else
 On suppose :
@@ -54,10 +58,13 @@ On suppose :
 
 
 La chaine de motorisation est modélisée par la fonction de transfert $H(p)=\dfrac{L_m(p)}{U(p)}=\dfrac{0,5}{p\left( 1+0,01 p\right)}$, la chaine d'acquisition et le système de traitement d’images sont modélisés en temps continu comme un retard pur $\tau=\SI{0,04}{s}$.
-Pour la chaine d’asservissement, le cahier des charges partiel suivant, caractérisé par une pulsation de coupure en boucle ouverte et une marge de phase fixées à priori, est rappelé :
+Pour la chaine d’asservissement, le cahier des charges partiel est le suivant :
+%, caractérisé par une pulsation de coupure en boucle ouverte et une marge de phase fixées à priori, est rappelé :
 \begin{itemize}
 \item pulsation de coupure $\omega_c$ à \SI{0}{dB} en boucle ouverte $\omega_c = \SI{60}{rad.s^{-1}}$;
-\item marge de phase $\Delta \varphi \geq 45 \degres$.
+\item marge de phase $\Delta \varphi \geq 45 \degres$;
+\item temps de réponse vis-à-vis de la consigne doit être inférieur à \SI{50}{ms}; 
+\item temps de réponse vis-à-vis de la perturbation doit être inférieur à \SI{100}{ms}.
 \end{itemize}
 
 
@@ -73,9 +80,12 @@ de position d’un axe non déformé permet de vérifier l’ensemble du cahier 
 \end{itemize}
 
 \fi
+\fi
 
 \subsection*{Analyse d’une structure mono-boucle}
 
+\ifprof
+\else
 Une solution simple est d’envisager, dans un premier temps, une structure de commande réalisée directement à
 partir de l’estimation $L^{de}(t)$ de la position réelle de l’axe considéré. Cette structure, dont le correcteur est noté
 $C_1(p)$ et la consigne $L^{*}(p)$, est représentée par le schéma de la figure suivante.
@@ -90,6 +100,7 @@ $C_1(p)$ et la consigne $L^{*}(p)$, est représentée par le schéma de la figur
 En raison de la présence de bruits de mesure (signaux non représentés sur les schémas fournis), il n’est pas
 souhaitable d’introduire d’action dérivée dans le régulateur de cette boucle. Seuls des correcteurs de type
 proportionnel intégral seront envisagés.
+\fi
 
 \question{La figure en toute fin de document montre le diagramme de Bode de la fonction $H(p)$. Tracer directement sur cette figure le diagramme de Bode (tracés réels des module et phase) de la fonction de transfert en boucle ouverte non corrigée (soit en prenant $C_1(p)=1$).}
 
@@ -149,6 +160,9 @@ Pour le systèmer retardé, le correcteur PI permettra de régler la pulsation d
 
 
 \subsection*{Structure de commande adaptée à un système avec retard}
+
+\ifprof
+\else
 Pour remédier au problème mis en évidence à la question précédente, il est envisagé d’utiliser une structure de commande
 adaptée aux systèmes comportant des retards. La figure suivante montre deux structures de commande correspondant
 d’une part au schéma réel (a) représentant la réalisation de la commande ($X(p)$ est la transformée de Laplace
@@ -158,6 +172,7 @@ d’une grandeur $x(t)$ interne au régulateur), d’autre part un schéma ficti
 \includegraphics[width=\linewidth]{fig_04}
 \caption{Structure de commande adaptée aux systèmes à retard}
 \end{figure}
+\fi
 
 \question{En utilisant le schéma fictif (b) et le diagramme de Bode de la figure B du document réponse, déterminer le
 correcteur de type proportionnel intégral $C(p)= K\left( 1+\dfrac{1}{T_ip}\right)$ permettant d’assurer les performances exprimées
@@ -223,13 +238,16 @@ $= \lim\limits_{p \to 0}  -\dfrac{K\dfrac{1+T_i p}{T_i p} \dfrac{0,5}{p\left(1+0
 $= \lim\limits_{p \to 0} - \dfrac{0,5K\left(1+T_i p\right)  F_0 e^{-\tau p} }{T_i p^2\left(1+0,01 p \right) +0,5K\left(1+T_i p\right)}$
 $=  -  F_0$
 
-[A CONTINUER]
+Le signal de commande sera ensuite intégré par la fonction de transfert $H(p)$. $X(p)$ divergera donc. 
+La commande n'est donc pas stable.
+
 \end{corrige}
 \else
 \fi
 
 \subsection*{Analyse d’une structure de commande à deux boucles}
-
+\ifprof
+\else
 Pour remédier au problème mis en évidence à la question précédente, il est envisagé une structure à deux boucles définies ainsi :
 \begin{itemize}
 \item une boucle interne réalisée à partir de la mesure de la position non déformée de l’axe $L^m(t)$ permet d’asservir cette grandeur à une consigne de référence $L^{m*}(t)$. Le calcul du correcteur de la boucle interne est hors du cadre de cette étude, et on note $T(p)=\dfrac{L^m(p)}{L^{m*}(p)}$ la fonction de transfert en boucle fermée de la boucle
@@ -256,6 +274,7 @@ Pour la conception de la loi de commande :
 \includegraphics[width=\linewidth]{fig_05}
 \caption{Modèle de commande avec une boucle interne intégrée}
 \end{figure}
+\fi
 
 
 \question{En utilisant la même démarche que celle de la question précédente, déterminer la valeur de la grandeur $L^{m}(t)$ en régime permanent, soit 
@@ -263,18 +282,49 @@ $\lim\limits_{t\to\infty} L^{m*}(t)$, en réponse à une perturbation $d(t)$ en 
 
 \ifprof
 \begin{corrige}
+On a $L^m(p)=-L^d(p) e^{-\tau p} \dfrac{C_2(p)}{1+C_2(p)\left(1-e^{-\tau p}\right)T(p)} T(p)$ 
+et $L^d(p)=L^m(p)+D(p)$.
+Ainsi,
+$L^m(p)=-\left( L^m(p)+D(p)\right) e^{-\tau p} \dfrac{C_2(p)}{1+C_2(p)\left(1-e^{-\tau p}\right)T(p)} T(p)$ 
+
+$\Rightarrow L^m(p)\left(1+ \dfrac{C_2(p) T(p)e^{-\tau p}}{1+C_2(p)\left(1-e^{-\tau p}\right)T(p)}  \right)=- \dfrac{C_2(p) D(p) T(p)e^{-\tau p}}{1+C_2(p)\left(1-e^{-\tau p}\right)T(p)} $
+
+$\Rightarrow L^m(p)\left(1+C_2(p)\left(1-e^{-\tau p}\right)T(p)+ C_2(p) T(p)e^{-\tau p}  \right)=- C_2(p) D(p) T(p)e^{-\tau p}$ 
+
+
+$\Rightarrow L^m(p)=- \dfrac{C_2(p) D(p) T(p)e^{-\tau p}}{1+C_2(p)T(p) }$ 
+
+On a donc $L^m(p)=- \dfrac{K_2 \left( 1+\dfrac{1}{T_{i2}p}\right)  \dfrac{1}{\left(1+0,05p\right)^2}e^{-\tau p}}{1+K_2 \left( 1+\dfrac{1}{T_{i2}p}\right)\dfrac{1}{\left(1+0,05p\right)^2}}D(p)$
+
+$=- \dfrac{K_2 \dfrac{T_{i2}p+1}{T_{i2}p}  \dfrac{1}{\left(1+0,05p\right)^2}e^{-\tau p}}{1+K_2 \dfrac{T_{i2}p+1}{T_{i2}p}\dfrac{1}{\left(1+0,05p\right)^2}}D(p)$
+$=- \dfrac{K_2 \left(T_{i2}p+1\right)  e^{-\tau p}}{T_{i2}p\left(1+0,05p\right)^2+K_2 \left(T_{i2}p+1\right)}D(p)$
+
+On a alors, 
+$\lim\limits_{t \to \infty} L^m(t) = \lim\limits_{p \to 0} p L^m(p)  $ 
+$ =-D_0  \dfrac{K_2 }{K_2} =-D_0$.
+
+On a alors $L^d(t)=D_0 - D_0 = 0$.
+
 \end{corrige}
 \else
 \fi
 
 \subsection*{Retour sur le cahier des charges}
+\ifprof
+\else
 La figure suivante montre les évolutions temporelles de la position $L^d(t)$ en réponse
 à une consigne en échelon $L^*(t)=L_0 h(t-0,02)$ avec $L_0 = \SI{10}{mm}$ et à une perturbation en échelon $D^*(t) = D_0 h(t-0,02)$ avec $D_0=\SI{10}{\mu m}$. 
+\fi
 
 \question{Commenter ces courbes et, en justifiant le résultat obtenu, valider les exigences vérifiées. Conclure alors sur la pertinence de l’approche utilisée et sur la structure de correction retenue.}
 
 \ifprof
 \begin{corrige}
+D'après le cahier des charges :
+\begin{itemize}
+\item temps de réponse vis-à-vis de la consigne doit être inférieur à $\SI{50}{ms}$, le temps de réponse à 5\% mesuré est de $0,06-0,02 = \SI{0,04}{s} < \SI{0,05}{s}$. Critère validé;
+\item temps de réponse vis-à-vis de la perturbation doit être inférieur à $\SI{100}{ms}$. Le temps de réponse à 5\% mesuré vis-à-vis de la perturbation est de \SI{80}{ms}. CDC respecté.
+\end{itemize}
 \end{corrige}
 \else
 \fi
@@ -283,7 +333,8 @@ La figure suivante montre les évolutions temporelles de la position $L^d(t)$ en
 %%\textit{}
 %\end{center}
 
-
+\ifprof
+\else
 \begin{center}
 \includegraphics[width=.8\linewidth]{fig_06}
 %\textit{}
@@ -293,5 +344,6 @@ La figure suivante montre les évolutions temporelles de la position $L^d(t)$ en
 \includegraphics[height=\linewidth]{fig_07}
 %\textit{}
 \end{center}
+\fi
 
 
