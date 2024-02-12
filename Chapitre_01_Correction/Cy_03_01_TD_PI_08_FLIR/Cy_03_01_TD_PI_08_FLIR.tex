@@ -69,17 +69,32 @@ $K_{\text{fe}}=k_{\text{cfe}}=k_{\text{vfe}}$, $R_{\text{fe}}=\SI{7,5}{\Omega}$.
 
 \end{center}
 
-Dans un premier temps, l’asservissement de vitesse n’est pas corrigé, c’est-à-dire que $H_{\text{cor }fe}(p)=1$.
+On a $\indice{H}{gyro}(p)=\dfrac{1}{1+\indice{\tau}{gyro}p}$.
+Dans un premier temps, l’asservissement de vitesse n’est pas corrigé, c’est-à-dire que $H_{\text{cor }fe}(p)=1$.  
 
 
 \question{Exprimer littéralement et sous forme canonique la fonction de transfert $H_{fe1}(p)=\dfrac{\Omega_{fe0}(p)}{\Omega_{fe0\text{ cons}}(p)}$, en fonction de $K_1$, $\tau_{\text{gyro}}$, $M_{\text{eq}}$, $K_{fe}$ et $R_{fe}$.}
 
 \ifprof
 \begin{corrige}
+En utilisant la forume de Black sur la boucle interne, on a : $F(p)=\dfrac{\dfrac{\indice{K}{fe}}{\indice{R}{fe}}\dfrac{1}{\indice{M}{eq}p}}{1+\indice{K}{fe}\dfrac{\indice{K}{fe}}{\indice{R}{fe}}\dfrac{1}{\indice{M}{eq}p}}$
+$=\dfrac{\indice{K}{fe}}{\indice{R}{fe}\indice{M}{eq}p+\indice{K}{fe}^2}$
+$=\dfrac{\dfrac{1}{\indice{K}{fe}}}{\dfrac{\indice{R}{fe}\indice{M}{eq}}{\indice{K}{fe}^2}p+1}$.
+
+On a alors 
+$\indice{H}{fe1}(p)=\dfrac{\dfrac{\indice{K}{fe}}{\indice{R}{fe}\indice{M}{eq}p+\indice{K}{fe}^2}K_1}{1+\dfrac{\indice{K}{fe}}{\indice{R}{fe}\indice{M}{eq}p+\indice{K}{fe}^2}K_1\dfrac{1}{1+\indice{\tau}{gyro}p}}$
+$=\dfrac{\indice{K}{fe}K_1}{\indice{R}{fe}\indice{M}{eq}p+\indice{K}{fe}^2+\dfrac{\indice{K}{fe} K_1}{1+\indice{\tau}{gyro}p}}$
+
+$=\dfrac{\left(1+\indice{\tau}{gyro}p\right)\indice{K}{fe}K_1}{\left(1+\indice{\tau}{gyro}p\right)\indice{R}{fe}\indice{M}{eq}p+\indice{K}{fe}^2+\indice{K}{fe} K_1}$
+$=\dfrac{\left(1+\indice{\tau}{gyro}p\right)\dfrac{K_1}{\indice{K}{fe}+ K_1}}{\left(1+\indice{\tau}{gyro}p\right)\dfrac{\indice{R}{fe}\indice{M}{eq}}{\indice{K}{fe}^2+\indice{K}{fe} K_1}p+1}$
+
+
+
+
 \end{corrige}
 \else
 \fi
-Compte tenu des temps de réponse à observer, on montre que $H_{fe1}(p$ peut se mettre sous la forme simplifiée suivante : $H_{fe1}(p)=\dfrac{0,5}{1+3,65\times 10^{-1}p+6\times 10^{-4}p^2}$.
+Compte tenu des temps de réponse à observer, on montre que $\indice{H}{fe1}(p)$ peut se mettre sous la forme simplifiée suivante : $H_{fe1}(p)=\dfrac{0,5}{1+3,65\times 10^{-1}p+6\times 10^{-4}p^2}$.
 \question{En utilisant l’abaque de la figure suivante, déterminer le temps de réponse à 5\% et l’écart statique de l’asservissement en vitesse de l’étage fin d’élévation en réponse à un échelon de vitesse unitaire. Conclure sur le
 respect des performances en rapidité et en précision.}
 \ifprof
