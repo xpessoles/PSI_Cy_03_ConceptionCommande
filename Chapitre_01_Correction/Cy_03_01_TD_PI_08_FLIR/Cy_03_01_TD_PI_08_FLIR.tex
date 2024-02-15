@@ -94,11 +94,15 @@ $=\dfrac{\left(1+\indice{\tau}{gyro}p\right)\dfrac{K_1}{\indice{K}{fe}+ K_1}}{\l
 \end{corrige}
 \else
 \fi
-Compte tenu des temps de réponse à observer, on montre que $\indice{H}{fe1}(p)$ peut se mettre sous la forme simplifiée suivante : $H_{fe1}(p)=\dfrac{0,5}{1+3,65\times 10^{-1}p+6\times 10^{-4}p^2}$.
-\question{En utilisant l’abaque de la figure suivante, déterminer le temps de réponse à 5\% et l’écart statique de l’asservissement en vitesse de l’étage fin d’élévation en réponse à un échelon de vitesse unitaire. Conclure sur le
-respect des performances en rapidité et en précision.}
+Compte tenu des temps de réponse à observer, on montre que $\indice{H}{fe1}(p)$ peut se mettre sous la forme simplifiée suivante : $\indice{H}{fe1}(p)=\dfrac{0,5}{1+3,65\times 10^{-1}p+6\times 10^{-4}p^2}$.
+\question{En utilisant l’abaque de la figure suivante, déterminer le temps de réponse à 5\% et l’écart statique de l’asservissement en vitesse de l’étage fin d’élévation en réponse à un échelon de vitesse unitaire. Conclure sur le respect des performances en rapidité et en précision.}
 \ifprof
 \begin{corrige}
+On a $\dfrac{1}{\omega_0^2}=6 \times 10^{-4}$ et $\omega_0 = \sqrt{\dfrac{1}{6 \times 10^{-4}}} = \SI{40}{rad/s}$.
+
+De plus $\dfrac{2\xi}{\omega_0} = 3,65\times 10^{-1}$ $\Rightarrow  \xi =  \dfrac{3,65}{2}\times 10^{-1}\times 40$ $=7,45$.
+
+En utilisant l'abaque, on a alors $\omega_0 \times t_5 = 40$ soit un temps de réponse à 5\% de $\SI{1}{s}$.
 \end{corrige}
 \else
 \fi
@@ -126,8 +130,8 @@ pour $K_{\text{pfe}}=1$ et $T_{\text{ife}}=\SI{0,1}{s}$ puis $T_{\text{ife}}=\SI
 \end{marginfigure}
 
 
-\question{Sur cette même figure, tracer le diagramme de phase asymptotique de $H_{\text{BOfe}}(j\omega)$
-(Bode) pour $T_{\text{ife}}=\SI{0,1}{s}$, en indiquant la pulsation $\dfrac{1}{T_{\text{ife}}}$.}
+\question{Sur cette même figure, tracer le diagramme de phase asymptotique de $\indice{H}{BOfe}(j\omega)$
+(Bode) pour $\indice{T}{ife}=\SI{0,1}{s}$, en indiquant la pulsation $\dfrac{1}{\indice{T}{ife}}$.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -211,7 +215,7 @@ Pour simuler le modèle de l’axe motorisé d’élévation et comparer ses per
 en automatique.
 
 \question{À partir de la figure précédente et en utilisant les signaux échelon et/ou rampe, proposer un modèle temporel
-associé au signal de consigne $\omega_{fe0 \text{ cons}}(t)$ exprimé en $\text{rad\, s}^{-1}$, sous la forme d’un tracé simple en fonction du temps en seconde. Tracer l’allure de $\theta_{fe0 \text{ cons}}(t)$, exprimé en rad, qui correspond à l’évolution temporelle de la ligne de visée du pilote dans ce cas. Préciser les valeurs des points caractéristiques de ces deux courbes.}
+associé au signal de consigne $\indice{\omega}{fe0 cons}(t)$ exprimé en $\text{rad\, s}^{-1}$, sous la forme d’un tracé simple en fonction du temps en seconde. Tracer l’allure de $\indice{\theta}{fe0  cons}(t)$, exprimé en rad, qui correspond à l’évolution temporelle de la ligne de visée du pilote dans ce cas. Préciser les valeurs des points caractéristiques de ces deux courbes.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -227,7 +231,7 @@ du FLIR.}
 \fi
 
 Après avoir dimensionné et implanté le correcteur proportionnel intégral (noté PI) au sein du modèle de l’étage
-gros d’élévation, on simule l’évolution de $\beta(t)= \theta_{fe0}(t) -\theta_{ge0}(t)$ pour le signal de consigne $\omega_{fe0 \text{ cons}}(t)$
+gros d’élévation, on simule l’évolution de $\beta(t)= \indice{\theta}{fe0}(t) -\indice{\theta}{ge0}(t)$ pour le signal de consigne $\indice{\omega}{fe0  cons}(t)$
 établi à partir de la mesure de la figure précédente. Les résultats de simulation sont donnés sur les figures suivantes.
 
 \question{À partir des figures suivantes:
