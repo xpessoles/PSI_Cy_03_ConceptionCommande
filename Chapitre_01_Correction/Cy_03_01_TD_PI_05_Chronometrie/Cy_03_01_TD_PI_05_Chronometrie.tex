@@ -63,7 +63,7 @@ Le couple résistant $C_r$ est constant et vaut $C_{r0} = 2,7 \cdot 10^{-3} \tex
 \includegraphics[width=\linewidth]{schema_bloc.pdf}
 \end{marginfigure}
 
-On suppose le correcteur proportionnel : $H_{cor}(p)=K_p$.
+On suppose le correcteur proportionnel : $\indice{H}{cor}(p)=K_p$.
 
 Les performances du système sont détaillées dans le diagramme des exigences partiel.% (figure \ref{req}). 
 
@@ -229,7 +229,15 @@ donc respecté.
 
 On trouve une marge de phase supérieure à $60^{\circ}$ et une bande passante à $0dB$ égale à $100rad/s$ supérieure aux réglages précédents ce qui donne une réponse plus rapide et plus stable.
 
-
-
 \else
+
+\fi
+
+
+\ifprof
+\else
+\begin{marginfigure}
+\centering
+\includegraphics[width=3cm]{Cy_03_01_TD_PI_05_Chronometrie_qr}
+\end{marginfigure}
 \fi
