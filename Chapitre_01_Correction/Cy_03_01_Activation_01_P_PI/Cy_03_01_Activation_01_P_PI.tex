@@ -137,7 +137,11 @@ On donne le diagramme de Bode associé à cette fonction de transfert.
 \end{center}
 \fi
 
-\question{Mesurer puis calculer la marge de phase.}
+\subsubsection*{Résolution graphique}
+
+
+
+\question{Mesurer la marge de phase.}
 \ifprof
 \begin{corrige}~\\
 \begin{itemize}
@@ -150,7 +154,7 @@ On trouve $\omega=\SI{2,21}{rad/s}$ et $M_{\varphi}=-60\degres$. Le système est
 \else
 \fi
 
-\question{Mesurer puis calculer la marge de gain.}
+\question{Mesurer la marge de gain.}
 \ifprof
 \begin{corrige}
 Pour $\varphi=-180\degres$, on a $\omega=\SI{1}{rad/s}$ et $M_{G}=\SI{-20}{dB}$. Le système est instable.
@@ -158,7 +162,7 @@ Pour $\varphi=-180\degres$, on a $\omega=\SI{1}{rad/s}$ et $M_{G}=\SI{-20}{dB}$.
 \else
 \fi
 
-\question{Déterminer $K_p$ pour avoir une marge de phase de 45\degres. Vérifier la marge de gain. }
+\question{Déterminer $K_p$ pour avoir une marge de phase de 45\degres. Vérifier la marge de gain.}
 \ifprof
 \begin{corrige}
 Pour $\varphi=-135\degres$ on a $\omega=\SI{0,62}{rad/s}$. On trouve un gain proportionnel de 0,054.
@@ -169,6 +173,48 @@ La marge de gain est alors de \SI{5,35}{dB} ce qui est inférieur aux \SI{10}{dB
 \fi
 
 \question{Déterminer $K_p$ pour avoir une marge de gain de $\SI{10}{dB}$. Vérifier la marge de phase. }
+\ifprof
+\begin{corrige}
+Pour $\varphi=-180\degres$ on a $\omega=\SI{1}{rad/s}$. On trouve un gain proportionnel de 0,316.
+
+La marge de phase est alors de 70\degres ($\omega=\SI{0,0333}{rad/s})$.
+\end{corrige}
+\else
+\fi
+
+\subsubsection*{Résolution analytique}
+\question{Calculer la marge de phase.}
+\ifprof
+\begin{corrige}~\\
+\begin{itemize}
+\item On cherche $\omega$ tel que $G_{\text{dB}}(\omega)=\SI{0}{dB}$  :
+$G_{\text{dB}}(\omega)=-20\log(10) -20\log\omega-20\log\left(\sqrt{(1-\omega^2)^2+\omega^2}\right)$
+\end{itemize}
+
+On trouve $\omega=\SI{2,21}{rad/s}$ et $M_{\varphi}=-60\degres$. Le système est instable.
+\end{corrige}
+\else
+\fi
+
+\question{Calculer la marge de gain.}
+\ifprof
+\begin{corrige}
+Pour $\varphi=-180\degres$, on a $\omega=\SI{1}{rad/s}$ et $M_{G}=\SI{-20}{dB}$. Le système est instable.
+\end{corrige}
+\else
+\fi
+
+\question{Calculer $K_p$ pour avoir une marge de phase de 45\degres. Vérifier la marge de gain. }
+\ifprof
+\begin{corrige}
+Pour $\varphi=-135\degres$ on a $\omega=\SI{0,62}{rad/s}$. On trouve un gain proportionnel de 0,054.
+
+La marge de gain est alors de \SI{5,35}{dB} ce qui est inférieur aux \SI{10}{dB} demandés.
+\end{corrige}
+\else
+\fi
+
+\question{Calculer $K_p$ pour avoir une marge de gain de $\SI{10}{dB}$. Vérifier la marge de phase. }
 \ifprof
 \begin{corrige}
 Pour $\varphi=-180\degres$ on a $\omega=\SI{1}{rad/s}$. On trouve un gain proportionnel de 0,316.
@@ -212,7 +258,7 @@ Soit un système de fonction de transfert $G(p)=\dfrac{1}{\left(p+1\right)\left(
 On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteur proportionnel intégral de la forme $C(p)=K_p\dfrac{1+\tau p}{\tau p}$.
 \fi
 
-\question{Justifier le diagramme de Bode de la boucle ouverte non corrigée.}
+\question[Falcultatif]{Justifier le diagramme de Bode de la boucle ouverte non corrigée.}
 \ifprof
 \begin{corrige}
 \begin{center}
@@ -225,8 +271,10 @@ On souhaite disposer d'une marge de phase de 45\degres en utilisant un correcteu
 \end{center}
 \fi
 
-\question{Déterminer les paramètres du correcteur pour avoir une marge de phase de 45\degres. }
 
+\question{Déterminer graphiquement les paramètres du correcteur pour avoir une marge de phase de 45\degres. }
+
+\question{Déterminer analytiquement les paramètres du correcteur pour avoir une marge de phase de 45\degres. }
 \ifprof
 \begin{corrige}~\\
 
