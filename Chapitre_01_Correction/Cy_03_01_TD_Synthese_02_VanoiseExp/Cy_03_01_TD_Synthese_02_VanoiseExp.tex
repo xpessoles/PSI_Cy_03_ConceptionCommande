@@ -170,7 +170,7 @@ $C(p)=C_0=1$.
 
 \question{On suppose $C_r(p)=0$. Calculer en fonction de $C_0$, $A’$, $B$, $G$ et $V_0$ l’expression de l’écart statique en suivi de consigne $\varepsilon'_s$ engendré par une consigne en échelon d’amplitude $V_0=\SI{12}{m/s}$. Faire l’application numérique.}
 
-\vspace{.5cm}
+
 
 On suppose $V_c(p)=0$.
 \question{Calculer en fonction de $C_0$, $A’$, $B$, $G$ et $C_{r0}$ l’expression de l’écart statique en régulation $\varepsilon''_s$ engendré par une perturbation en échelon d’amplitude $C_{r0}=\SI{-7270}{Nm}$ qui modéliserait la descente des Arcs. Faire l’application numérique.}
@@ -188,12 +188,13 @@ On choisit maintenant le correcteur $C(p)=\dfrac{C_i}{p}$.
 
 \question{Donner l’expression de la fonction de transfert en boucle ouverte du système, notée $\text{FTBO}(p)$. Faire l’application numérique pour $C_i=1$.}
 
-\question{Tracer le diagramme asymptotique de Bode de $\text{FTBO}(p)$. Tracer également l’allure des courbes.}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{bode.png}
-\caption{Diagramme de Bode correspondant à la question 13.}
-\end{marginfigure}
+\question{Tracer le diagramme asymptotique de Bode de $\text{FTBO}(p)$. Tracer également l’allure des courbes. Voir figure \ref{cy:03:01:TD:02:fig:bode}}
+
+\begin{figure}[!h]
+\includegraphics[width=.8\linewidth]{bode.png}
+\caption{Diagramme de Bode correspondant à la question 13 ($C_i = 1$). \label{cy:03:01:TD:02:fig:bode}}
+\end{figure}
 
 \question{Donner la valeur maximale de $C_i$ permettent de respecter le critère de «~Marge de phase~» du cahier des charges ?}
 
@@ -216,8 +217,13 @@ On suppose $C_r(p)=0$.
 
 
 On décide d’utiliser le correcteur $C(p)=C_a(p)\dfrac{1}{p^2}$, produit de la fonction $C_a(p)=K\dfrac{1+a\tau p}{1+\tau p}$  avec $a>1$ (correcteur dont la fonction est d’ajouter de la phase) et d’un double intégrateur.
-	On donne en fin de document réponse le diagramme de Bode de la fonction $H(p)=\dfrac{A'BG}{p^2\left(1+T p\right)}$, qui est la fonction de transfert en boucle ouverte du système sans $C_a(p)$   (c’est-à-dire pour $C_a(p)=1$).
+	On donne figure \ref{cy:03:01:TD:02:fig:07} le diagramme de Bode de la fonction $H(p)=\dfrac{A'BG}{p^2\left(1+T p\right)}$, qui est la fonction de transfert en boucle ouverte du système sans $C_a(p)$   (c’est-à-dire pour $C_a(p)=1$).
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.8\linewidth]{fig_07}
+\caption{Diagramme de Bode de la fonction $H(p)=\dfrac{A'BG}{p^2\left(1+Tp\right)}$ \label{cy:03:01:TD:02:fig:07}}
+\end{figure}
 
 
 \question{Montrer que le système n’est pas stable sans la fonction  $C_a(p)$ ?}
@@ -232,10 +238,6 @@ On décide d’utiliser le correcteur $C(p)=C_a(p)\dfrac{1}{p^2}$, produit de la
 
 Pour cette question, on pourra utiliser les propriétés de symétrie de la courbe de phase. 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
-%\textit{}
-\end{marginfigure}
 
 
 \question{Donner l’expression en fonction de $a$ et $\tau$ de la pulsation $\omega$ pour laquelle la courbe de phase atteint son maximum.}
