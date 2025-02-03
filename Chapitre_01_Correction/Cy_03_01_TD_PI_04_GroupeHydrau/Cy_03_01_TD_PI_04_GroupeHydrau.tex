@@ -369,11 +369,16 @@ Les 3 conditions sont incompatibles. Un autre correcteur doit être envisagé.
 \else
 \fi
 
+
+\clearpage
+
 \subsection*{Correction proportionnelle intégrale}
-On se propose de corriger le système avec le correcteur défini sur le schéma-blocs ci-dessous :
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{fig_07}
+\caption{Correction PI \label{Cy_03_01_TD_PI_04:fig}}
 \end{marginfigure}
+
+On se propose de corriger le système avec le correcteur défini sur le schéma-bloc figure \ref{Cy_03_01_TD_PI_04:fig}.
 
 
 \question{Déterminer la fonction de transfert $C(p)$ de ce correcteur.}
@@ -384,8 +389,6 @@ On a $C(p)=\dfrac{K_i}{p}+K_p = \dfrac{K_i+K_p p}{p}= \dfrac{K_i}{p}\left(1+\dfr
 \else
 \fi
 
-
-
 \question{Tracer l’allure de son diagramme de Bode en fonction des coefficients $K_i$ et $K_p$.}
 \ifprof
 \begin{corrige}
@@ -393,6 +396,8 @@ On a $C(p)=\dfrac{K_i}{p}+K_p = \dfrac{K_i+K_p p}{p}= \dfrac{K_i}{p}\left(1+\dfr
 \end{corrige}
 \else
 \fi
+
+
 
 \question{Quelle est l’influence d’un tel correcteur sur la précision et la stabilité ? Justifier.}
 \ifprof
