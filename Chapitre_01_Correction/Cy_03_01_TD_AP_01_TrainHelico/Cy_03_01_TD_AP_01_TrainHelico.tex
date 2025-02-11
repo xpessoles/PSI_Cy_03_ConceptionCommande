@@ -160,16 +160,23 @@ $H_{\text{BONC}}(p) = \dfrac{K_Z p}{ 1+\left(\dfrac{2\xi_Z}{\omega_Z}+\lambda_a 
 \fi
 
 
-\ifprof
-\else
 
+On donne le diagramme de Bode de $H_F(p)$.
+
+\ifprof
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{fig_03}
 %\textit{}
 \end{marginfigure}
+
+\else
+\begin{figure}[!h]
+\includegraphics[width=\linewidth]{fig_03}
+\caption{Doagramme de Bode }
+\end{figure}
+
 \fi
 
-On donne le diagramme de Bode de $H_F(p)$.
 
 \question{Justifier la forme de ce diagramme en traçant les asymptotes et en indiquant comment retrouver sur le tracé les valeurs de $K_z$ et $\omega_z$. Tracer en rouge les diagrammes de la fonction $H_{\text{BONC}}(p)$. On prendra pour cela $20\log K_S \simeq \SI{100}{dB}$.}
 \ifprof
