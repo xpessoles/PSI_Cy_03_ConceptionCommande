@@ -1,4 +1,4 @@
-% "{'classe':('PSI'),'chapitre':'slci_pi','type':('td'),'titre':'Machine de rééducation SysReeduc', 'source':'CCP PSI 2013','comp':('C1-02','C2-04'),'corrige':True}"
+% "{'classe':('PSI'),'chapitre':'slci_pi','type':('td'),'titre':'Machine de rééducation SysReeduc', 'source':'CCP PSI 2013','comp':('C1-02','C2-04','COR-02','COR-03',),'corrige':True}"
 %\setchapterimage{bandeau}
 \chapter*{TD \arabic{cptTD} \\ 
 Machine de rééducation SysReeduc -- 
@@ -13,10 +13,7 @@ Machine de rééducation SysReeduc --
 
 \setcounter{question}{0}
 \marginnote{CCP PSI 2013.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-02}
-\UPSTIcompetence[2]{C2-04}}
-
+\marginnote{\xpComp{COR}{02}\xpComp{COR}{03}}
 \begin{marginfigure} [4cm]
 \centering
 \includegraphics[width=\linewidth]{fig_01}
@@ -51,9 +48,11 @@ Effort du patient & Jusqu'à \SI{20}{N}   \\ \hline
 Marge de gain & \SI{7}{dB} mini \\ \hline
 Marge de phase &  45\degres \\ \hline
 Rapidité &  $t_{5\%} < \SI{0,2}{s}$ \\ \hline
-Pulsation au gain unité & $\SI{50}{rad.s^{-1}}$\\
+Pulsation au gain unité& $\SI{50}{rad.s^{-1}}$\\
 \hline
 \end{tabular}
+
+\textit{Pulsation au gain unité : pulsation pour laquelle le gain de la BO est nul.}
 \end{center}
 
 La structure du schéma-blocs permettant l'asservissement du déplacement longitudinal du << chariot >> (support mobile) est donnée dans la figure suivante.
@@ -363,11 +362,39 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 
 \ifprof
 \else
+\begin{solution}
+\begin{enumerate}
+\item $K_1 =\dfrac{K_8}{K_5 K_6}$,
+$K_2 = \dfrac{k_t}{R}$, 
+$H_3(p)=\dfrac{1}{\left(M+m\right)r^2\rho_1^2 p}$, 
+$H_4(p)=\dfrac{1}{p}$, 
+$K_5=\rho_1$, 
+$K_6=r$, 
+$K_8  = \dfrac{2000}{2\pi}$, 
+$K_7 = k_e$, 
+$K_9 = \rho_1 r$.
+\item $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$ et $D=\dfrac{r^2\rho_1^2R}{K_8k_t}$.
+\item $\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_C}X_C(p)+\dfrac{AD }{p\left(Bp+1 \right)+AK_C} F(p) $
+\item  $\dfrac{D }{K_C} {F_p} $
+\item $\text{FTBO}(p)=\dfrac{A}{p\left(Bp+1\right)}$
+\item $\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)}X_C(p)+\dfrac{AD }{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)} F(p) $.
+\item $\varepsilon_x =0$.
+\item $Ti = \SI{0,05}{s}$.
+\item $K_i \simeq 0,008$.
+\item CDC Ok. 
+\end{enumerate}
+\end{solution}
+
 \begin{marginfigure}
 \centering
 \includegraphics[width=3cm]{Cy_03_01_TD_PI_03_SysReeduc_qr}
 \end{marginfigure}
 \fi
+
+
+
+
+
 
 
 
