@@ -385,6 +385,8 @@ d’entrée/sortie est supposée linéaire dans le domaine d’utilisation. $H_{
 
 \fi
 
+\ifcolle
+\else
 \subsection*{Modélisation de la servo valve : comportement pour une commande de grande amplitude}
 
 \ifprof
@@ -462,6 +464,8 @@ Précision & &&\\
 \end{corrige}
 \else
 \fi
+\fi
+
 
 \subsection*{Comportement pour une commande de faible amplitude}
 \ifprof
@@ -501,8 +505,10 @@ figure suivante, obtenues pour deux valeurs du correcteur proportionnel :
 \item $C(p) = 0,44$ : toutes les exigences du domaine temporel sont vérifiées (2.1.2, 2.2.1; 2.2.2, 2.3.1).%(C12, C21, C22, C3).
 \end{itemize}
 
-
+\ifcolle
+\else
 \newpage
+\fi
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{fig_06}
@@ -684,6 +690,8 @@ CDCF validé.
 \else
 \footnotesize
 %\marginnote{
+\ifcolle
+\else
 \begin{solution}
 \begin{enumerate}
 \item $A_1=\dfrac{1}{Sp}$,  $A_2 = \dfrac{S2B}{V} $,  $A_3 = S$  et $A_4 = \dfrac{1}{Mp^2  +\lambda p  + k}$.
@@ -702,6 +710,7 @@ CDCF validé.
 \item $t_5\%\simeq \SI{2,3}{s}<\SI{4}{s}$ $ 4 \degres/s< 8 \degres/s$.
 \end{enumerate}
 \end{solution}%}
+\fi
 \normalsize
 \fi
 
