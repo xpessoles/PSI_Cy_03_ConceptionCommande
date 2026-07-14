@@ -1,6 +1,7 @@
 % "{'classe':('PSI'),'chapitre':'slci_pi','type':('td'),'titre':'Machine de rééducation SysReeduc', 'source':'CCP PSI 2013','comp':('C1-02','C2-04','COR-02','COR-03',),'corrige':True}"
 %\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
+%\chapter*{TD \arabic{cptTD} \\ 
+\chapter*{DM 1 \\ 
 Machine de rééducation SysReeduc -- 
 \ifprof Corrigé \else Sujet \fi}
 \addcontentsline{toc}{section}{TD \arabic{cptTD} :
@@ -14,7 +15,7 @@ Machine de rééducation SysReeduc --
 \setcounter{question}{0}
 \marginnote{CCP PSI 2013.}
 \marginnote{\xpComp{COR}{02}\xpComp{COR}{03}}
-\begin{marginfigure} [4cm]
+\begin{marginfigure} %[4cm]
 \centering
 \includegraphics[width=\linewidth]{fig_01}
 \end{marginfigure}
@@ -37,9 +38,9 @@ Machine de rééducation SysReeduc --
 L'objectif de cette partie est de modéliser l'asservissement du système, puis de paramétrer le correcteur pour répondre aux exigences.
 \end{obj}
 
-Pour permettre au kinésithérapeute de rééduquer les membres inférieurs du patient, on doit respecter les exigences suivantes : 
-\begin{center}
-\begin{tabular}{lc|}
+Pour permettre au kinésithérapeute de rééduquer les membres inférieurs du patient, on doit respecter les exigences du tableau \ref{tab_01}.
+\begin{table}[!h]
+\begin{tabular}{lc}
 \hline 
 Critère & Niveau \\ \hline\hline
 Angle de rotation de la cuisse &  De 0 à 150\degres \\ \hline
@@ -52,8 +53,8 @@ Pulsation au gain unité& $\SI{50}{rad.s^{-1}}$\\
 \hline
 \end{tabular}
 
-\textit{Pulsation au gain unité : pulsation pour laquelle le gain de la BO est nul.}
-\end{center}
+\caption{Pulsation au gain unité : pulsation pour laquelle le gain de la BO est nul. \label{tab_01}}
+\end{table}
 
 La structure du schéma-blocs permettant l'asservissement du déplacement longitudinal du << chariot >> (support mobile) est donnée dans la figure suivante.
 
@@ -278,40 +279,40 @@ $\text{FTBO}(p)= \dfrac{A}{p\left(Bp+1\right)}K_i\left(1+\dfrac{1}{T_ip}\right)=
 \end{corrige}
 \else
 \fi
-
-\question{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
-\ifprof
-\begin{corrige}~\\
-On souhaite que  pour $\omega=\SI{50}{rad.s^{-1}}$, $\varphi(\omega)=-135\degres $.
-
-$\arg\left(\text{FTBO}(j\omega)\right) =\arg\left(\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right)	$
-$ =-180-\arg\left(\left(Bp+1\right)\right)  + \arg\left(1+T_ip\right)	$
-
-$ =-180-\arctan B\omega + \arctan T_i \omega 	$
-En $\omega=\SI{50}{rad.s^{-1}}$ on a alors 
-$ -180-\arctan 0,5 + \arctan 50T_i =-135 \Leftrightarrow  \arctan 50T_i =-135+180+\arctan 0,5 =74$. D'où $T_i = \SI{0,05}{s}$.
-\end{corrige}
-\else
-\fi
-
-
-\question{Déterminer $K_i$ permettant d'assurer la pulsation au gain unité souhaitée.}
-
-
-\ifprof
-\begin{corrige}~\\
-On souhaite que $|\text{FTBO}(j\omega)|=1$ pour $\omega=\SI{50}{rad.s^{-1}}$.
-
-$|\text{FTBO}(j\omega)| =\left|\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right|$
-$=A K_i\dfrac{1}{\omega \sqrt{B^2\omega^2+1}}\dfrac{\sqrt{1+T_i^2\omega^2}}{T_i \omega }$
-$=\dfrac{A K_i}{T_i \omega^2}\dfrac{\sqrt{1+T_i^2\omega^2}}{ \sqrt{B^2\omega^2+1}}$.
-
-On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2}}=\SI{0,0077}{Vm^{-1}}$.
-
-\end{corrige}
-\else
-\fi
-
+%
+%\question{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
+%\ifprof
+%\begin{corrige}~\\
+%On souhaite que  pour $\omega=\SI{50}{rad.s^{-1}}$, $\varphi(\omega)=-135\degres $.
+%
+%$\arg\left(\text{FTBO}(j\omega)\right) =\arg\left(\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right)	$
+%$ =-180-\arg\left(\left(Bp+1\right)\right)  + \arg\left(1+T_ip\right)	$
+%
+%$ =-180-\arctan B\omega + \arctan T_i \omega 	$
+%En $\omega=\SI{50}{rad.s^{-1}}$ on a alors 
+%$ -180-\arctan 0,5 + \arctan 50T_i =-135 \Leftrightarrow  \arctan 50T_i =-135+180+\arctan 0,5 =74$. D'où $T_i = \SI{0,05}{s}$.
+%\end{corrige}
+%\else
+%\fi
+%
+%
+%\question{Déterminer $K_i$ permettant d'assurer la pulsation au gain unité souhaitée.}
+%
+%
+%\ifprof
+%\begin{corrige}~\\
+%On souhaite que $|\text{FTBO}(j\omega)|=1$ pour $\omega=\SI{50}{rad.s^{-1}}$.
+%
+%$|\text{FTBO}(j\omega)| =\left|\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right|$
+%$=A K_i\dfrac{1}{\omega \sqrt{B^2\omega^2+1}}\dfrac{\sqrt{1+T_i^2\omega^2}}{T_i \omega }$
+%$=\dfrac{A K_i}{T_i \omega^2}\dfrac{\sqrt{1+T_i^2\omega^2}}{ \sqrt{B^2\omega^2+1}}$.
+%
+%On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2}}=\SI{0,0077}{Vm^{-1}}$.
+%
+%\end{corrige}
+%\else
+%\fi
+%
 
 
 \ifprof
@@ -326,21 +327,21 @@ On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2
 \end{center}
 
 \else
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_06}
+\begin{center}
+\includegraphics[width=.75\linewidth]{fig_06}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
+\begin{center}
+\includegraphics[width=.75\linewidth]{fig_07}
 %\textit{}
-\end{marginfigure}
+\end{center}
 \fi
 
 
 On donne sur le document réponse la réponse temporelle du système à une entrée de type échelon unitaire sur le déplacement ($F_p=0$) ainsi que le diagramme de Bode de la FTBO.
 
-\question{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
+\question{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître les grandeurs mesurées sur les courbes.}
 \ifprof
 \begin{corrige}~\\
 \begin{itemize}
@@ -387,10 +388,11 @@ $K_9 = \rho_1 r$.
 \end{enumerate}
 \end{solution}
 \fi
-\begin{marginfigure}
-\centering
-\includegraphics[width=3cm]{Cy_03_01_TD_PI_03_SysReeduc_qr}
-\end{marginfigure}
+%
+%\begin{marginfigure}
+%\centering
+%\includegraphics[width=3cm]{Cy_03_01_TD_PI_03_SysReeduc_qr}
+%\end{marginfigure}
 \fi
 
 
